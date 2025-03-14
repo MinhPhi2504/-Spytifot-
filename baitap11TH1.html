@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trường Đại Học Công Nghệ Thông Tin</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #d9ead3;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 900px;
+            margin: 20px auto;
+            background: white;
+            border: 3px solid #8aac80;
+            padding: 10px;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border: 2px solid black;
+            margin: 3px;
+        }
+        .header img {
+            width: 80px;
+            margin-right: 10px;
+        }
+        .header h2 {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: left;
+        }
+        .menu {
+            display: flex;
+            background: radial-gradient(green, black);
+            height: 40px;
+            margin-bottom: 10px;
+        }
+        .menu div {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            color: white;
+            font-weight: bold;
+            border-right: 1px solid white;
+        }
+        .menu div:last-child {
+            border-right: none;
+        }
+        .content {
+            display: flex;
+            padding: 15px;
+            background: white; /* Đặt nền trắng */
+            gap: 10px; /* Tạo khoảng cách giữa hai khối */
+        }
+        .left {
+            flex: 2;
+            padding: 10px;
+            border: 2px solid blue;
+            background: white;
+        }
+        .left div {
+            border: 1px solid red;
+            border-right:none ;
+
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .left h3 {
+            text-align: center;
+            font-weight: bold;
+        }
+        .right {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid red;
+
+            background: #57cbcf;
+        }
+        .right h3 {
+    
+            padding: 5px;
+            text-align: center;
+            margin: 0;
+            font-weight: bold;
+        }
+        .footer {
+            text-align: center;
+            padding: 10px;
+            border-top: 2px solid black;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <img src="./img/logo.jpg" alt="Logo">
+        <h2>TRƯỜNG ĐẠI HỌC CÔNG NGHỆ THÔNG TIN</h2>
+    </div>
+
+    <div class="menu">
+        <div>Trang chủ</div>
+        <div>Thông tin</div>
+        <div>Giới thiệu</div>
+        <div>Tuyển sinh</div>
+        <div>Nghiên cứu</div>
+    </div>
+
+    <div class="content">
+        <div class="left">
+            <div style="border-bottom:none ;">
+                <h3>Chương trình tiên tiến</h3>
+                <p>Chương trình đào tạo tiên tiến là dự án quốc gia do Bộ GD&ĐT.</p>
+                <p style="text-align: right;"><strong>Khoa HTTT</strong></p>
+            </div>
+            <div>
+                <h3>Ngành An Toàn Thông Tin</h3>
+                <p>Chương trình đào tạo kỹ sư tài năng ngành An toàn Thông tin cho phép sinh viên tiếp cận với 
+                    một chương trình đào tạo tiên tiến, thực tập với những công nghệ hiện đại, sử dụng tài liệu mới cập nhật 
+                    và học tập trong điều kiện chất lượng cao.</p>
+                <p style="text-align: right;"><strong>Khoa MMT</strong></p>
+            </div>
+        </div>
+
+        <div class="right">
+            <h3>THÔNG TIN MỚI NHẤT VỀ KỲ THI THPT QUỐC GIA 2015</h3>
+            <p>Sáng 10/12, Phó Cục trưởng Cục Khảo thí & Kiểm định chất lượng, Bộ GD-ĐT Trần Văn Nghĩa tiếp tục giải đáp hàng loạt 
+               câu hỏi nóng liên quan đến kỳ thi THPT quốc gia năm 2015.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        Copyright 2014
+    </div>
+</div>
+
+</body>
+</html>

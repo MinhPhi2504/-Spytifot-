@@ -1,3 +1,6 @@
 .form-control{
     width: 280px !important;
 }
+.input-form{
+    gap: 30px
+}

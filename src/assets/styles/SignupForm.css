@@ -1,6 +1,9 @@
 .form-control{
     width: 280px !important;
 }
-.input-form{
-    gap: 30px
+.wrap{
+    margin-bottom: -22px;
+}
+.input-container {
+    height: 320px;
 }

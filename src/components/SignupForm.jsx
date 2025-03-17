@@ -23,15 +23,13 @@ function SignupForm() {
     if (data.success) {
       setFormData({});
       navigate("/main"); // Chuyển hướng đến trang chính khi đăng ký thành công
-    }
-    console.log("Load Success")
-      navigate("/main");
+    }   
   };
 
   return (
     <div className="d-flex justify-content-center align-items-center vh-100">
-      <div style={{ maxWidth: "400px" }}>
-        <form className="d-flex flex-column gap-3" onSubmit={handleSubmit}>
+      <div className="wrap" style={{ maxWidth: "400px" }}>
+        <form className="d-flex flex-column justify-content-center align-items-center gap-4 input-container" onSubmit={handleSubmit}>
           {["first_name", "email", "password", "confirm_password"].map((field, i) => (
             <input key={i} type={field.includes("password") ? "password" : "text"} name={field} placeholder={field.replace("_", " ")} className="form-control" onChange={handleChange} required />
           ))}

@@ -1,10 +1,3 @@
-input, button {
-    width: 20%;
-}
-.input1{
-    margin-top: 40px;
-}
-.intro{
-    margin-top: 1opx;
-    margin-bottom: 5px;
+.form-control{
+    width: 280px !important;
 }

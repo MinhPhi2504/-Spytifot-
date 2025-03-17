@@ -18,9 +18,9 @@ function SignupForm() {
     if (data.success) setFormData({});
   };
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100">
-      <div style={{ maxWidth: "400px" }}>
-        <form className="d-flex flex-column gap-3" onSubmit={handleSubmit}>
+    <div className="d-flex justify-content-center align-items-center vh-100 input-container">
+      <div style={{ maxWidth: "500px" }}>
+        <form className="d-flex flex-column input-form" onSubmit={handleSubmit}>
           {["first_name", "email", "password", "confirm_password"].map((field, i) => (
             <input key={i} type={field.includes("password") ? "password" : "text"} name={field} placeholder={field.replace("_", " ")} className="form-control" onChange={handleChange} required />
           ))}

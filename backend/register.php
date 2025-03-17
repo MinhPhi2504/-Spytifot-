@@ -1,34 +1,36 @@
 <?php
 include 'database.php';
 
-header("Access-Control-Allow-Origin: *"); // Cho phép mọi nguồn truy cập (CORS)
-header("Content-Type: application/json"); // Trả về JSON
+header("Access-Control-Allow-Origin: *");
+header("Content-Type: application/json");
 header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
 $response = ["success" => false, "message" => ""];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $first_name = $_POST['first_name'] ?? '';
-    $email = $_POST['email'] ?? '';
-    $password = $_POST['password'] ?? '';
-    $confirm_password = $_POST['confirm_password'] ?? '';
+    // Nhận dữ liệu từ frontend
+    $First_name = $_POST['First_name'] ?? '';
+    $Email = $_POST['Email'] ?? '';
+    $Password = $_POST['Password'] ?? '';
+    $Confirm_password = $_POST['Confirm_password'] ?? '';
 
-    if (empty($first_name) || empty($email) || empty($password) || empty($confirm_password)) {
+    // Kiểm tra dữ liệu đầu vào
+    if (empty($First_name) || empty($Email) || empty($Password) || empty($Confirm_password)) {
         $response["message"] = "Vui lòng nhập đầy đủ thông tin!";
         echo json_encode($response);
         exit();
     }
 
-    if ($password !== $confirm_password) {
+    if ($Password !== $Confirm_password) {
         $response["message"] = "Mật khẩu nhập lại không khớp!";
         echo json_encode($response);
         exit();
     }
 
     // Kiểm tra email đã tồn tại chưa
-    $check_email = $conn->prepare("SELECT id FROM users WHERE email = ?");
-    $check_email->bind_param("s", $email);
+    $check_email = $conn->prepare("SELECT id FROM users WHERE Email = ?");
+    $check_email->bind_param("s", $Email);
     $check_email->execute();
     $check_email->store_result();
 
@@ -39,10 +41,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     $check_email->close();
 
-    // Lưu vào database
-    $hashed_password = password_hash($password, PASSWORD_BCRYPT);
-    $query = $conn->prepare("INSERT INTO users (first_name, email, password) VALUES (?, ?, ?)");
-    $query->bind_param("sss", $first_name, $email, $hashed_password);
+    // Mã hóa mật khẩu và lưu vào database
+    $hashed_password = password_hash($Password, PASSWORD_BCRYPT);
+    $query = $conn->prepare("INSERT INTO users (First_name, Email, Password) VALUES (?, ?, ?)");
+    $query->bind_param("sss", $First_name, $Email, $hashed_password);
 
     if ($query->execute()) {
         $response["success"] = true;

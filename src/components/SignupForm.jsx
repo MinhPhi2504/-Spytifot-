@@ -1,11 +1,15 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import "../assets/styles/SignupForm.css";
 
 function SignupForm() {
   const [formData, setFormData] = useState({});
   const [message, setMessage] = useState("");
   const [success, setSuccess] = useState(false);
+  const navigate = useNavigate(); // Khai báo navigate để chuyển hướng
+
   const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await fetch("http://localhost/register.php", {
@@ -15,12 +19,19 @@ function SignupForm() {
     const data = await response.json();
     setMessage(data.message);
     setSuccess(data.success);
-    if (data.success) setFormData({});
+
+    if (data.success) {
+      setFormData({});
+      navigate("/main"); // Chuyển hướng đến trang chính khi đăng ký thành công
+    }
+    console.log("Load Success")
+      navigate("/main");
   };
+
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100 input-container">
-      <div style={{ maxWidth: "500px" }}>
-        <form className="d-flex flex-column input-form" onSubmit={handleSubmit}>
+    <div className="d-flex justify-content-center align-items-center vh-100">
+      <div style={{ maxWidth: "400px" }}>
+        <form className="d-flex flex-column gap-3" onSubmit={handleSubmit}>
           {["first_name", "email", "password", "confirm_password"].map((field, i) => (
             <input key={i} type={field.includes("password") ? "password" : "text"} name={field} placeholder={field.replace("_", " ")} className="form-control" onChange={handleChange} required />
           ))}
@@ -31,4 +42,5 @@ function SignupForm() {
     </div>
   );
 }
+
 export default SignupForm;

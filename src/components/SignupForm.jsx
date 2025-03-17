@@ -2,8 +2,7 @@ import "../assets/styles/SignupForm.css"
 
 function SignupForm ()  {
   return (
-    <div className="mx-auto" style={{ maxWidth: "400px" }}>
-      <form className="d-flex flex-column gap-4">
+    <div className="mx-auto" style={{ maxWidth: "400px" }}>      <form className="d-flex flex-column gap-4">
         <input type="text" placeholder="First Name" className="form-control input1" />
         <input type="email" placeholder="Email" className="form-control" />
         <input type="password" placeholder="Password" className="form-control" />

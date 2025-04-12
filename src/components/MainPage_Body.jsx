@@ -11,7 +11,6 @@ import MusicOption from "../../backend/data/MusicOption.jsx";
 import Albums from "../../backend/data/Album.jsx";
 import sh from "../../public/img/shhhh.jpg"
 import wt from "../../public/img/tran-bo-nho.jpg"
-import NeonButton from "./NeonBtn.jsx";
 
 function Body({ className }) {
   return (

@@ -9,11 +9,11 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 $response = ["success" => false, "message" => ""];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Nhận dữ liệu từ frontend
-    $First_name = $_POST['First_name'] ?? '';
-    $Email = $_POST['Email'] ?? '';
-    $Password = $_POST['Password'] ?? '';
-    $Confirm_password = $_POST['Confirm_password'] ?? '';
+    // Nhận dữ liệu từ frontend và kiểm tra
+    $First_name = isset($_POST['First_name']) ? trim($_POST['First_name']) : '';
+    $Email = isset($_POST['Email']) ? trim($_POST['Email']) : '';
+    $Password = isset($_POST['Password']) ? $_POST['Password'] : '';
+    $Confirm_password = isset($_POST['Confirm_password']) ? $_POST['Confirm_password'] : '';
 
     // Kiểm tra dữ liệu đầu vào
     if (empty($First_name) || empty($Email) || empty($Password) || empty($Confirm_password)) {
@@ -22,6 +22,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
+    // Kiểm tra độ dài mật khẩu
+    if (strlen($Password) < 6) {
+        $response["message"] = "Mật khẩu phải có ít nhất 6 ký tự!";
+        echo json_encode($response);
+        exit();
+    }
+
+    // Kiểm tra email hợp lệ
+    if (!filter_var($Email, FILTER_VALIDATE_EMAIL)) {
+        $response["message"] = "Email không hợp lệ!";
+        echo json_encode($response);
+        exit();
+    }
+
+    // Kiểm tra mật khẩu và xác nhận mật khẩu
     if ($Password !== $Confirm_password) {
         $response["message"] = "Mật khẩu nhập lại không khớp!";
         echo json_encode($response);
@@ -43,6 +58,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Mã hóa mật khẩu và lưu vào database
     $hashed_password = password_hash($Password, PASSWORD_BCRYPT);
+
+    // Câu truy vấn để lưu thông tin người dùng mới vào database
     $query = $conn->prepare("INSERT INTO users (First_name, Email, Password) VALUES (?, ?, ?)");
     $query->bind_param("sss", $First_name, $Email, $hashed_password);
 

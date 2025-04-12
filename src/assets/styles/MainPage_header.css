@@ -1,0 +1,175 @@
+.header {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    right: 0;
+    left: 240px;
+    top: 0;
+    background-color: #170f23;
+    z-index: 100;
+}
+a {
+    text-decoration: none !important;
+}
+.left-section {
+    flex: 0.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.left-section > a {
+    color: rgb(255, 253, 253);
+}
+.fa-arrow-left{
+    margin-right: 25px;
+}
+.fa-arrow-right{
+    margin-right: -25px;
+}
+.mid-section {
+    flex: 2;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    margin-right: 60px;
+    position: relative;
+}
+.search-button {
+    background-color: none;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    padding: 6px;
+    border-radius: 15px;
+    position: absolute;
+    left: 5px;
+}
+.search-input {
+    background-color: #2a213a; /* Màu nền xám nhạt */
+    color: #f3f0f0; /* Màu chữ đen xám */
+    border: none; /* Viền màu xám */
+    border-radius: 15px; /* Bo tròn góc */
+    flex:1;
+    padding: 10px;
+    padding-left: 40px;
+    min-width: 50px;
+}
+.search-input::placeholder{
+    font-size: 13px;
+    font-weight: 550;
+    color: white;
+    opacity: 1;
+}
+.fa-magnifying-glass {
+    color: rgb(255, 254, 254);
+}  
+
+.container-download{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border: 2px solid rgb(243, 114, 237);
+    padding: 12px;
+    border-radius: 15px;
+    max-width: 100%; 
+}
+.fa-gear, .fa-user {
+    border: none;
+    background-color: #FFFFFF1A;
+    border-radius: 32px;
+    padding: 12px;
+}
+
+.right-section {
+    flex: 2;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20px;
+    align-items: center;
+    color:#f3f0f0;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.text01{
+    font-weight: 700;
+    font-size: 15px;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 15px;
+    background-color: #7330e8
+}
+.text02{
+    font-weight: 700;
+    color: white;
+}
+
+.sub-menu{
+    position: absolute;
+    border: none;
+    width: 300px;
+    height: 400px;
+    right: 100px;
+    top: 50px;
+    display: none;
+    background-color: #34224F;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 20px;
+}
+.settings-menu:hover .sub-menu {
+    display: block; /* Hiển thị sub-menu khi hover */
+}
+.show-menu{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.fa-greater-than {
+    position: absolute;
+    right: 15px;
+    font-size: 16px;
+}
+.sub-menu > div {
+    font-weight: 200;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    padding-left: 15px;
+}
+.sub-menu > div:hover {
+    cursor: pointer;
+    background-color: #7268853e;
+}
+.show-menu > p:hover{
+    color: #C273ED;
+}
+.show-menu > a:hover{
+    color: #C273ED;
+}
+.sub-menu > div > i {
+    width: 10px;
+    margin-right: 17px;
+    margin-left: 5px;
+}
+.show-menu > p {
+    font-family: sans-serif;
+    margin: 0;
+}
+.show-menu > a {
+    color: white;
+    font-family: sans-serif;
+    margin: 0;
+}
+.interface {
+    padding-bottom: 30px !important;
+    border-bottom: 1px solid white;
+}
+.introduce {
+    margin-top: 10px;
+}
+
+/*--------------------------------------------------------------------*/
+

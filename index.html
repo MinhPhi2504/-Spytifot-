@@ -5,12 +5,50 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="./src/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Spytifot</title>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      
+var swiper = new Swiper(".mySwiper", {
+    loop: true, // Cho phép lặp vô tận
+    slidesPerView: 3, // Hiển thị 3 ảnh (trung tâm + 2 bên)
+    loopedSlides: 3,
+    autoplay: {
+        delay: 2500,        // Chuyển ảnh sau 2 giây (2500ms)
+        disableOnInteraction: false,  // Không dừng khi người dùng tương tác
+    },
+    centeredSlides: true, // Căn giữa ảnh trung tâm
+    spaceBetween: -40, // Khoảng cách giữa các ảnh
+    watchOverflow: true, // Không tạo ảnh dư thừa nếu số ảnh ít
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    effect: "slide",
+    speed: 700, // Hiệu ứng mượt hơn
+});
+
+var mySwiper = new Swiper(".radio-wrapper", {
+    loop: true,
+    slidesPerView: 5,
+    spaceBetween: -50,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    speed: 1000,
+})
+    </script>
   </body>
 </html>
 <!-- /my-app

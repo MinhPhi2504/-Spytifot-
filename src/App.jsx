@@ -7,12 +7,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <div className="container">
-      <img className="logo" src="../src/assets/img/violin.png" alt="" />
+      <img className="logo" src="../../public/img/violin.png" alt="" />
         <div className=" sub-container">
           <Header/>
           <div className="wrapper">
             <div className="form-container bg-dark shadow-lg">
-              <img className="pic-sub" src="/src/assets/img/logo.jpg" alt="" />
+              <img className="pic-sub" src="../../public/img/logo.jpg" alt="" />
               <div className="form-detail">
                 <SignupForm/>
                 <SocialLogin/>

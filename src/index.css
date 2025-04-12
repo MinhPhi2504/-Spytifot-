@@ -5,3 +5,6 @@ html, body {
     background-color: black; /* Set nền full đen */
 
 }
+li {
+    list-style: none;
+}

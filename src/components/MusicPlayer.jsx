@@ -13,6 +13,7 @@ import "../assets/styles/MusicPlayer.css"
 import { audio } from "framer-motion/client";
 export default function MusicPlayer() {
   const audioRef = useRef(null);
+  const [volume, setVolume] = useState(1); // 1 = 100%
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -20,6 +21,21 @@ export default function MusicPlayer() {
   const [duration, setDuration] = useState(0);
   const seekRef = useRef(false);
   const delayTimeoutRef = useRef(null); // Lưu ID của timeout tránh bị mất khi re-render
+
+  const toggleRepeat = () => {
+    const audio = audioRef.current
+    if (!audio) return;
+    setCurrentTime(0)
+    setIsPlaying(true)
+    setProgress(0)
+    audio.currentTime = 0
+    if (!isPlaying) {
+      audio.play()
+    }
+    console.log("CurrentTime: " + currentTime)
+    console.log("Progess: " + progress)
+    console.log("IsPlaying :" + isPlaying)
+  };
 
   const togglePlay = () => {
     const audio = audioRef.current;
@@ -85,7 +101,11 @@ export default function MusicPlayer() {
     const seconds = Math.floor(time % 60);
     return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
   };
-  
+  useEffect(() => {
+    console.log("CurrentTime: " + currentTime);
+    console.log("Progress: " + progress);
+    console.log("IsPlaying: " + isPlaying);
+  }, [currentTime, progress, isPlaying]);
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
@@ -111,6 +131,12 @@ export default function MusicPlayer() {
       audio.removeEventListener("timeupdate", handleTimeUpdateWrapper);
     };
   }, []);
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = volume;
+    }
+  }, [volume]); // chạy khi volume thay đổi
+  
 
   return (
     <div className="music-player-container">
@@ -133,7 +159,7 @@ export default function MusicPlayer() {
             {isPlaying ? <FaPause style={{ color: "white", border: "1px solid white", borderRadius: "50%", width: '25px', height: '25px', padding: '5px' }}/> : <FaPlay style={{ color: "white", border: "1px solid white", borderRadius: "50%", width: '25px', height: '25px', padding: '5px' }}/>}
           </button>
           <FaStepForward />
-          <FaRedoAlt />
+          <FaRedoAlt className="reload-music" onClick={toggleRepeat} style={{ cursor: "pointer" }}/>
         </div>
         <div className="range-change-time-container">
           <span className="text-xs">{formatTime(currentTime)}</span>
@@ -143,18 +169,29 @@ export default function MusicPlayer() {
             onChange={handleProgressChange}
             className="w-full changeTime"
             min="0" max="100"
+            style={{ cursor: "pointer" }}
           />
           <span className="text-xs">{formatTime(duration)}</span>
         </div>
       </div>
 
       <div className="music-play-option">
-        <button onClick={toggleMute} className="text-xl">
-          {isMuted ? <FaVolumeMute /> : <FaVolumeUp />}
+        <button onClick={toggleMute} className="option-btn">
+          {isMuted ? <FaVolumeMute  style={{ color: "white", border: "1px solid white", borderRadius: "50%", width: '25px', height: '25px', padding: '5px' }}/> : <FaVolumeUp style={{ color: "white", border: "1px solid white", borderRadius: "50%", width: '25px', height: '25px', padding: '5px' }}/>}
         </button>
+        <input
+          type="range"
+          min="0"
+          max="1"
+          step="0.01"
+          value={volume}
+          onChange={(e) => setVolume(parseFloat(e.target.value))}
+          style={{ width: "100px", marginLeft: "10px" }}
+          disabled={isMuted}
+        />
       </div>
 
-      <audio ref={audioRef} src="../../backend/data/mp3/WrongTimes.mp3" preload="auto"/>
+      <audio ref={audioRef} src="../../backend/data/mp3/ThuCuoi.mp3" preload="auto"/>
     </div>
   );
 }
@@ -167,6 +204,7 @@ Các hàm liên quan đếu audio
   audio.muted: tắt bật tiếng ( true là tắt)
   audio.currentTime: cho biết tgian phát nhạc hiện tại
   audio.duration: cho biết tổng thời lượng bài nhạc
+  audio.loop: repeat song
 
   React tự động re-render giao diện mỗi khi state hoặc props thay đổi.
   Chỉ cập nhật phần UI cần thiết, không cần reload toàn bộ trang

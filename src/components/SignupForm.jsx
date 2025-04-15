@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../assets/styles/SignupForm.css";
 
 function SignupForm() {
@@ -68,7 +69,11 @@ function SignupForm() {
       setSuccess(false);
     }
   };
-
+  const handleLogin= (e) => {
+    e.preventDefault(); // chặn reload nếu là trong form
+    // TODO: xử lý login ở đây
+    navigate("/login");
+  };
   return (
     <div className="d-flex justify-content-center align-items-center vh-100">
       <div style={{ maxWidth: "400px" }}>
@@ -87,8 +92,8 @@ function SignupForm() {
               />
             )
           )}
-          <button type="submit" className="btn btn-primary w-100">
-            Register
+          <button onClick={handleLogin} type="submit" className="btn btn-primary w-100">
+              Register
           </button>
         </form>
         {message && (

@@ -602,6 +602,7 @@
   justify-content: center;
   align-items: center;
   gap: 50px;
+  margin-bottom: 100px;
 }
 .music-partner > div > img {
   width: 200px;

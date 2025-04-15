@@ -38,7 +38,7 @@
     gap: 5px;
     flex: 4;
 }
-.play-btn  {
+.play-btn, .option-btn  {
    border: none;
 }
 .play-music-tool{
@@ -49,6 +49,7 @@
 }
 .range-change-time-container {
     display: flex;
+    align-items: center;
     gap: 10px;
 }
 .range-change-time-container > input {
@@ -56,4 +57,52 @@
 }
 .music-play-option {
     flex: 1;
+    display: flex;
 }
+
+.changeTime {
+    -webkit-appearance: none;
+    height: 6px;
+    background: #434343; /* Màu xám mặc định */
+    border-radius: 3px;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Track phần đã kéo (Webkit - Chrome, Edge, Safari) */
+  .changeTime::-webkit-slider-runnable-track {
+    height: 6px;
+    background: #807f7f;
+    border-radius: 3px;
+  }
+  
+  .changeTime::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    margin-top: -4px; /* Canh giữa track */
+    box-shadow: -1000px 0 0 1000px white; /* tạo hiệu ứng trắng ở phần bên trái */
+  }
+  
+  /* Firefox */
+  .changeTime::-moz-range-track {
+    height: 6px;
+    background: #888;
+    border-radius: 3px;
+  }
+  
+  .changeTime::-moz-range-thumb {
+    height: 14px;
+    width: 14px;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: -1000px 0 0 1000px white;
+  }
+  

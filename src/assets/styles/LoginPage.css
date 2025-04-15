@@ -1,0 +1,32 @@
+.link-to-signup, .forgot-password{
+    color: white ;
+    text-decoration: underline;
+    text-decoration-thickness: 1px ;
+}
+.Login-title{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 50px;
+    color: aliceblue;
+    margin-bottom: 20px;
+}
+.background-img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+  }
+
+  .handle-form-container {
+    width: 250px;
+    height: 450px;
+    gap: 100px;
+  }
+  .signup-link{
+    margin-top: 0px;
+  }
+  

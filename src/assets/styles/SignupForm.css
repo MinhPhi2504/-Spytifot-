@@ -7,3 +7,7 @@
 .input-container {
     height: 320px;
 }
+.link-to-login{
+    text-decoration: none;
+    color: white ;
+}

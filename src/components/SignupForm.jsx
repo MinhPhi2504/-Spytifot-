@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import LoginOage from '../routes/LoginPage';
+import LoginPage from '../routes/LoginPage';
 import "../assets/styles/SignupForm.css";
 
 function SignupForm() {
   const [formData, setFormData] = useState({
-    First_name: "",
+    First_name: "", 
     Email: "",
     Password: "",
     Confirm_password: "",

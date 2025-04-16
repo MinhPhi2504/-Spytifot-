@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import LoginOage from '../routes/LoginPage';
 import "../assets/styles/SignupForm.css";
 
 function SignupForm() {
@@ -60,7 +61,7 @@ function SignupForm() {
           Confirm_password: "",
         });
         setTimeout(() => {
-          navigate("/main"); // Redirect after registration
+          navigate("/login"); // Redirect after registration
         }, 1000);
       }
     } catch (error) {
@@ -84,7 +85,7 @@ function SignupForm() {
                 key={i}
                 type={field.includes("password") ? "password" : "text"}
                 name={field}
-                placeholder={field.replace("_", " ").toUpperCase()}
+                placeholder={field.replace("_", " ")}
                 className="form-control"
                 value={formData[field]}
                 onChange={handleChange}
@@ -92,16 +93,23 @@ function SignupForm() {
               />
             )
           )}
-          <button onClick={handleLogin} type="submit" className="btn btn-primary w-100">
-              Register
+          <button type="submit" className="btn btn-primary w-100">
+            Register
           </button>
         </form>
+        <div className="login-link">
+                <Link to="/login" className="link-to-login">
+                     Have an account? Login now.
+                </Link>
+            </div>
+
         {message && (
           <p className={`text-center mt-3 ${success ? "text-success" : "text-danger"}`}>
             {message}
           </p>
         )}
       </div>
+      
     </div>
   );
 }

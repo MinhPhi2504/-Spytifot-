@@ -99,7 +99,7 @@ function SignupForm() {
         </form>
         <div className="login-link">
                 <Link to="/login" className="link-to-login">
-                     Have an account? Login now.
+                    Already have an account? Login now.
                 </Link>
             </div>
 

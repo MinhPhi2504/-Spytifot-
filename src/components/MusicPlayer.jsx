@@ -21,6 +21,7 @@ export default function MusicPlayer() {
   const [duration, setDuration] = useState(0);
   const seekRef = useRef(false);
   const delayTimeoutRef = useRef(null); // Lưu ID của timeout tránh bị mất khi re-render
+  const preVolume = useRef(0)
 
   const toggleRepeat = () => {
     const audio = audioRef.current
@@ -52,7 +53,9 @@ export default function MusicPlayer() {
   const toggleMute = () => { // Hàm xử lý mute/unmute
     const audio = audioRef.current;
     if (!audio) return;
-
+    if (!audio.muted) {
+      setVolume(preVolume.current)
+    }
     audio.muted = !isMuted;
     setIsMuted(!isMuted);
   };
@@ -74,7 +77,6 @@ export default function MusicPlayer() {
       setCurrentTime(audio.currentTime);
       const percent = (audio.currentTime / audio.duration) * 100;
       setProgress(percent);
-      // console.log("handleTimeUpdate");
     }
   };
   
@@ -91,9 +93,7 @@ export default function MusicPlayer() {
     audio.currentTime = newTime;
     setCurrentTime(newTime);
     setProgress(newVal);
-  
-    console.log("handleProgressChange");
-  };
+    };
 
   const formatTime = (time) => {
     if (isNaN(time)) return "00:00";
@@ -106,6 +106,7 @@ export default function MusicPlayer() {
     console.log("Progress: " + progress);
     console.log("IsPlaying: " + isPlaying);
   }, [currentTime, progress, isPlaying]);
+
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
@@ -122,8 +123,7 @@ export default function MusicPlayer() {
         setIsPlaying(false)
       }}
     audio.addEventListener("timeupdate", handleTimeUpdateWrapper); // vài trăm ms gọi 1 lần --> gọi liên tục
-    
-    
+
     return () => {
       audio.removeEventListener("play", updatePlayState);
       audio.removeEventListener("pause", updatePlayState);
@@ -134,6 +134,7 @@ export default function MusicPlayer() {
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.volume = volume;
+      preVolume.current = volume;
     }
   }, [volume]); // chạy khi volume thay đổi
   
@@ -191,7 +192,7 @@ export default function MusicPlayer() {
         />
       </div>
 
-      <audio ref={audioRef} src="../../backend/data/mp3/ThuCuoi.mp3" preload="auto"/>
+      <audio ref={audioRef} src="../../backend/data/mp3/ChuaPhaiLaYeu.mp3" preload="auto"/>
     </div>
   );
 }

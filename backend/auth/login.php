@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $response["message"] = "Đăng nhập thành công!";
             $response["user"] = $user;
         } else {
-            $response["message"] = "Mật khẩu không chính xác!";
+            $response["message"] = "Mật khẩu không chính xác! Vui lòng nhập lại";
         }
     } else {
         $response["message"] = "Email không tồn tại!";

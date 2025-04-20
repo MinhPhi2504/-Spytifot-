@@ -79,7 +79,7 @@ function SignupForm() {
     <div className="d-flex justify-content-center align-items-center vh-100">
       <div style={{ maxWidth: "400px" }}>
         <form className="d-flex flex-column gap-3" onSubmit={handleSubmit}>
-          {["First_name", "Email", "Password", "Confirm_password"].map(
+          {["Name", "Email", "Password", "Confirm_password"].map(
             (field, i) => (
               <input
                 key={i}

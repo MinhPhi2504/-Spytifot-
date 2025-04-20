@@ -1,7 +1,21 @@
 import { Link } from "react-router-dom";
 import "../assets/styles/MainPage_Sidebar.css"
 import logo from "../../public/img/logo.jpg";
+import React, { useState, useEffect } from "react";
+
+import CreatePlaylistModal from "../components/CreatePlaylistModal.jsx";
 function Sidebar () {
+  const [showModal, setShowModal] = useState(false);
+
+  // Vô hiệu hóa scroll khi mở modal
+  useEffect(() => {
+    document.body.style.overflow = showModal ? "hidden" : "auto";
+  }, [showModal]);
+
+  const handleOpenModal = (e) => {
+    e.preventDefault(); // Ngăn reload hoặc điều hướng
+    setShowModal(true);
+  };
     return (
         <div className="sidebar">
           <div className="logo-container">
@@ -54,12 +68,13 @@ function Sidebar () {
               </Link>
             </div>
             <div className="add-new-list">
-              <a href="">
+              <a href="#" onClick={handleOpenModal}>
                 <i className="fa-solid fa-plus"></i>
                 <p>Tạo playlist mới</p>
               </a>
             </div>
           </div>
+          {showModal && <CreatePlaylistModal onClose={() => setShowModal(false)} />}
         </div>
       );
 }

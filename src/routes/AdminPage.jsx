@@ -1,11 +1,10 @@
 import AdminPage_Header from "../components/AdminPage_Header";
-
+import AdminPage_Sidebar from"../components/AdminPage_Sidebar";
 function AdminPage () {
     return (
         <>
-            <div className="admin_header">
                 <AdminPage_Header/>
-            </div>
+                <AdminPage_Sidebar/>
         </>
     )
 }

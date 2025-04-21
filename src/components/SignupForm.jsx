@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import LoginPage from '../routes/LoginPage';
 import "../assets/styles/SignupForm.css";
 
 function SignupForm() {
@@ -43,7 +42,7 @@ function SignupForm() {
     }
 
     try {
-      const response = await fetch("http://localhost:8080/register.php", {
+      const response = await fetch("http://localhost/register.php", {
         method: "POST",
         body: new URLSearchParams(formData),
       });
@@ -70,38 +69,37 @@ function SignupForm() {
       setSuccess(false);
     }
   };
-  const handleLogin= (e) => {
-    e.preventDefault(); // chặn reload nếu là trong form
-    // TODO: xử lý login ở đây
-    navigate("/login");
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    navigate("/login"); // Navigate to login page
   };
+
   return (
     <div className="d-flex justify-content-center align-items-center vh-100">
       <div style={{ maxWidth: "400px" }}>
         <form className="d-flex flex-column gap-3" onSubmit={handleSubmit}>
-          {["Name", "Email", "Password", "Confirm_password"].map(
-            (field, i) => (
-              <input
-                key={i}
-                type={field.includes("password") ? "password" : "text"}
-                name={field}
-                placeholder={field.replace("_", " ")}
-                className="form-control"
-                value={formData[field]}
-                onChange={handleChange}
-                required
-              />
-            )
-          )}
+          {["First_name", "Email", "Password", "Confirm_password"].map((field, i) => (
+            <input
+              key={i}
+              type={field.includes("password") ? "password" : "text"}
+              name={field}
+              placeholder={field.replace("_", " ")}
+              className="form-control"
+              value={formData[field]}  // Bind the input value to formData state
+              onChange={handleChange}  // Handle change events
+              required
+            />
+          ))}
           <button type="submit" className="btn btn-primary w-100">
             Register
           </button>
         </form>
         <div className="login-link">
-                <Link to="/login" className="link-to-login">
-                    Already have an account? Login now.
-                </Link>
-            </div>
+          <Link to="/login" className="link-to-login">
+            Already have an account? Login now.
+          </Link>
+        </div>
 
         {message && (
           <p className={`text-center mt-3 ${success ? "text-success" : "text-danger"}`}>
@@ -109,7 +107,6 @@ function SignupForm() {
           </p>
         )}
       </div>
-      
     </div>
   );
 }

@@ -4,7 +4,7 @@ import { FaTachometerAlt, FaMusic, FaUser, FaCompactDisc, FaUsers, FaChartBar } 
 
 function Sidebar() {
   return (
-    <div className="sidebar">
+    <div className="sidebar2">
       <ul className="sidebar-menu">
         <li><FaTachometerAlt /> <span>Dashboard</span></li>
         <li><FaMusic /> <span>Quản lý bài hát</span></li>

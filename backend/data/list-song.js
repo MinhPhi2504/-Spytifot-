@@ -84,7 +84,7 @@ export const list_song = [
         style: "nhac-tre",
         premium: 0,
         time: 1,
-        audio: "/mp3/ExitSign-HIEUTHUHAI.mp3"
+        audio: "/mp3/NangTho.mp3"
     },
     {
         id: 9,

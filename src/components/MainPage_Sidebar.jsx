@@ -25,10 +25,10 @@ function Sidebar () {
           </div>
           <div className="sidebar-option">
             <div className="library">
-              <a href="">
+              <Link to="/thuvien">
                 <i className="fa-solid fa-music"></i>
                 <p>Thư viện</p>
-              </a>
+                </Link>
             </div>
             <div className="discover">
               <a href="">

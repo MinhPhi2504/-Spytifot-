@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { music_option } from "../data/list-song.js";
 
-function MusicOption() {
+function MusicOption({ onSelectSong }) {
     const [songs, setSongs] = useState([]);
 
     useEffect(() => {
@@ -11,7 +11,7 @@ function MusicOption() {
     return (
         <div className="music-list">
             {songs.map((music) => (
-                <div key={music.id} className="music-item">
+                <div key={music.id} className="music-item" onClick={() => onSelectSong(music)}>
                     <img src={music.img} alt={music.song_name} />
                     <div className="music-info">
                         <h3>

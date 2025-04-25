@@ -11,7 +11,10 @@ import {
 } from "react-icons/fa";
 import "../assets/styles/MusicPlayer.css"
 import { audio } from "framer-motion/client";
-export default function MusicPlayer() {
+export default function MusicPlayer( {song}) {
+  if(!song) {
+    return(<></>)
+  }
   const audioRef = useRef(null);
   const [volume, setVolume] = useState(1); // 1 = 100%
   const [isPlaying, setIsPlaying] = useState(false);
@@ -22,7 +25,6 @@ export default function MusicPlayer() {
   const seekRef = useRef(false);
   const delayTimeoutRef = useRef(null); // Lưu ID của timeout tránh bị mất khi re-render
   const preVolume = useRef(0)
-
   const toggleRepeat = () => {
     const audio = audioRef.current
     if (!audio) return;
@@ -33,9 +35,6 @@ export default function MusicPlayer() {
     if (!isPlaying) {
       audio.play()
     }
-    console.log("CurrentTime: " + currentTime)
-    console.log("Progess: " + progress)
-    console.log("IsPlaying :" + isPlaying)
   };
 
   const togglePlay = () => {
@@ -71,7 +70,6 @@ export default function MusicPlayer() {
       clearTimeout(delayTimeoutRef.current); // tránh setTimeout chồng chéo
       delayTimeoutRef.current = setTimeout(() => {
         audio.play();
-        console.log("Phát lại sau khi tua");
       }, 100);
     } else {
       setCurrentTime(audio.currentTime);
@@ -101,11 +99,6 @@ export default function MusicPlayer() {
     const seconds = Math.floor(time % 60);
     return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
   };
-  useEffect(() => {
-    console.log("CurrentTime: " + currentTime);
-    console.log("Progress: " + progress);
-    console.log("IsPlaying: " + isPlaying);
-  }, [currentTime, progress, isPlaying]);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -137,18 +130,48 @@ export default function MusicPlayer() {
       preVolume.current = volume;
     }
   }, [volume]); // chạy khi volume thay đổi
-  
 
+  useEffect(() => {
+    if (!song || !audioRef.current) return;
+  
+    const audio = audioRef.current;
+  
+    // 1. Dừng bài cũ (nếu đang phát)
+    audio.pause();
+  
+    // 2. Reset thời gian về đầu
+    audio.currentTime = 0;
+  
+    // 3. Reset trạng thái
+    setProgress(0);
+    setCurrentTime(0);
+    setDuration(audio.duration);
+  
+    // 4. Phát bài mới
+    const playNewSong = async () => {
+      try {
+        await audio.play(); // Có thể bị lỗi nếu chưa tương tác
+        setIsPlaying(true);
+      } catch (err) {
+        console.warn("Không thể tự động phát nhạc:", err);
+        setIsPlaying(false);
+      }
+    };
+  
+    // Gọi hàm phát bài
+    playNewSong();
+  
+  }, [song]);  
   return (
     <div className="music-player-container">
       <div className="song-profile">
         <img
-          src="../../public/img/exit-sign.jpg"
+          src={song.img}
           alt="song-cover"
         />
         <div className="song-profile-details">
-          <div className="song-name">Exit Sign</div>
-          <div className="song-author">HIEUTHUHAI</div>
+          <div className="song-name">{song.song_name}</div>
+          <div className="song-author">{song.author}</div>
         </div>
       </div>
 
@@ -192,7 +215,7 @@ export default function MusicPlayer() {
         />
       </div>
 
-      <audio ref={audioRef} src="../../backend/data/mp3/ChuaPhaiLaYeu.mp3" preload="auto"/>
+      <audio ref={audioRef} src= {song.audio} preload="auto"/>
     </div>
   );
 }

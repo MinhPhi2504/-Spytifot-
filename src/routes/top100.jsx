@@ -1,11 +1,7 @@
 import "../assets/styles/top100.css"
-import Header from "../components/MainPage_header.jsx"
-import Sidebar from "../components/MainPage_Sidebar.jsx"
 function TOP100 () {
 
     return <>
-        <Header></Header>
-        <Sidebar></Sidebar>
         <div className="body-container">
             <div className="img_title">
                 <img src="./../public/img/top100.jpg" alt="" />

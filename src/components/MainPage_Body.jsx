@@ -13,8 +13,10 @@ import sh from "../../public/img/shhhh.jpg"
 import wt from "../../public/img/tran-bo-nho.jpg"
 import MusicPlayer from "./MusicPlayer.jsx";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import { useState } from "react";
 function Body({ className }) {
+  const [currentSong, setCurrentSong] = useState(null);
+
   return (
     <div className={className}>
       <Swiper
@@ -45,7 +47,7 @@ function Body({ className }) {
         </button>
       </div>
 
-        <MusicSuggest />
+        <MusicSuggest onSelectSong = {setCurrentSong} />
       <div className="Chill ">
         <h3 className="Chill-title">Chill Place</h3>
         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
@@ -74,7 +76,7 @@ function Body({ className }) {
           <button className="filter"><span>VIỆT NAM</span></button>
           <button className="filter"><span>QUỐC TẾ</span></button>
         </div>
-          <MusicOption/>
+          <MusicOption  onSelectSong = {setCurrentSong}/>
       </div>
 
       <div className="rank-week-container">
@@ -116,7 +118,7 @@ function Body({ className }) {
         </div>
       </div>
       <div className="">
-          <MusicPlayer />
+          <MusicPlayer song={currentSong}/>
       </div>
     </div>
   );

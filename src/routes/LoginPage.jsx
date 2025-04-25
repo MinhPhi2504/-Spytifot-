@@ -27,7 +27,7 @@ import { useState } from "react";
          }
  
          try {
-             const response = await fetch("http://localhost/login.php", {
+             const response = await fetch("http://localhost:8080/login.php", {
                  method: "POST",
                  body: new URLSearchParams(formData),
              });

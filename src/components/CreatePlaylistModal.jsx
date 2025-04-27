@@ -6,13 +6,29 @@ const CreatePlaylistModal = ({ onClose }) => {
   const [isPublic, setIsPublic] = useState(true);
   const [isShuffle, setIsShuffle] = useState(true);
 
-  const handleCreate = () => {
-    console.log({
-      name: playlistName,
-      public: isPublic,
-      shuffle: isShuffle,
-    });
-    onClose(); // đóng modal sau khi tạo
+  const handleCreate = async () => {
+    try {
+      const response = await fetch("http://localhost/create-playlist.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: playlistName,
+          is_public: isPublic,
+          is_shuffle: isShuffle,
+        }),
+      });
+
+      if (response.ok) {
+        console.log("Playlist created successfully!");
+        onClose(); // đóng modal
+      } else {
+        console.error("Failed to create playlist");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   return (

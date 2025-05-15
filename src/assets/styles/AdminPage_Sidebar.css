@@ -1,11 +1,13 @@
 .sidebar2 {
     width: 200px;
-    background: linear-gradient(to bottom, #2c2c2c, #4f4f4f);
+    background: rgb(40, 3, 53);
     color: white;
-    height: 100vh;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
     margin-top: 50px;
     position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
   }
   
   .sidebar-menu {
@@ -14,13 +16,12 @@
     margin: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    height: 80%;
+    height: 100%;
     width: 100%;
-    gap: 20px;
   } 
   
   .sidebar-menu li {
+    margin-top: 20px;
     display: flex;
     align-items: center;
     padding: 12px 20px;

@@ -10,7 +10,7 @@ function MusicSuggest({onSelectSong}) {
     return (
         <div className="list-music-suggest-container">
             {suggestions.map((music) => (
-                <div key={music.id} className="music-option"  onClick={() => {onSelectSong(music)}}>
+                <div key={music.id} className="music-option"  onClick={() => {onSelectSong(music)}} style={{cursor: 'pointer'}}>
                     <div className="thumbnail">
                         <img className="thumbnail-song" src={music.img} alt={music.song_name} />
                     </div>

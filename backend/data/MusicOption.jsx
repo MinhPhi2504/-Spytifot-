@@ -11,7 +11,7 @@ function MusicOption({ onSelectSong }) {
     return (
         <div className="music-list">
             {songs.map((music) => (
-                <div key={music.id} className="music-item" onClick={() => onSelectSong(music)}>
+                <div key={music.id} className="music-item" onClick={() => onSelectSong(music)} style={{cursor: 'pointer'}}>
                     <img src={music.img} alt={music.song_name} />
                     <div className="music-info">
                         <h3>

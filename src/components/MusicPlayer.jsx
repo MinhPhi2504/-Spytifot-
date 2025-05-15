@@ -70,7 +70,7 @@ export default function MusicPlayer( {song}) {
       clearTimeout(delayTimeoutRef.current); // tránh setTimeout chồng chéo
       delayTimeoutRef.current = setTimeout(() => {
         audio.play();
-      }, 100);
+      }, 210);
     } else {
       setCurrentTime(audio.currentTime);
       const percent = (audio.currentTime / audio.duration) * 100;
@@ -128,6 +128,12 @@ export default function MusicPlayer( {song}) {
     if (audioRef.current) {
       audioRef.current.volume = volume;
       preVolume.current = volume;
+      if (audioRef.current.volume === 0) {
+        setIsMuted (true)
+      }
+      else {
+        setIsMuted(false)
+      }
     }
   }, [volume]); // chạy khi volume thay đổi
 
@@ -211,7 +217,6 @@ export default function MusicPlayer( {song}) {
           value={volume}
           onChange={(e) => setVolume(parseFloat(e.target.value))}
           style={{ width: "100px", marginLeft: "10px" }}
-          disabled={isMuted}
         />
       </div>
 

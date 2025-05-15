@@ -8,7 +8,7 @@ export const list_song = [
         style: "nhac-tre",
         premium: 1,
         time: 3,
-        audio: "/mp3/DuaNhauDiTron.mp3"
+        audio: "/mp3/DuaNhauDiTron.mp3",
     },
     {
         id: 2,

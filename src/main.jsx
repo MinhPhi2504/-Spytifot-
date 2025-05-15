@@ -10,6 +10,7 @@ import AdminPage from './routes/AdminPage.jsx'
 import Thuvien from './routes/thuvien.jsx'
 import PlaylistDetail from './components/Playlist.jsx'
 import MainLayout from './components/MainLayout.jsx'
+import ForgotPW from './routes/FogotPW.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
@@ -20,6 +21,7 @@ createRoot(document.getElementById('root')).render(
         <Route path='top100' element={<TOP100/>}></Route>
       </Route>
       <Route path='/login' element={<LoginPage/>}></Route>
+      <Route path='/forgotpw' element={<ForgotPW/>}></Route>
       <Route path='/admin' element={<AdminPage/>}></Route>
       <Route path="/thuvien" element={<MainLayout />}>
         <Route index element={<Thuvien />} /> {/* /thuvien */}

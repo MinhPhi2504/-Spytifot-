@@ -282,11 +282,11 @@ export function generate_music_option () {
     let html = ``
     list_song.forEach((music) => {
         html += `
-            <div class="music-item">
+            <div className="music-item">
                 <img src="${music.img}">
-            <div class="music-info">
+            <div className="music-info">
                 <h3>${music.song_name} 
-                    ${music.premium === 1 ? `<span class="premium">PREMIUM</span>` : ``}
+                    ${music.premium === 1 ? `<span className="premium">PREMIUM</span>` : ``}
                 </h3>
                 <p>${music.author}</p>
                 <p>${music.time} năm trước</p>

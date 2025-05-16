@@ -1,4 +1,5 @@
 <?php
+// register.php
 include 'database.php';
 
 header("Access-Control-Allow-Origin: *");

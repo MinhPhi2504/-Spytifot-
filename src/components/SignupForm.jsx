@@ -1,11 +1,12 @@
+// src/components/SignupForm.js
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import "../assets/styles/SignupForm.css";
+import "../assets/styles/SignupForm.css"; // Đảm bảo bạn có file CSS này
 
 function SignupForm() {
   const [formData, setFormData] = useState({
-    First_name: "", 
+    First_name: "",
     Email: "",
     Password: "",
     Confirm_password: "",
@@ -42,9 +43,12 @@ function SignupForm() {
     }
 
     try {
-      const response = await fetch("http://localhost:8080/register.php", {
+      const response = await fetch("http://localhost/register.php", {
         method: "POST",
-        body: new URLSearchParams(formData),
+        headers: {
+          'Content-Type': 'application/json', // Gửi dữ liệu dưới dạng JSON
+        },
+        body: JSON.stringify(formData), // Chuyển đổi formData thành JSON
       });
 
       const data = await response.json();
@@ -60,19 +64,19 @@ function SignupForm() {
           Confirm_password: "",
         });
         setTimeout(() => {
-          navigate("/login"); // Redirect after registration
+          navigate("/login"); // Chuyển hướng sau khi đăng ký thành công
         }, 1000);
       }
     } catch (error) {
       console.error("Error during registration:", error);
-      setMessage("An error occurred. Please try again.");
+      setMessage("Đã xảy ra lỗi. Vui lòng thử lại.");
       setSuccess(false);
     }
   };
 
   const handleLogin = (e) => {
     e.preventDefault();
-    navigate("/login"); // Navigate to login page
+    navigate("/login"); // Chuyển hướng đến trang đăng nhập
   };
 
   return (
@@ -86,13 +90,13 @@ function SignupForm() {
               name={field}
               placeholder={field.replace("_", " ")}
               className="form-control"
-              value={formData[field]}  // Bind the input value to formData state
-              onChange={handleChange}  // Handle change events
+              value={formData[field]}
+              onChange={handleChange}
               required
             />
           ))}
           <button type="submit" className="btn btn-primary w-100">
-            Register
+            Đăng ký
           </button>
         </form>
         <div className="login-link">

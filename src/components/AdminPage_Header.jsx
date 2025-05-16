@@ -10,7 +10,7 @@ function AdminPage_Header() {
         </p>
         </div>
       <div className="center">
-        <i class="fa-solid fa-bars"></i>
+        <i className="fa-solid fa-bars"></i>
       </div>
       <div className="right">
         <p>Admin Name</p>

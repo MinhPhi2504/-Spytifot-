@@ -1,6 +1,6 @@
 import { useState } from "react";
- import "../assets/styles/LoginPage.css";
- import { Link, useNavigate } from "react-router-dom";
+import "../assets/styles/LoginPage.css";
+import { Link, useNavigate } from "react-router-dom";
  
  function LoginPage() {
      const navigate = useNavigate();
@@ -80,9 +80,9 @@ import { useState } from "react";
                          <button type="submit" className="btn btn-primary w-100">
                              Log in
                          </button>
-                         <a href="" className="d-flex justify-content-center align-items-center forgot-password">
+                         <Link to="/forgotpw" className="d-flex justify-content-center align-items-center forgot-password">
                              Forgot your password?
-                         </a>
+                         </Link>
                          <div className="signup-link">
                          <Link to="/" className="link-to-signup">
                              Don't have an account? Sign up now.
@@ -90,13 +90,12 @@ import { useState } from "react";
                      </div>
                      </form>
                      {message && (
-     <div className="message-container">
-         <p className={`message-text text-center ${success ? "text-success" : "text-danger"}`}>
-             {message}
-         </p>
-     </div>
- )}
-             
+                    <div className="message-container">
+                        <p className={`message-text text-center ${success ? "text-success" : "text-danger"}`}>
+                            {message}
+                        </p>
+                    </div>
+                     )}
                  </div>
              </div>
          </>

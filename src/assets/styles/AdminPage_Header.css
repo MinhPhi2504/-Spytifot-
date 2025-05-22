@@ -6,6 +6,7 @@
     height: 50px;
     font-family: sans-serif;
     font-size: 18px;
+    position: sticky;
   }
   .left > p {
     margin: 0;

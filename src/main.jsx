@@ -11,6 +11,7 @@ import Thuvien from './routes/thuvien.jsx';
 import PlaylistDetail from './components/Playlist.jsx';
 import MainLayout from './components/MainLayout.jsx';
 import ForgotPW from './routes/FogotPW.jsx';
+import AlbumCard from './routes/AlbumCard.jsx';
 createRoot(document.getElementById('root')).render(
   <StrictMode>
       <BrowserRouter>
@@ -19,13 +20,14 @@ createRoot(document.getElementById('root')).render(
           <Route path="/main" element={<MainLayout />}>
             <Route index element={<MainPage />} />
             <Route path="top100" element={<TOP100 />} />
+            <Route path='/main/:id_song' element = {<AlbumCard/>}/>
           </Route>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/forgotpw" element={<ForgotPW />} />
           <Route path="/admin" element={<AdminPage />} />
           <Route path="/thuvien" element={<MainLayout />}>
             <Route index element={<Thuvien />} />
-            <Route path="/thuvien/:id_playlist" element={<PlaylistDetail />} />
+            <Route path="/thuvien/:id_playlist" element={<PlaylistDetail/>}/>
           </Route>
         </Routes>
       </BrowserRouter>

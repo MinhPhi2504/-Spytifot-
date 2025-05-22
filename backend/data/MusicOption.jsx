@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { music_option } from "../data/list-song.js";
+import { useNavigate } from "react-router-dom";
+import "../../src/assets/styles/MusicOption.css"
 
 function MusicOption() {
     const [songs, setSongs] = useState([]);
@@ -7,7 +9,10 @@ function MusicOption() {
     useEffect(() => {
         setSongs(music_option); // Cập nhật danh sách nhạc
     }, []);
-
+    const navigate = useNavigate();
+    const handleClick = (id) => {
+        navigate(`/main/${id}`);
+    };
     return (
         <div className="music-list">
             {songs.map((music) => (
@@ -15,7 +20,11 @@ function MusicOption() {
                     <img src={music.img} alt={music.song_name} />
                     <div className="music-info">
                         <h3>
-                            {music.song_name}
+                            <span className="music-op-name" onClick={() => {
+                                localStorage.setItem("currentSong", JSON.stringify(music));
+                                handleClick(music.id);
+                                }}>
+                                {music.song_name} </span>
                             {music.premium === 1 && <span className="premium">PREMIUM</span>}
                         </h3>
                         <p>{music.author}</p>

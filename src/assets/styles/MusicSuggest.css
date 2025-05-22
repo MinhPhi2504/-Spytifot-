@@ -1,0 +1,7 @@
+.music-name {
+    cursor: pointer;
+    transition: color 0.1s;
+}
+.music-name:hover {
+    color: #a259ff ;
+}

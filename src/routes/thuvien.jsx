@@ -16,9 +16,6 @@ const handleClick = (id) => {
         <div className=" thuvien-container text-white min-vh-100 p-4">
             <div className="d-flex align-items-center gap-2 mb-4">
             <h1 className="me-2">Thư viện</h1>
-            <button className=" thuvien-btn btn btn-light btn-sm rounded-circle p-0" style={{ width: '32px', height: '32px' }}>
-                <i class="fa-solid fa-play"></i>
-            </button>
             </div>
             <div>
                 <div className="d-flex align-items-center justify-content-between mb-3">

@@ -95,26 +95,21 @@ export const list_song = [
         style: "nhac-tre",
         premium: 0,
         time: 3,
-        audio: "/mp3/ExitSign-HIEUTHUHAI.mp3"
-    }
-];
-
-
-export const music_option = [
-    {
-        id: 1,
-        img: "/img/loi-nho.jpg",
-        song_name: "Lối Nhỏ",
-        author: "Đen Vâu",
-        album: ["Đen Vâu"],
-        style: "rap-viet",
-        premium: 1,
-        time: 2,
-        audio: "/mp3/LoiNho.mp3"
-
+        audio: "/mp3/BanDoi.mp3"
     },
     {
-        id: 2,
+        id: 10,
+        img: "/img/am-tham-ben-em.jpg",
+        song_name: "Âm thầm bên em",
+        author: "Sơn Tùng MTP",
+        album: ["Sơn Tùng M-TP"],
+        style: "nhac-tre",
+        premium: 0,
+        time: 3,
+        audio: "/mp3/AmThamBenEm.mp3"
+    },
+    {
+        id: 11,
         img: "/img/mat-ket-noi.jpg",
         song_name: "Mất Kết Nối",
         author: "Dương Domic",
@@ -123,10 +118,9 @@ export const music_option = [
         premium: 0,
         time: 1,
         audio: "/mp3/MatKetNoi.mp3"
-
     },
     {
-        id: 3,
+        id: 12,
         img: "/img/tran-bo-nho.jpg",
         song_name: "Tràn Bộ Nhớ",
         author: "Dương Domic",
@@ -135,68 +129,9 @@ export const music_option = [
         premium: 1,
         time: 1,
         audio: "/mp3/TranBoNho.mp3"
-
     },
     {
-        id: 4,
-        img: "/img/cao-oc-20.jpg",
-        song_name: "Cao Ốc 20",
-        author: "Bray",
-        album: ["Bray"],
-        style: "rap-viet",
-        premium: 0,
-        time: 3,
-        audio: "/mp3/CaoOc20.mp3"
-
-    },
-    {
-        id: 5,
-        img: "/img/am-tham-ben-em.jpg",
-        song_name: "Âm Thầm Bên Em",
-        author: "Sơn Tùng M-TP",
-        album: ["Sơn Tùng M-TP"],
-        style: "nhac-tre",
-        premium: 0,
-        time: 5,
-        audio: "/mp3/AmThamBenEm.mp3"
-
-    },
-    {
-        id: 6,
-        img: "/img/du-cho-tan-the.jpg",
-        song_name: "Dù Cho Tận Thế",
-        author: "ERIK",
-        album: ["ERIK"],
-        style: "pop-ballad",
-        time: 1,
-        audio: "/mp3/DuChoTanThe.mp3"
-
-    },
-    {
-        id: 7,
-        img: "/img/wrong-times.jpg",
-        song_name: "WRONG TIMES",
-        author: "PUPPY & DANGRANGTO",
-        album: ["PUPPY", "DANGRANGTO"],
-        style: "indie",
-        premium: 0,
-        time: 3,
-        audio: "/mp3/WrongTimes.mp3"
-    },
-    {
-        id: 8,
-        img: "/img/mua-mua=ay.jpg",
-        song_name: "Mùa Mưa Ấy",
-        author: "Vũ",
-        album: ["Vũ"],
-        style: "indie",
-        premium: 1,
-        time: 1,
-        audio: "/mp3/MuaMuaAy.mp3"
-
-    },
-    {
-        id: 9,
+        id: 13,
         img: "/img/chiu-cach-minh-noi-thua.jpg",
         song_name: "Chịu Cách Mình Nói Thua",
         author: "Rhyder",
@@ -205,7 +140,175 @@ export const music_option = [
         premium: 0,
         time: 2,
         audio: "/mp3/ChiuCachMinhNoiThua.mp3"
+    },
+    {
+        id: 14,
+        img: "/img/chua-phai-la-yeu.jpg",
+        song_name: "Chưa Phải Là Yêu",
+        author: "HURRYKNG",
+        album: ["HURRYKNG"],
+        style: "nhac-tre",
+        premium: 0,
+        time: 2,
+        audio: "/mp3/ChuaPhaiLaYeu.mp3"
+    },
+    {
+        id: 15,
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_A3vshwke16DoO1XKIOoFls176UwYTelEuQ&s",
+        song_name: "Thu Cuối",
+        author: "Mr.T, Yanbi, Hằng BingBoong",
+        album: ["Thu Cuối"],
+        style: "nhac-tre",
+        premium: 0,
+        time: 2,
+        audio: "/mp3/ThuCuoi.mp3"        
+    },
+    {
+        id: 16,
+        img: "/img/loi-nho.jpg",
+        song_name: "Lối Nhỏ",
+        author: "Đen Vâu",
+        album: ["Đen Vâu"],
+        style: "rap-viet",
+        premium: 1,
+        time: 2,
+        audio: "/mp3/LoiNho.mp3"
+    }, 
+    {
+        id: 17,
+        img: "/img/cao-oc-20.jpg",
+        song_name: "Cao Ốc 20",
+        author: "Bray",
+        album: ["Bray"],
+        style: "rap-viet",
+        premium: 0,
+        time: 3,
+        audio: "/mp3/CaoOc20.mp3"
+    }, 
+    {
+        id: 18,
+        img: "/img/du-cho-tan-the.jpg",
+        song_name: "Dù Cho Tận Thế",
+        author: "Erik",
+        album: ["Erik"],
+        style: "rap-viet",
+        premium: 0,
+        time: 3,
+        audio: "/mp3/DuChoTanThe.mp3"
+    }, 
+    {
+        id: 19,
+        img: "/img/wrong-times.jpg",
+        song_name: "Wrong Times",
+        author: "PUPPY x DANGRANGTO",
+        album: ["PUPPY x DANGRANGTO"],
+        style: "nhac-tre",
+        premium: 0,
+        time: 3,
+        audio: "/mp3/WrongTimes.mp3"
+    }
+];
 
+
+export const music_option = [
+    {
+        id: 11,
+        img: "/img/mat-ket-noi.jpg",
+        song_name: "Mất Kết Nối",
+        author: "Dương Domic",
+        album: ["Dương Domic"],
+        style: "nhac-tre",
+        premium: 0,
+        time: 1,
+        audio: "/mp3/MatKetNoi.mp3"
+    },
+    {
+        id: 12,
+        img: "/img/tran-bo-nho.jpg",
+        song_name: "Tràn Bộ Nhớ",
+        author: "Dương Domic",
+        album: ["Dương Domic"],
+        style: "nhac-tre",
+        premium: 1,
+        time: 1,
+        audio: "/mp3/TranBoNho.mp3"
+    },
+    {
+        id: 13,
+        img: "/img/chiu-cach-minh-noi-thua.jpg",
+        song_name: "Chịu Cách Mình Nói Thua",
+        author: "Rhyder",
+        album: ["Rhyder"],
+        style: "nhac-tre",
+        premium: 0,
+        time: 2,
+        audio: "/mp3/ChiuCachMinhNoiThua.mp3"
+    },
+    {
+        id: 14,
+        img: "/img/chua-phai-la-yeu.jpg",
+        song_name: "Chưa Phải Là Yêu",
+        author: "HURRYKNG",
+        album: ["HURRYKNG"],
+        style: "nhac-tre",
+        premium: 0,
+        time: 2,
+        audio: "/mp3/ChuaPhaiLaYeu.mp3"
+    },
+    {
+        id: 15,
+        img: "/img/thucuoi.jpg",
+        song_name: "Thu Cuối",
+        author: "Mr.T, Yanbi, Hằng BingBoong",
+        album: ["Thu Cuối"],
+        style: "nhac-tre",
+        premium: 0,
+        time: 2,
+        audio: "/mp3/ThuCuoi.mp3"        
+    },
+    {
+        id: 16,
+        img: "/img/loi-nho.jpg",
+        song_name: "Lối Nhỏ",
+        author: "Đen Vâu",
+        album: ["Đen Vâu"],
+        style: "rap-viet",
+        premium: 1,
+        time: 2,
+        audio: "/mp3/LoiNho.mp3"
+    }, 
+    {
+        id: 17,
+        img: "/img/cao-oc-20.jpg",
+        song_name: "Cao Ốc 20",
+        author: "Bray",
+        album: ["Bray"],
+        style: "rap-viet",
+        premium: 0,
+        time: 3,
+        audio: "/mp3/CaoOc20.mp3"
+    }, 
+    {
+        id: 18,
+        img: "/img/du-cho-tan-the.jpg",
+        song_name: "Dù Cho Tận Thế",
+        author: "Erik",
+        album: ["Erik"],
+        style: "rap-viet",
+        premium: 0,
+        time: 3,
+        audio: "/mp3/DuChoTanThe.mp3"
+    }, 
+    {
+        id: 19,
+        img: "/img/wrong-times.jpg",
+        song_name: "Wrong Times",
+        author: "PUPPY x DANGRANGTO",
+        album: ["PUPPY x DANGRANGTO"],
+        style: "nhac-tre",
+        premium: 0,
+        time: 3,
+        audio: "/mp3/WrongTimes.mp3"
     }
 ];
 

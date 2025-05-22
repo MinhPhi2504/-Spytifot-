@@ -14,18 +14,4 @@ function AdminPage_Body({ children }) {
   );
 }
 
-
-import React from "react";
-import Dashboard from "./Dashboard"; // thêm dòng này
-import "../assets/styles/AdminPage_Body.css";
-
-function AdminPage_Body() {
-  return (
-    <main className="admin-body">
-      <Dashboard />
-    </main>
-  );
-}
-
-export default AdminPage_Body;
-
+export default AdminPage_Body

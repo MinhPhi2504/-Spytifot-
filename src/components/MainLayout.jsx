@@ -44,7 +44,7 @@ const MainLayout = () => {
     <>
       <Header />
       <Sidebar />
-      <div className="main-content" style={{ marginTop: '90px', marginLeft: '250px', height: '2000px'}}>
+      <div className="main-content" style={{ marginTop: '70px', marginLeft: '240px', height: 'auto'}}>
         <Outlet />
       </div>
       <MusicPlayer song={currentSong} />

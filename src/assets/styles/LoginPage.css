@@ -43,3 +43,7 @@
     padding: 0;
     font-weight: bold;
 }
+.form-control, .btn {
+  width: 100% !important;
+  box-sizing: border-box;
+}

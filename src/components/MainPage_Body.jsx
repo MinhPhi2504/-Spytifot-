@@ -14,9 +14,9 @@ import wt from "../../public/img/tran-bo-nho.jpg"
 import MusicPlayer from "./MusicPlayer.jsx";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from "react";
+import { list_song } from "../../backend/data/list-song.js";
 function Body({ className }) {
   const [currentSong, setCurrentSong] = useState(null);
-
   return (
     <div className={className}>
       <Swiper
@@ -47,7 +47,7 @@ function Body({ className }) {
         </button>
       </div>
 
-        <MusicSuggest onSelectSong = {setCurrentSong} />
+        <MusicSuggest />
       <div className="Chill ">
         <h3 className="Chill-title">Chill Place</h3>
         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
@@ -117,10 +117,8 @@ function Body({ className }) {
           </div>
         </div>
       </div>
-      <div className="">
-          <MusicPlayer song={currentSong}/>
-      </div>
     </div>
+    
   );
 }
 

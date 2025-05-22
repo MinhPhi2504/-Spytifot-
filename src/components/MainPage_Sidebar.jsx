@@ -31,10 +31,10 @@ function Sidebar () {
                 </Link>
             </div>
             <div className="discover">
-              <a href="">
+              <Link to = "/main">
                 <i className="fa-solid fa-o"></i>
                 <p>Khám phá</p>
-              </a>
+              </Link>
             </div>
             <div className="chart">
               <a href="">
@@ -62,7 +62,7 @@ function Sidebar () {
               </a>
             </div>
             <div className="top-hit">
-              <Link to="/top100">
+              <Link to="/main/top100">
                 <i className="fa-regular fa-star"></i>
                 <p>Top 100</p>
               </Link>

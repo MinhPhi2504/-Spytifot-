@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import "../assets/styles/SignupForm.css"; // Đảm bảo bạn có file CSS này
+import "../assets/styles/SignupForm.css";  
 
 function SignupForm() {
   const [formData, setFormData] = useState({
@@ -22,14 +22,18 @@ function SignupForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    console.log("DEBUG formData:", formData.First_name);
+    console.log("DEBUG formData:", formData.Email);
+    console.log("DEBUG formData:", formData.Password);
+    console.log("DEBUG formData:", formData.Confirm_password);
     // Validate form fields
     if (
       !formData.First_name ||
-      !formData.Email ||
+      !formData.Email || 
       !formData.Password ||
       !formData.Confirm_password
-    ) {
+    ) 
+    {
       setMessage("Vui lòng nhập đầy đủ thông tin!");
       setSuccess(false);
       return;
@@ -43,7 +47,7 @@ function SignupForm() {
     }
 
     try {
-      const response = await fetch("http://localhost/register.php", {
+      const response = await fetch("http://localhost:8080/register.php", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json', // Gửi dữ liệu dưới dạng JSON
@@ -86,7 +90,7 @@ function SignupForm() {
           {["First_name", "Email", "Password", "Confirm_password"].map((field, i) => (
             <input
               key={i}
-              type={field.includes("password") ? "password" : "text"}
+              type={field.toLowerCase().includes("password") ? "password" : "text"}
               name={field}
               placeholder={field.replace("_", " ")}
               className="form-control"

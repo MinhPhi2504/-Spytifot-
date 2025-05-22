@@ -11,10 +11,14 @@ import {
 } from "react-icons/fa";
 import "../assets/styles/MusicPlayer.css"
 import { audio } from "framer-motion/client";
+import { list_song } from "../../backend/data/list-song";
 export default function MusicPlayer( {song}) {
-  if(!song) {
-    return(<></>)
-  }
+      // Lấy dữ liệu bài nhạc đang phát từ localStorage khi load lại trang
+    // Lưu bài nhạc hiện tại vào localStorage mỗi khi đổi bài
+    useEffect(() => {
+        localStorage.setItem("currentSong", JSON.stringify(song));
+    }, [song]);
+  
   const audioRef = useRef(null);
   const [volume, setVolume] = useState(1); // 1 = 100%
   const [isPlaying, setIsPlaying] = useState(false);
@@ -40,7 +44,6 @@ export default function MusicPlayer( {song}) {
   const togglePlay = () => {
     const audio = audioRef.current;
     if (!audio) return;
-  
     if (isPlaying) {
       audio.pause();
     } else {
@@ -167,7 +170,7 @@ export default function MusicPlayer( {song}) {
     // Gọi hàm phát bài
     playNewSong();
   
-  }, [song]);  
+  }, [song]);   
   return (
     <div className="music-player-container">
       <div className="song-profile">

@@ -1,6 +1,5 @@
 .body-container {
-    margin-top: 90px;
-    margin-left: 250px;
+    margin-top: 90px !important;
     height: auto;
 }
 .img_title {

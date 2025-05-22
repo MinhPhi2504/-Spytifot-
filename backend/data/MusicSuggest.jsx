@@ -1,6 +1,6 @@
 import { list_song} from "../data/list-song.js"
 import { useState, useEffect } from "react";
-function MusicSuggest({onSelectSong}) {
+function MusicSuggest() {
     const [suggestions, setSuggestions] = useState([]);
 
     useEffect(() => {
@@ -10,7 +10,7 @@ function MusicSuggest({onSelectSong}) {
     return (
         <div className="list-music-suggest-container">
             {suggestions.map((music) => (
-                <div key={music.id} className="music-option"  onClick={() => {onSelectSong(music)}} style={{cursor: 'pointer'}}>
+                <div key={music.id} className="music-option"  onClick={() => {localStorage.setItem("currentSong", JSON.stringify(music))}} style={{cursor: 'pointer'}}>
                     <div className="thumbnail">
                         <img className="thumbnail-song" src={music.img} alt={music.song_name} />
                     </div>

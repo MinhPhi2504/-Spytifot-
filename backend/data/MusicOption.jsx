@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { music_option } from "../data/list-song.js";
 
-function MusicOption({ onSelectSong }) {
+function MusicOption() {
     const [songs, setSongs] = useState([]);
 
     useEffect(() => {
@@ -11,7 +11,7 @@ function MusicOption({ onSelectSong }) {
     return (
         <div className="music-list">
             {songs.map((music) => (
-                <div key={music.id} className="music-item" onClick={() => onSelectSong(music)} style={{cursor: 'pointer'}}>
+                <div key={music.id} className="music-item" onClick={() => {localStorage.setItem("currentSong", JSON.stringify(music))}} style={{cursor: 'pointer'}}>
                     <img src={music.img} alt={music.song_name} />
                     <div className="music-info">
                         <h3>

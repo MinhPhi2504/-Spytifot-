@@ -58,7 +58,7 @@ export const list_song = [
         img: "/img/exit-sign.jpg",
         song_name: "Exit Sign",
         author: "HIEUTHUHAI prod. by Kewtile",
-        album: ["HIEUTHUHAI", "Kewtile"],
+        album: ["HIEUTHUHAI", " Kewtile"],
         style: "nhac-tre",
         premium: 1,
         time: 3,

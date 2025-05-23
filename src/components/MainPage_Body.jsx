@@ -15,8 +15,17 @@ import MusicPlayer from "./MusicPlayer.jsx";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from "react";
 import { list_song } from "../../backend/data/list-song.js";
+import { useEffect } from "react";
+
+const getRandomInt = () => {
+  return Math.floor(Math.random() * 10) + 1;
+};
 function Body({ className }) {
-  const [currentSong, setCurrentSong] = useState(null);
+  const [firstElement, setfirstElement] = useState(0)
+  const refreshList = () => {
+    const num1 = getRandomInt()
+    setfirstElement(num1)
+  };
   return (
     <div className={className}>
       <Swiper
@@ -43,11 +52,11 @@ function Body({ className }) {
         <div className="music-suggest-title">Gợi ý cho bạn</div>
         <button className="refresh-suggest">
           <i className="fa-solid fa-spinner"></i>
-          <div className="refresh-suggest-text">LÀM MỚI</div>
+          <div className="refresh-suggest-text" onClick={refreshList}>LÀM MỚI</div>
         </button>
       </div>
 
-        <MusicSuggest />
+        <MusicSuggest start = {firstElement} end = {firstElement + 9} />
       <div className="Chill ">
         <h3 className="Chill-title">Chill Place</h3>
         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
@@ -76,7 +85,7 @@ function Body({ className }) {
           <button className="filter"><span>VIỆT NAM</span></button>
           <button className="filter"><span>QUỐC TẾ</span></button>
         </div>
-          <MusicOption  onSelectSong = {setCurrentSong}/>
+          <MusicOption />
       </div>
 
       <div className="rank-week-container">

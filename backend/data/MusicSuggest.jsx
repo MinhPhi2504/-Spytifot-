@@ -2,7 +2,7 @@ import { list_song} from "../data/list-song.js"
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../src/assets/styles/MusicSuggest.css"
-function MusicSuggest() {
+function MusicSuggest({start, end}) {
     const [suggestions, setSuggestions] = useState([]);
 
     useEffect(() => {
@@ -14,7 +14,7 @@ function MusicSuggest() {
     };
     return (
         <div className="list-music-suggest-container">
-            {suggestions.slice(0, 9).map((music) => (
+            {suggestions.slice(start, end).map((music) => (
                 <div key={music.id} className="music-option"  
                     onClick={() => {localStorage.setItem("currentSong", JSON.stringify(music));}}>
                     <div className="thumbnail">

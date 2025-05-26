@@ -3,7 +3,6 @@
 // import "swiper/css/navigation";
 // import "swiper/css/effect-coverflow";
 import "../assets/styles/MainPage_Body.css";
-import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import MusicSuggest from "../../backend/data/MusicSuggest.jsx";
@@ -14,11 +13,9 @@ import wt from "../../public/img/tran-bo-nho.jpg"
 import a from "../../public/img/hen-gap-em-duoi-anh-trang.jpg"
 import b from "../../public/img/chua-phai-la-yeu.jpg"
 import c from "../../public/img/chiu-cach-minh-noi-thua.jpg"
-import MusicPlayer from "./MusicPlayer.jsx";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from "react";
-import { list_song } from "../../backend/data/list-song.js";
-import { useEffect } from "react";
+
 
 const getRandomInt = () => {
   return Math.floor(Math.random() * 10) + 1;

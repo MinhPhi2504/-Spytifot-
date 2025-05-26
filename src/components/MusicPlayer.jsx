@@ -10,8 +10,6 @@ import {
   FaVolumeUp,
 } from "react-icons/fa";
 import "../assets/styles/MusicPlayer.css"
-import { audio } from "framer-motion/client";
-import { list_song } from "../../backend/data/list-song";
 export default function MusicPlayer({ song, fullScreen = false, onTimeUpdate })  {
     // Lưu bài nhạc hiện tại vào localStorage mỗi khi đổi bài
     useEffect(() => {

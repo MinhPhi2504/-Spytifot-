@@ -2,13 +2,13 @@ import Header from "./MainPage_header.jsx";
 import Sidebar from "./MainPage_Sidebar.jsx";
 import MusicPlayer from "./MusicPlayer.jsx";
 import { Outlet } from "react-router-dom";
-import { list_song } from "../../backend/data/list-song.js";
+import { listSong } from "../../backend/data/list-song.js";
 import { useEffect, useState } from "react";
 
 const MainLayout = () => {
   const [currentSong, setCurrentSong] = useState(() => {
     const crSong = localStorage.getItem("currentSong");
-    return crSong ? JSON.parse(crSong) : list_song[0];
+    return crSong ? JSON.parse(crSong) : listSong.array[0];
   });
 
   // Lắng nghe thay đổi localStorage từ các component khác

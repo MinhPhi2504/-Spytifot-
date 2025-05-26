@@ -1,11 +1,10 @@
-import React from "react";
-import a from "../../public/img/am-tham-ben-em.jpg"
+
 import { useParams } from "react-router-dom";
 import { getSongFromId } from "../../backend/data/list-song";
 import { useNavigate } from "react-router-dom";
 const AlbumCard = () => {
     const urlSong = useParams()
-    const id = Number(urlSong.id_song)
+    const id = urlSong.id_song
     const song = getSongFromId(id)
     const navigate = useNavigate()
   return (
@@ -19,7 +18,7 @@ const AlbumCard = () => {
         minHeight: "100vh",
       }}
     >
-      <div className="row">
+      <div className="row align-items-center">
         {/* Ảnh Album và thông tin bên trái */}
         <div className="col-md-4 text-center">
           <img
@@ -28,6 +27,7 @@ const AlbumCard = () => {
               width: "100%",
               borderRadius: "10px",
               boxShadow: "0 4px 12px rgba(0, 0, 0, 0.5)",
+              marginTop: '20px'
             }}
           />
           <h4 style={{ marginTop: "20px", fontWeight: "bold" }}>

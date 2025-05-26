@@ -1,4 +1,4 @@
-import { list_song} from "../data/list-song.js"
+import { listSong } from "./list-song";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../src/assets/styles/MusicSuggest.css"
@@ -6,7 +6,7 @@ function MusicSuggest({start, end}) {
     const [suggestions, setSuggestions] = useState([]);
 
     useEffect(() => {
-        setSuggestions(list_song); // Cập nhật danh sách nhạc gợi ý
+        setSuggestions(listSong.array); // Cập nhật danh sách nhạc gợi ý
     }, []);
     const navigate = useNavigate();
     const handleClick = (id) => {

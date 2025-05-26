@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { useEffect, useRef, useState } from 'react';
+import { Row, Col } from 'react-bootstrap';
 import "../assets/styles/KaraokePlayer.css"
 import MusicPlayer from './MusicPlayer';
 function parseLyrics(text) {

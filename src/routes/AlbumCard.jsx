@@ -2,10 +2,12 @@ import React from "react";
 import a from "../../public/img/am-tham-ben-em.jpg"
 import { useParams } from "react-router-dom";
 import { getSongFromId } from "../../backend/data/list-song";
+import { useNavigate } from "react-router-dom";
 const AlbumCard = () => {
     const urlSong = useParams()
     const id = Number(urlSong.id_song)
     const song = getSongFromId(id)
+    const navigate = useNavigate()
   return (
     <div
       className="container"
@@ -43,9 +45,10 @@ const AlbumCard = () => {
               padding: "10px 20px",
               fontWeight: "bold",
               borderRadius: "999px",
-            }}
+            }} 
+            onClick={() => navigate(`/karaoke/${id}`)}
           >
-            ▶ TIẾP TỤC PHÁT
+            ▶ KARAOKE
           </button>
         </div>
 

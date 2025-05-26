@@ -1,0 +1,46 @@
+
+.karaoke-container {
+  padding: 2rem;
+  background-color: #1e1e2f;
+  color: white;
+  height: 100vh;
+  width: 100%;
+}
+.text-center {
+    margin-top: 60px;
+
+}
+.lyrics-section {
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 1rem;
+  margin-top: 55px;
+}
+.lyrics-fixed-window {
+  height: 360px; 
+  overflow: hidden;
+  position: relative;
+}
+
+.lyrics-scrolling-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 21px;
+}
+.lyric-line {
+  height: 50px;
+  text-align: center;
+  width: auto;
+  opacity: 0.4;
+  font-size: 38px;
+  transition: all 0.3s;
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+.lyric-line.active {
+  color: yellow;
+  font-size: 38px;
+  font-weight: bold;
+  opacity: 1;
+}

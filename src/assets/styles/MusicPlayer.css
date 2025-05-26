@@ -1,15 +1,4 @@
-.music-player-container {
-    display: flex;
-    align-items: center;
-    padding: 0;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    left: 240px;
-    background-color: #170F23;
-    height: 80px;
-    color: aliceblue;
-}
+
 .song-profile {
     display: flex;
     align-items: center;

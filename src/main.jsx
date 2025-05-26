@@ -12,6 +12,7 @@ import PlaylistDetail from './components/Playlist.jsx';
 import MainLayout from './components/MainLayout.jsx';
 import ForgotPW from './routes/FogotPW.jsx';
 import AlbumCard from './routes/AlbumCard.jsx';
+import KaraokePage from './routes/KaraokePage.jsx';
 createRoot(document.getElementById('root')).render(
   <StrictMode>
       <BrowserRouter>
@@ -22,6 +23,7 @@ createRoot(document.getElementById('root')).render(
             <Route path="top100" element={<TOP100 />} />
             <Route path='/main/:id_song' element = {<AlbumCard/>}/>
           </Route>
+          <Route path="/karaoke/:id_song" element={<KaraokePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/forgotpw" element={<ForgotPW />} />
           <Route path="/admin" element={<AdminPage />} />

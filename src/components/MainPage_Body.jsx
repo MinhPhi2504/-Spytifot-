@@ -11,6 +11,9 @@ import MusicOption from "../../backend/data/MusicOption.jsx";
 import Albums from "../../backend/data/Album.jsx";
 import sh from "../../public/img/shhhh.jpg"
 import wt from "../../public/img/tran-bo-nho.jpg"
+import a from "../../public/img/hen-gap-em-duoi-anh-trang.jpg"
+import b from "../../public/img/chua-phai-la-yeu.jpg"
+import c from "../../public/img/chiu-cach-minh-noi-thua.jpg"
 import MusicPlayer from "./MusicPlayer.jsx";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from "react";
@@ -43,9 +46,9 @@ function Body({ className }) {
       >
         <SwiperSlide><img src={sh} alt="Slide 1" /></SwiperSlide>
         <SwiperSlide><img src={wt} alt="Slide 2" /></SwiperSlide>
-        <SwiperSlide><img src={sh} alt="Slide 3" /></SwiperSlide>
-        <SwiperSlide><img src={wt} alt="Slide 4" /></SwiperSlide>
-        <SwiperSlide><img src={sh} alt="Slide 5" /></SwiperSlide>
+        <SwiperSlide><img src={a} alt="Slide 3" /></SwiperSlide>
+        <SwiperSlide><img src={c} alt="Slide 4" /></SwiperSlide>
+        <SwiperSlide><img src={b} alt="Slide 5" /></SwiperSlide>
       </Swiper>
 
       <div className="music-suggest">

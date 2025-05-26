@@ -12,8 +12,7 @@ import {
 import "../assets/styles/MusicPlayer.css"
 import { audio } from "framer-motion/client";
 import { list_song } from "../../backend/data/list-song";
-export default function MusicPlayer( {song}) {
-      // Lấy dữ liệu bài nhạc đang phát từ localStorage khi load lại trang
+export default function MusicPlayer({ song, fullScreen = false, onTimeUpdate })  {
     // Lưu bài nhạc hiện tại vào localStorage mỗi khi đổi bài
     useEffect(() => {
         localStorage.setItem("currentSong", JSON.stringify(song));
@@ -76,6 +75,7 @@ export default function MusicPlayer( {song}) {
       }, 210);
     } else {
       setCurrentTime(audio.currentTime);
+      onTimeUpdate(audio.currentTime)
       const percent = (audio.currentTime / audio.duration) * 100;
       setProgress(percent);
     }
@@ -171,8 +171,33 @@ export default function MusicPlayer( {song}) {
     playNewSong();
   
   }, [song]);   
+  const playerStyle = fullScreen
+    ? {
+      display: 'flex',
+      alignItems: 'center',
+      padding: '0',
+      position: 'fixed',
+      bottom: '0',
+      right: '0',
+      left: '0',
+      backgroundColor: '#170F23',
+      height: '100px',
+      color: 'aliceblue'
+      }
+    : {
+      display: 'flex',
+      alignItems: 'center',
+      padding: '0',
+      position: 'fixed',
+      bottom: '0',
+      right: '0',
+      left: '240px',
+      backgroundColor: '#170F23',
+      height: '80px',
+      color: 'aliceblue'
+      };
   return (
-    <div className="music-player-container">
+    <div className="music-player-container" style={playerStyle}>
       <div className="song-profile">
         <img
           src={song.img}
@@ -237,9 +262,6 @@ Các hàm liên quan đếu audio
   audio.currentTime: cho biết tgian phát nhạc hiện tại
   audio.duration: cho biết tổng thời lượng bài nhạc
   audio.loop: repeat song
-
   React tự động re-render giao diện mỗi khi state hoặc props thay đổi.
   Chỉ cập nhật phần UI cần thiết, không cần reload toàn bộ trang
-
-
 */

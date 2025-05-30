@@ -80,11 +80,25 @@ function ForgotPW() {
 
   return (
     <>
-      <div className="background-img">
-        <img className="logo" src="../../public/img/violin.png" alt="Logo" />
+      <div className="background-img1" style={{
+        position: 'fixed',
+        inset: 0,
+        zIndex: -20,
+      }}>
+        <img
+          className="logo1"
+          src="../../public/img/violin.png"
+          alt="Logo"
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            opacity: 0.2
+          }}
+        />
       </div>
 
-      <div className="containerAll d-flex flex-column justify-content-center align-items-center vh-100">
+      <div className="containerAll d-flex flex-column justify-content-center align-items-center vh-100" style={{zIndex:'22'}}>
         <div>
           <h3 className="Login-title">Forgot your password?</h3>
         </div>

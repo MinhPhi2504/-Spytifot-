@@ -21,6 +21,7 @@
   } 
   
   .sidebar-menu li {
+    color :aliceblue !important;
     margin-top: 20px;
     display: flex;
     align-items: center;

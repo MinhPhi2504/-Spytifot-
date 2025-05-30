@@ -75,10 +75,13 @@ export default function MusicPlayer({ song, fullScreen = false, onTimeUpdate }) 
       }, 210);
     } else {
       setCurrentTime(audio.currentTime);
-      onTimeUpdate(audio.currentTime)
+      if (onTimeUpdate) {
+        onTimeUpdate(audio.currentTime)
+      }
       const percent = (audio.currentTime / audio.duration) * 100;
       setProgress(percent);
     }
+    console.log("Progess: ", progress)
   };
   
   const handleProgressChange = (e) => {

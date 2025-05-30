@@ -1,4 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
+import { formatTime } from "../../backend/data/list-song";
+import { useNavigate } from "react-router-dom";
 import {
   FaPlay,
   FaPause,
@@ -94,13 +96,6 @@ export default function MusicPlayer({ song, fullScreen = false, onTimeUpdate }) 
     setProgress(newVal);
     };
 
-  const formatTime = (time) => {
-    if (isNaN(time)) return "00:00";
-    const minutes = Math.floor(time / 60);
-    const seconds = Math.floor(time % 60);
-    return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
-  };
-
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
@@ -194,6 +189,7 @@ export default function MusicPlayer({ song, fullScreen = false, onTimeUpdate }) 
       height: '80px',
       color: 'aliceblue'
       };
+  const navigate = useNavigate()
   return (
     <div className="music-player-container" style={playerStyle}>
       <div className="song-profile">
@@ -202,7 +198,7 @@ export default function MusicPlayer({ song, fullScreen = false, onTimeUpdate }) 
           alt="song-cover"
         />
         <div className="song-profile-details">
-          <div className="song-name">{song.song_name}</div>
+          <div className="song-name" onClick={() => navigate(`/karaoke/${song.id}`)}>{song.song_name}</div>
           <div className="song-author">{song.author}</div>
         </div>
       </div>

@@ -8,7 +8,7 @@ const list_song = [
         song_name: "Đưa Nhau Đi Trốn",
         author: "Đen Vâu, Linh Cáo",
         album: ["Đen Vâu", ", Linh Cáo"],
-        style: "nhac-tre",
+        style: ["nhac-tre", "VPOP"],
         premium: 1,
         time: 3,
         audio: "/mp3/DuaNhauDiTron.mp3",
@@ -19,7 +19,7 @@ const list_song = [
         song_name: "Mùa Mưa Ấy",
         author: "Vũ",
         album: ["Vũ"],
-        style: "nhac-tre",
+        style: ["nhac-tre", "VPOP"],
         time: 1,
         audio: "/mp3/MuaMuaAy.mp3"
     },
@@ -29,7 +29,7 @@ const list_song = [
         song_name: "shhhhhhh...",
         author: "WEAN ft Tlinh",
         album: ["WEAN", ", Tlinh"],
-        style: "nhac-tre",
+        style: ["nhac-tre", "VPOP"],
         premium: 0,
         time: 3,
         audio: "/mp3/Shhhh.mp3"
@@ -40,7 +40,7 @@ const list_song = [
         song_name: "Dòng Thời Gian",
         author: "Nguyễn Hải Phong",
         album: ["Nguyễn Hải Phong"],
-        style: "nhac-tre",
+        style: ["nhac-tre"],
         premium: 0,
         time: 4,
         audio: "/mp3/DongThoiGian.mp3"
@@ -51,7 +51,7 @@ const list_song = [
         song_name: "Một Triệu Like",
         author: "Đen Vâu",
         album: ["Đen Vâu"],
-        style: "nhac-tre",
+        style: ["nhac-tre", "rap"],
         premium: 0,
         time: 2,
         audio: "/mp3/MotTrieuLike.mp3"
@@ -62,7 +62,7 @@ const list_song = [
         song_name: "Exit Sign",
         author: "HIEUTHUHAI prod. by Kewtile",
         album: ["HIEUTHUHAI", " Kewtile"],
-        style: "nhac-tre",
+        style: ["nhac-tre", "rap"],
         premium: 1,
         time: 3,
         audio: "/mp3/ExitSign-HIEUTHUHAI.mp3",
@@ -73,7 +73,7 @@ const list_song = [
         song_name: "Hẹn Gặp Em Dưới Ánh Trăng",
         author: "HURRYKNG, HIEUTHUHAI, MANBO",
         album: ["HURRYKNG", "HIEUTHUHAI", "MANBO"],
-        style: "nhac-tre",
+        style: ["nhac-tre"],
         premium: 1,
         time: 3,
         audio: "/mp3/HenGapEmDuoiAnhTrang.mp3"
@@ -84,7 +84,7 @@ const list_song = [
         song_name: "Nàng Thơ",
         author: "Hoàng Dũng",
         album: ["Hoàng Dũng"],
-        style: "nhac-tre",
+        style: ["nhac-tre"],
         premium: 0,
         time: 1,
         audio: "/mp3/NangTho.mp3"
@@ -95,7 +95,7 @@ const list_song = [
         song_name: "BẠN ĐỜI",
         author: "KARIK ft. GDUCKY",
         album: ["KARIK", "GDUCKY"],
-        style: "nhac-tre",
+        style: ["nhac-tre", "VPOP"],
         premium: 0,
         time: 3,
         audio: "/mp3/BanDoi.mp3"
@@ -106,7 +106,7 @@ const list_song = [
         song_name: "Âm thầm bên em",
         author: "Sơn Tùng MTP",
         album: ["Sơn Tùng M-TP"],
-        style: "nhac-tre",
+        style: ["nhac-tre", "VPOP"],
         premium: 0,
         time: 3,
         audio: "/mp3/AmThamBenEm.mp3"
@@ -117,7 +117,7 @@ const list_song = [
         song_name: "Mất Kết Nối",
         author: "Dương Domic",
         album: ["Dương Domic"],
-        style: "nhac-tre",
+        style: ["nhac-tre", "rap"],
         premium: 0,
         time: 1,
         audio: "/mp3/MatKetNoi.mp3"
@@ -128,7 +128,7 @@ const list_song = [
         song_name: "Tràn Bộ Nhớ",
         author: "Dương Domic",
         album: ["Dương Domic"],
-        style: "nhac-tre",
+        style: ["nhac-tre", "rap"],
         premium: 1,
         time: 1,
         audio: "/mp3/TranBoNho.mp3"
@@ -139,7 +139,7 @@ const list_song = [
         song_name: "Chịu Cách Mình Nói Thua",
         author: "Rhyder",
         album: ["Rhyder"],
-        style: "nhac-tre",
+        style: ["nhac-tre", "rap"],
         premium: 0,
         time: 2,
         audio: "/mp3/ChiuCachMinhNoiThua.mp3"
@@ -150,7 +150,7 @@ const list_song = [
         song_name: "Chưa Phải Là Yêu",
         author: "HURRYKNG",
         album: ["HURRYKNG"],
-        style: "nhac-tre",
+        style: ["nhac-tre", "rap"],
         premium: 0,
         time: 2,
         audio: "/mp3/ChuaPhaiLaYeu.mp3"
@@ -161,7 +161,7 @@ const list_song = [
         song_name: "Thu Cuối",
         author: "Mr.T, Yanbi, Hằng BingBoong",
         album: ["Thu Cuối"],
-        style: "nhac-tre",
+        style: ["nhac-tre", "VPOP"],
         premium: 0,
         time: 2,
         audio: "/mp3/ThuCuoi.mp3"        
@@ -172,7 +172,7 @@ const list_song = [
         song_name: "Lối Nhỏ",
         author: "Đen Vâu",
         album: ["Đen Vâu"],
-        style: "rap-viet",
+        style: ["rap","nhac-tre", "VPOP"],
         premium: 1,
         time: 2,
         audio: "/mp3/LoiNho.mp3"
@@ -183,7 +183,7 @@ const list_song = [
         song_name: "Cao Ốc 20",
         author: "Bray",
         album: ["Bray"],
-        style: "rap-viet",
+        style: ["rap"],
         premium: 0,
         time: 3,
         audio: "/mp3/CaoOc20.mp3"
@@ -194,7 +194,7 @@ const list_song = [
         song_name: "Dù Cho Tận Thế",
         author: "Erik",
         album: ["Erik"],
-        style: "rap-viet",
+        style: ["rap","nhac-tre", "VPOP"],
         premium: 0,
         time: 3,
         audio: "/mp3/DuChoTanThe.mp3"
@@ -205,15 +205,15 @@ const list_song = [
         song_name: "Wrong Times",
         author: "PUPPY x DANGRANGTO",
         album: ["PUPPY x DANGRANGTO"],
-        style: "nhac-tre",
+        style: ["nhac-tre", "rap", "VPOP"],
         premium: 0,
         time: 3,
         audio: "/mp3/WrongTimes.mp3"
     }
 ];
-export const listSong = new Music();
+const listSong = new Music();
     listSong.setList(list_song, list_song.length)
-
+export {listSong}
 export const music_option = list_song.slice(0,9)
 
 export const list_album = [
@@ -282,8 +282,14 @@ export function getSongFromId(id) {
 }
 export function getPlaylistFromId (id) {
     return my_playlist.find((pl) => pl.id_playlist === id);
-
 }  
+export const formatTime = (time) => {
+    if (isNaN(time)) return "00:00";
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+  };
+export const top_list = list_song.slice(5,14)
 
 export function generate_music_option () {
     let html = ``

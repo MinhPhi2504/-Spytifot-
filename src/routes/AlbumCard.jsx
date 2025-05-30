@@ -2,6 +2,7 @@
 import { useParams } from "react-router-dom";
 import { getSongFromId } from "../../backend/data/list-song";
 import { useNavigate } from "react-router-dom";
+import DurationDisplay from "../components/DurationDisplay";
 const AlbumCard = () => {
     const urlSong = useParams()
     const id = urlSong.id_song
@@ -13,7 +14,7 @@ const AlbumCard = () => {
       style={{
         backgroundColor: "#1e1b2e",
         color: "#fff",
-        padding: "40px 20px",
+        paddingLeft: "15px",
         fontFamily: "sans-serif",
         minHeight: "100vh",
       }}
@@ -76,15 +77,15 @@ const AlbumCard = () => {
                 }}
               />
               <div>
-                <div style={{ fontWeight: "bold" }}>{song.song_name}</div>
+                <div style={{ fontWeight: "bold"}}>{song.song_name}</div>
                 <div style={{ fontSize: "14px", color: "#bbb" }}>
-                  {song.album}
+                  {song.author}
                 </div>
               </div>
             </div>
             <div style={{ textAlign: "right", fontSize: "14px", color: "#ccc" }}>
               <span style={{ color: "#a259ff", marginRight: "10px" }}>💜</span>
-              02:41
+              <DurationDisplay id={id}/>
             </div>
           </div>
 

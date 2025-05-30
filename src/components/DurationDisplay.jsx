@@ -1,20 +1,18 @@
 import { useEffect, useState } from "react";
 import { getDurationFromId } from "./Playlist.jsx";
-
+import { formatTime } from "../../backend/data/list-song.js";
 function DurationDisplay({ id }) {
-  const [duration, setDuration] = useState(null);
+  const [duration, setDuration] = useState(0);
 
   useEffect(() => {
     getDurationFromId(id).then((time) => {
-      const minutes = Math.floor(time / 60);
-      const seconds = Math.floor(time % 60).toString().padStart(2, '0');
-      setDuration(`${minutes}:${seconds}`);
+      setDuration(time);
     });
   }, [id]);
 
   return (
     <div className="col d-flex justify-content-center align-items-center">
-      {duration ?? "Loading..."}
+      {formatTime(duration) ?? "Loading..."}
     </div>
   );
 }

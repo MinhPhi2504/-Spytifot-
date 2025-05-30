@@ -63,7 +63,7 @@ import { Link, useNavigate } from "react-router-dom";
                  <div>
                      <h3 className="Login-title">Login to Spytifot</h3>
                  </div>
-                 <div className="bg-dark p-4 rounded shadow handle-form-container d-flex flex-column justify-content-center align-items-center" style={{ maxWidth: "400px", width: "100%" }}>
+                 <div className="login-place p-4 rounded shadow handle-form-container d-flex flex-column justify-content-center align-items-center" style={{ maxWidth: "400px", width: "100%" }}>
                      <form className="d-flex flex-column gap-3" onSubmit={handleSubmit}>
                          {["Email", "Password"].map((field, i) => (
                              <input
@@ -80,7 +80,7 @@ import { Link, useNavigate } from "react-router-dom";
                          <button type="submit" className="btn btn-primary w-100">
                              Log in
                          </button>
-                         <Link to="/forgotpw" className="d-flex justify-content-center align-items-center forgot-password">
+                         <Link to="/quen-mat-khau" className="d-flex justify-content-center align-items-center forgot-password">
                              Forgot your password?
                          </Link>
                          <div className="signup-link">

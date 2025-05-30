@@ -29,7 +29,7 @@ function getAlbumNameFromId (id) {
   return "No Album"
 }
 export function getDurationFromId (id) {
-  const music = getSongFromId(Number(id));
+  const music = getSongFromId(id);
   if (!music) return;
 
   const audio = new Audio(music.audio);

@@ -1,0 +1,34 @@
+.style-info {
+    flex: 1;
+    color: white;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    gap: 12px;
+}
+.card {
+    background-color:rgb(127, 17, 185);
+    cursor: pointer;
+    transition: background-color, 250ms
+}
+.card:hover {
+    background-color: rgba(228, 29, 109, 0.71)
+}
+.card-music-list {
+    gap: 80px
+}
+.style-info > p {
+    margin: 0;
+    padding: 0;
+}
+.card-music-container {
+    margin-bottom: 200px;
+    margin-top: 30px
+} 
+.card-text {
+    font-size: 12.5px;
+    opacity: 0.8;
+}
+.card-body {
+    margin: 0px
+}

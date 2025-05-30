@@ -9,6 +9,11 @@
     font-size: 50px;
     color: aliceblue;
     margin-bottom: 20px;
+    z-index: 2;
+}
+.login-place {
+  background-color: rgb(14, 24, 33);
+  z-index: 2;
 }
 .background-img {
     position: fixed;
@@ -18,7 +23,7 @@
     height: 100vh;
     background-size: cover;
     background-position: center;
-    z-index: -1;
+    z-index: 1;
   }
 
   .handle-form-container {

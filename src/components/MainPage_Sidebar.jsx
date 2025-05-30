@@ -50,10 +50,10 @@ function Sidebar () {
               </a>
             </div>
             <div className="new-song">
-              <a href="">
+              <Link to = "/main/bang-xep-hang">
                 <i className="fa-solid fa-wave-square"></i>
                 <p>Bảng xếp hạng</p>
-              </a>
+              </Link>
             </div>
             <div className="title">
               <a href="">

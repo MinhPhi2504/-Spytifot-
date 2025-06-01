@@ -27,7 +27,7 @@ import { Link, useNavigate } from "react-router-dom";
          }
  
          try {
-             const response = await fetch("http://localhost:8080/login.php", {
+             const response = await fetch("http://localhost/login.php", {
                  method: "POST",
                  body: new URLSearchParams(formData),
              });
@@ -80,7 +80,7 @@ import { Link, useNavigate } from "react-router-dom";
                          <button type="submit" className="btn btn-primary w-100">
                              Log in
                          </button>
-                         <Link to="/quen-mat-khau" className="d-flex justify-content-center align-items-center forgot-password">
+                         <Link to="/forgotpw" className="d-flex justify-content-center align-items-center forgot-password">
                              Forgot your password?
                          </Link>
                          <div className="signup-link">

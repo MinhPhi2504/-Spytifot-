@@ -66,8 +66,8 @@ try {
     $mail->addAddress($email);
 
     $mail->isHTML(true);
-    $mail->Subject = 'Mã xác nhận đổi mật khẩu';
-    $mail->Body = "<h3>Mã xác nhận đổi mật khẩu của bạn là: <strong>$code</strong></h3>";
+    $mail->Subject = 'Confirmation code';
+    $mail->Body = "<h3>Your confirmationcode is: <strong>$code</strong></h3>";
 
     $mail->send();
 

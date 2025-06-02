@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import "../assets/styles/KaraokePlayer.css"
 import MusicPlayer from './MusicPlayer';
+import { formatAuthors } from '../../backend/data/list-song';
 function parseLyrics(text) {
   const lines = text.split('\n');
   return lines.map(line => {
@@ -53,7 +54,7 @@ export default function KaraokePlayer({ audioSrc, lrcText }) {
           <h4 style={{ marginTop: "20px", fontWeight: "bold" }}>
             {audioSrc.song_name}
           </h4>
-          <p style={{ margin: "5px 0" }}>{audioSrc.author}</p>
+          <p style={{ margin: "5px 0" }}>{formatAuthors(audioSrc.author)}</p>
         </Col>
         <Col md={8} className="lyrics-section">
         <div className="lyrics-fixed-window">

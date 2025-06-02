@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom"
 import "../assets/styles/top100list.css";
 import {top100Types} from "../../backend/data/top100.js"
 import {getSongsFromStyle} from "../../backend/data/top100.js"
+import { formatAuthors } from "../../backend/data/list-song.js";
  function Top100List () {
     const url = useParams()
     const style = url.style
@@ -41,7 +42,7 @@ import {getSongsFromStyle} from "../../backend/data/top100.js"
                         />
                         <div className="card-body text-center">
                             <h5 className="card-title fw-bold">{song.song_name}</h5>
-                            <p className="card-text">{song.author}</p>
+                            <p className="card-text">{formatAuthors(song.author)}</p>
                         </div>
                     </div>
                     ))}               

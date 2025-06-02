@@ -3,6 +3,7 @@ import { FaPlay } from "react-icons/fa";
 import { top_list } from "../../backend/data/list-song";
 import { useNavigate } from "react-router-dom";
 import DurationDisplay from "../components/DurationDisplay";
+import { formatAuthors } from "../../backend/data/list-song";
 const TopChartItem = () => {
   const navigate = useNavigate()
   return (
@@ -28,11 +29,11 @@ const TopChartItem = () => {
                 />
                 <div>
                   <div className="fw-bold name-music">{song.song_name}</div>
-                  <div className="name-author">{song.author}</div>
+                  <div className="name-author">{formatAuthors(song.author)}</div>
                 </div>
               </div>
               <div className="d-none d-md-block me-3">
-                {song.album}
+                {formatAuthors(song.album)}
               </div>
               <div className="text-light me-2"><DurationDisplay id = {song.id} /></div>
             </div>

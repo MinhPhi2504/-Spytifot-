@@ -7,5 +7,10 @@ html, body, #root{
     background-color: black; /* Set nền full đen */
 }
 li {
-    list-style: none;
+    list-style: none !important;
 }
+ ul {
+    list-style-type: none !important; /* Bỏ dấu chấm cho toàn bộ danh sách */
+    padding: 0; /* Tùy chọn: bỏ khoảng đệm mặc định của ul */
+    margin: 0;  /* Tùy chọn: bỏ lề mặc định của ul */
+  }

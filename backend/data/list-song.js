@@ -271,12 +271,13 @@ export const raw_playlist = [
    }
 ];
 export const my_playlist = raw_playlist.map((pl) => {
-    const firstSong = getSongFromId(pl.id_songs[0]);
+    const firstSong = getSongFromId(String(pl.id_songs[0]));
     return {
       ...pl,
       img: firstSong ? firstSong.img : "No Image",
     };
   });
+console.log(my_playlist)
 export function getSongFromId(id) {
     return listSong.getSong(id)
 }

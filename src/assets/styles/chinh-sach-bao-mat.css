@@ -36,13 +36,6 @@
                 margin: 0 0;
             }
 
-            ul li:before {
-                content: "•";
-                color: #e06e73;
-                display: inline-block;
-                margin-right: 1em
-            }
-
             ul ul {
                 margin-left: 1.25714em
             }

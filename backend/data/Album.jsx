@@ -1,7 +1,8 @@
 import { list_album } from "./list-song.js";
 import { useState, useEffect } from "react";
-
+import { useNavigate } from "react-router-dom";
 const Albums = () => {
+    const navigate = useNavigate()
     const [albums, setAlbums] = useState([]);
 
     useEffect(() => {
@@ -12,7 +13,7 @@ const Albums = () => {
         <h2 className="text-white fs-4 fw-bold mb-4" style={{margin: '26px', marginBottom: '20px'}}>Album Hot</h2>
         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-2">
           {albums.map((album) => (
-            <div key={album.id} className="col text-center text-white">
+            <div key={album.id} className="col text-center text-white" onClick={()=> {navigate(`/thuvien/album/${album.author}`)}}>
               <img
                 src={album.img}
                 className="object-cover rounded mb-2"

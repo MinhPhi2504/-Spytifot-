@@ -4,7 +4,7 @@ import "../assets/styles/Playlist.css"
 import { getSongFromId } from "../../backend/data/list-song.js";
 import { FaStar } from "react-icons/fa";
 import DurationDisplay from "./DurationDisplay.jsx";
-function generateSongWithId (id) {
+export function generateSongWithId (id) {
   const music = getSongFromId(id)
   console.log(music)
   return (

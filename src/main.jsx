@@ -17,6 +17,7 @@ import TopChartItem from './routes/TopChart.jsx';
 import Top100List from './routes/top100list.jsx';
 import Theme from './routes/Theme.jsx';
 import PrivacyPolicy from './routes/chinh-sach-bao-mat.jsx';
+import Author from './routes/Author.jsx';
 //import AdminPage_QLBH from './routes/AdminPage_QLBH.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -40,6 +41,7 @@ createRoot(document.getElementById('root')).render(
               <Route path="/thuvien" element={<MainLayout />}>
                 <Route index element={<Thuvien />} />
                 <Route path="/thuvien/:id_playlist" element={<PlaylistDetail/>}/>
+                <Route path="/thuvien/album/:author_name" element={<Author/>}/>
               </Route>
             </Routes>
           </BrowserRouter>

@@ -6,7 +6,7 @@ const list_song = [
         id: uuidv4(),
         img: "/img/dua-nhau-di-tron.jpg",
         song_name: "Đưa Nhau Đi Trốn",
-        author: "Đen Vâu, Linh Cáo",
+        author: ["Đen Vâu", "Linh Cáo"],
         album: ["Đen Vâu", ", Linh Cáo"],
         style: ["nhac-tre", "VPOP","chill"],
         premium: 1,
@@ -17,7 +17,7 @@ const list_song = [
         id: uuidv4(),
         img: "/img/mua-mua=ay.jpg",
         song_name: "Mùa Mưa Ấy",
-        author: "Vũ",
+        author: ["Vũ"],
         album: ["Vũ"],
         style: ["nhac-tre", "VPOP","chill", "lofi"],
         time: 1,
@@ -27,7 +27,7 @@ const list_song = [
         id: uuidv4(),
         img: "/img/shhhh.jpg",
         song_name: "shhhhhhh...",
-        author: "WEAN ft Tlinh",
+        author: ["WEAN", "Tlinh"],
         album: ["WEAN", ", Tlinh"],
         style: ["nhac-tre", "VPOP"],
         premium: 0,
@@ -38,7 +38,7 @@ const list_song = [
         id: uuidv4(),
         img: "/img/dong-thoi-gian.jpg",
         song_name: "Dòng Thời Gian",
-        author: "Nguyễn Hải Phong",
+        author: ["Nguyễn Hải Phong"],
         album: ["Nguyễn Hải Phong","chill"],
         style: ["nhac-tre"],
         premium: 0,
@@ -49,7 +49,7 @@ const list_song = [
         id: uuidv4(),
         img: "/img/mot-trieu-like.jpg",
         song_name: "Một Triệu Like",
-        author: "Đen Vâu",
+        author: ["Đen Vâu"],
         album: ["Đen Vâu"],
         style: ["nhac-tre", "rap"],
         premium: 0,
@@ -60,7 +60,7 @@ const list_song = [
         id: uuidv4(),
         img: "/img/exit-sign.jpg",
         song_name: "Exit Sign",
-        author: "HIEUTHUHAI prod. by Kewtile",
+        author: ["HIEUTHUHAI"],
         album: ["HIEUTHUHAI", " Kewtile"],
         style: ["nhac-tre", "rap"],
         premium: 1,
@@ -71,7 +71,7 @@ const list_song = [
         id: uuidv4(),
         img: "/img/hen-gap-em-duoi-anh-trang.jpg",
         song_name: "Hẹn Gặp Em Dưới Ánh Trăng",
-        author: "HURRYKNG, HIEUTHUHAI, MANBO",
+        author: ["HURRYKNG", "HIEUTHUHAI", "MANBO"],
         album: ["HURRYKNG", "HIEUTHUHAI", "MANBO"],
         style: ["nhac-tre"],
         premium: 1,
@@ -82,7 +82,7 @@ const list_song = [
         id: uuidv4(),
         img: "/public/img/nang-tho.jpg",
         song_name: "Nàng Thơ",
-        author: "Hoàng Dũng",
+        author: ["Hoàng Dũng"],
         album: ["Hoàng Dũng"],
         style: ["nhac-tre","chill", "lofi"],
         premium: 0,
@@ -93,7 +93,7 @@ const list_song = [
         id: uuidv4(),
         img: "/img/ban-doi.jpg",
         song_name: "BẠN ĐỜI",
-        author: "KARIK ft. GDUCKY",
+        author: ["KARIK", "GDUCKY"],
         album: ["KARIK", "GDUCKY"],
         style: ["nhac-tre", "VPOP","chill"],
         premium: 0,
@@ -104,7 +104,7 @@ const list_song = [
         id: uuidv4(),
         img: "/img/am-tham-ben-em.jpg",
         song_name: "Âm thầm bên em",
-        author: "Sơn Tùng MTP",
+        author: ["Sơn Tùng MTP"],
         album: ["Sơn Tùng M-TP"],
         style: ["nhac-tre", "VPOP","chill","lofi"],
         premium: 0,
@@ -115,7 +115,7 @@ const list_song = [
         id: uuidv4(),
         img: "/img/mat-ket-noi.jpg",
         song_name: "Mất Kết Nối",
-        author: "Dương Domic",
+        author: ["Dương Domic"],
         album: ["Dương Domic"],
         style: ["nhac-tre", "rap","chill","lofi"],
         premium: 0,
@@ -126,7 +126,7 @@ const list_song = [
         id: uuidv4(),
         img: "/img/tran-bo-nho.jpg",
         song_name: "Tràn Bộ Nhớ",
-        author: "Dương Domic",
+        author: ["Dương Domic"],
         album: ["Dương Domic"],
         style: ["nhac-tre", "rap","chill","lofi"],
         premium: 1,
@@ -137,7 +137,7 @@ const list_song = [
         id: uuidv4(),
         img: "/img/chiu-cach-minh-noi-thua.jpg",
         song_name: "Chịu Cách Mình Nói Thua",
-        author: "Rhyder",
+        author: ["Rhyder"],
         album: ["Rhyder"],
         style: ["nhac-tre", "rap"],
         premium: 0,
@@ -148,7 +148,7 @@ const list_song = [
         id: uuidv4(),
         img: "/img/chua-phai-la-yeu.jpg",
         song_name: "Chưa Phải Là Yêu",
-        author: "HURRYKNG",
+        author: ["HURRYKNG"],
         album: ["HURRYKNG"],
         style: ["nhac-tre", "rap"],
         premium: 0,
@@ -159,7 +159,7 @@ const list_song = [
         id: uuidv4(),
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_A3vshwke16DoO1XKIOoFls176UwYTelEuQ&s",
         song_name: "Thu Cuối",
-        author: "Mr.T, Yanbi, Hằng BingBoong",
+        author: ["Yanbi", "Mr.T"],
         album: ["Thu Cuối"],
         style: ["nhac-tre", "VPOP","chill"],
         premium: 0,
@@ -170,7 +170,7 @@ const list_song = [
         id: uuidv4(),
         img: "/img/loi-nho.jpg",
         song_name: "Lối Nhỏ",
-        author: "Đen Vâu",
+        author: ["Đen Vâu"],
         album: ["Đen Vâu"],
         style: ["rap","nhac-tre", "VPOP", "chill", "lofi"],
         premium: 1,
@@ -181,7 +181,7 @@ const list_song = [
         id: uuidv4(),
         img: "/img/cao-oc-20.jpg",
         song_name: "Cao Ốc 20",
-        author: "Bray",
+        author: ["Bray"],
         album: ["Bray"],
         style: ["rap", "chill"],
         premium: 0,
@@ -192,7 +192,7 @@ const list_song = [
         id: uuidv4(),
         img: "/img/du-cho-tan-the.jpg",
         song_name: "Dù Cho Tận Thế",
-        author: "Erik",
+        author: ["Erik"],
         album: ["Erik"],
         style: ["rap","nhac-tre", "VPOP", "chill"],
         premium: 0,
@@ -203,7 +203,7 @@ const list_song = [
         id: uuidv4(),
         img: "/img/wrong-times.jpg",
         song_name: "Wrong Times",
-        author: "PUPPY x DANGRANGTO",
+        author: ["PUPPY", "DANGRANGTO"],
         album: ["PUPPY x DANGRANGTO"],
         style: ["nhac-tre", "rap", "VPOP", "chill"],
         premium: 0,
@@ -309,5 +309,19 @@ export function generate_music_option () {
         `
     }) 
     document.querySelector('.music-list').innerHTML = html
+}
+export function getSongFromAuthorName(author) {
+    let newList = [];
+    list_song.forEach((song) => {
+        song.author.forEach((author_name) => {
+            if (author_name === author){
+                newList.push(song)
+            }
+        })
+    })
+    return newList
+}
+export function getAlbumFromAuthorName (author) {
+    return list_album.find((album) => album.author === author)
 }
 

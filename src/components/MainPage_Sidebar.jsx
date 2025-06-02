@@ -56,10 +56,10 @@ function Sidebar () {
               </Link>
             </div>
             <div className="title">
-              <a href="">
+              <Link to ="/main/chu-de-va-the-loai">
                 <i className="fa-solid fa-icons"></i>
                 <p>Chủ đề và thể loại</p>
-              </a>
+              </Link>
             </div>
             <div className="top-hit">
               <Link to="/main/top100">

@@ -9,16 +9,16 @@ function App() {
 
   return (
     <div className="container">
-      <img className="logo" src={a} alt="" />
+      <img className="logo" src={a} alt="" style={{zIndex: 1}}/>
 
-      <div className="sub-container">
+      <div className="sub-container" style={{zIndex: 2}}>
         <Header />
 
-        <div className="wrapper">
+        <div className="wrapper" >
           <div className="form-container bg-dark shadow-lg">
-            <img className="pic-sub" src="../../public/img/logo.jpg" alt="" />
+            <img className="pic-sub" src="../../public/img/logo.jpg" alt="" style={{zIndex: 2}}/>
             <div className="form-detail">
-              <SignupForm />
+              <SignupForm  />
               <SocialLogin />
             </div>
           </div>

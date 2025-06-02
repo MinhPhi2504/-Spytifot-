@@ -23,6 +23,24 @@ export  const top100Types = [
         loi_tua: 'Top 100 Nhạc Pop Âu Mỹ là danh sách 100 ca khúc hot nhất hiện tại của thể loại Nhạc US-UK, được Spytifot tự động tổng hợp dựa trên thông tin số liệu lượt nghe và lượt chia sẻ của từng bài hát trên phiên bản web và phiên bản Mobile. Dữ liệu sẽ được lấy trong 30 ngày gần nhất và được cập nhật liên tục',
         tac_gia: 'Alan Walker, Avicii, Bruno Mars...',
         img: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_jpeg/cover/6/3/2/0/63207ba6db02bac379928147081397b2.jpg' 
+     },
+     {
+        style: 'nhac-hoa-loi-viet',
+        loi_tua: 'Lắng nghe những giai điệu nhạc Hoa lời Việt nhẹ nhàng như những cánh hoa rơi',
+        tac_gia: 'Hương Ly, Bảo Anh, Juky San',
+        img: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_jpeg/cover/9/b/e/6/9be6f892a7f95ef25632752dd2a319c2.jpg'
+     }, 
+     {
+        style: 'lofi',
+        loi_tua: 'Thả mình vào những giai điệu Lofi Chill nghe là nghiện',
+        tac_gia: 'H2K, Lê Bảo Bình, Jank',
+        img: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_jpeg/cover/9/b/e/6/9be6f892a7f95ef25632752dd2a319c2.jpg'
+     },
+        {
+        style: 'chill',
+        loi_tua: 'Nghe đi chill cực',
+        tac_gia: 'H2K, Lê Bảo Bình, Đen Vâu',
+        img: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_jpeg/cover/c/d/c/b/cdcba8f6026e4e90e33f2d4d4604d515.jpg'
      }
 ]
 export function getSongsFromStyle (style) {
@@ -37,5 +55,5 @@ export function getSongsFromStyle (style) {
             }
         }
     }
-    return listSongFromStyle
+    return listSongFromStyle 
 }

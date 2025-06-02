@@ -1,5 +1,6 @@
 import "../assets/styles/MainPage_header.css"
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 function Header () {
         return (
         <div className="header">
@@ -44,7 +45,7 @@ function Header () {
                 </div>
                 <div className="show-menu">
                 <i class="fa-solid fa-shield"></i>
-                  <a href="">Chính sách bảo mật</a>
+                  <Link to="/chinh-sach-bao-mat">Chính sách bảo mật</Link>
                 </div>
                 <div className="show-menu">
                   <i className="fa-solid fa-rectangle-ad"></i>

@@ -1,0 +1,9 @@
+.theme-container {
+    height: 3000px;
+}
+.theme-img {
+    height: auto !important;
+}
+.theme-img > img {
+    width: 100%;
+}

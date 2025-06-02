@@ -24,25 +24,31 @@ function ForgotPW() {
       return;
     }
 
-    try {
-      const res = await fetch("http://localhost/send_reset_code.php", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: `email=${encodeURIComponent(email)}`,
-      });
-      const data = await res.json();
+  try {
+    const res = await fetch("http://localhost:8080/send_reset_code.php", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: `email=${encodeURIComponent(email)}`,
+    });
 
-      if (data.success) {
-        setGeneratedCode(data.code || "");
-        setMessage("Mã xác nhận đã được gửi. Vui lòng kiểm tra email.");
-        setStep(2);
-      } else {
-        setMessage(data.message);
-      }
-    } catch (err) {
-      setMessage("Lỗi kết nối máy chủ.");
+    const text = await res.text(); // Đọc thô nội dung phản hồi
+    console.log("Raw response:", text);
+
+    const data = JSON.parse(text); // Thử parse thủ công để bắt lỗi JSON
+    console.log("Parsed data:", data);
+
+    if (data.success) {
+      setGeneratedCode(data.code || "");
+      setMessage("Mã xác nhận đã được gửi. Vui lòng kiểm tra email.");
+      setStep(2);
+    } else {
+      setMessage(data.message);
     }
-  };
+  } catch (err) {
+    console.error("Lỗi fetch:", err);
+    setMessage("Lỗi kết nối máy chủ.");
+  }
+};
 
   // Bước 2: Xác nhận mã và đổi mật khẩu
   const handleResetPassword = async (e) => {
@@ -59,7 +65,7 @@ function ForgotPW() {
     }
 
     try {
-      const res = await fetch("http://localhost/reset_password.php", {
+      const res = await fetch("http://localhost:8080/reset_password.php", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: `email=${encodeURIComponent(email)}&code=${encodeURIComponent(code)}&new_password=${encodeURIComponent(password)}`,
@@ -83,7 +89,7 @@ function ForgotPW() {
       <div className="background-img1" style={{
         position: 'fixed',
         inset: 0,
-        zIndex: -20,
+        zIndex: 1,
       }}>
         <img
           className="logo1"
@@ -92,87 +98,84 @@ function ForgotPW() {
           style={{
             width: '100%',
             height: '100%',
-            objectFit: 'cover',
-            opacity: 0.2
+            opacity: 0.5,
           }}
         />
       </div>
-
-      <div className="containerAll d-flex flex-column justify-content-center align-items-center vh-100" style={{zIndex:'22'}}>
-        <div>
-          <h3 className="Login-title">Forgot your password?</h3>
+      <div className="containerAll d-flex flex-column justify-content-center align-items-center vh-100" >
+        <div style={{zIndex: 2}}>
+          <h3 className="Login-title" >Forgot your password?</h3>
         </div>
         <div
           className="bg-dark p-4 rounded shadow handle-form-container d-flex flex-column justify-content-center align-items-center"
-          style={{ maxWidth: "400px", width: "100%" }}
+          style={{ maxWidth: "400px", width: "100%",zIndex: 2 }}
         >
           <form
-  onSubmit={step === 1 ? handleSendCode : handleResetPassword}
-  className="d-flex flex-column gap-3 w-100"
-  style={{ maxWidth: "400px" }}
->
-  {step === 1 && (
-    <>
-      <input
-        type="email"
-        placeholder="Email"
-        className="form-control w-100"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-      />
-      <button type="submit" className="btn btn-primary w-100">
-        Send Code
-      </button>
-    </>
-  )}
+            onSubmit={step === 1 ? handleSendCode : handleResetPassword}
+            className="d-flex flex-column gap-3 w-100"
+            style={{ maxWidth: "400px" }}
+          >
+            {step === 1 && (
+              <>
+                <input
+                  type="email"
+                  placeholder="Email"
+                  className="form-control w-100"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+                <button type="submit" className="btn btn-primary w-100">
+                  Send Code
+                </button>
+              </>
+            )}
 
-  {step === 2 && (
-    <>
-      <input
-        type="text"
-        placeholder="Confirmation Code"
-        className="form-control w-100"
-        value={code}
-        onChange={(e) => setCode(e.target.value)}
-        required
-      />
-      <input
-        type="password"
-        placeholder="New Password"
-        className="form-control w-100"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
-      />
-      <input
-        type="password"
-        placeholder="Re-enter New Password"
-        className="form-control w-100"
-        value={rePassword}
-        onChange={(e) => setRePassword(e.target.value)}
-        required
-      />
-      <button type="submit" className="btn btn-success w-100">
-        Confirm
-      </button>
-    </>
-  )}
-  {step === 3 && (
-  <>
-    <button
-      className="btn btn-primary w-100"
-      onClick={() => navigate("/login")}
-      type="button"
-    >
-      Quay lại Đăng nhập
-    </button>
-  </>
-)}
+            {step === 2 && (
+              <>
+                <input
+                  type="text"
+                  placeholder="Confirmation Code"
+                  className="form-control w-100"
+                  value={code}
+                  onChange={(e) => setCode(e.target.value)}
+                  required
+                />
+                <input
+                  type="password"
+                  placeholder="New Password"
+                  className="form-control w-100"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+                <input
+                  type="password"
+                  placeholder="Re-enter New Password"
+                  className="form-control w-100"
+                  value={rePassword}
+                  onChange={(e) => setRePassword(e.target.value)}
+                  required
+                />
+                <button type="submit" className="btn btn-success w-100">
+                  Confirm
+                </button>
+              </>
+            )}
+            {step === 3 && (
+            <>
+              <button
+                className="btn btn-primary w-100"
+                onClick={() => navigate("/login")}
+                type="button"
+              >
+                Quay lại Đăng nhập
+              </button>
+            </>
+          )}
 
-  {message && <div className="text-white text-center">{message}</div>}
-</form>
-
+            {message && <div className="text-white text-center">{message}</div>}
+          </form>
         </div>
       </div>
     </>

@@ -1,0 +1,203 @@
+
+            .note-wrapper {
+                box-shadow: 5px 5px 0 rgba(0,0,0,0.05);
+                border: 1px solid #e07378;
+                max-width: 800px;
+                margin: 5% auto;
+                padding: 5%;
+                width: 90%;
+                background: #FFF;
+                line-height: 1.5;
+            }
+
+            .note-wrapper.spotlight-preview {
+                overflow-x: hidden
+            }
+
+            u {
+                text-decoration: none;
+                background-image: linear-gradient(to bottom, rgba(0,0,0,0) 50%,#e06e73 50%);
+                background-repeat: repeat-x;
+                background-size: 2px 2px;
+                background-position: 0 1.05em
+            }
+
+            s {
+                color: #878787
+            }
+
+            hr {
+                margin-bottom: 0.7em;
+                margin-top: 0.7em
+            }
+
+            ul li {
+                text-indent: 0;
+                margin: 0 0;
+            }
+
+            ul li:before {
+                content: "•";
+                color: #e06e73;
+                display: inline-block;
+                margin-right: 1em
+            }
+
+            ul ul {
+                margin-left: 1.25714em
+            }
+
+            ol li {
+                text-indent: 0;
+                margin: 10px 0 0;
+            }
+
+            ol ol {
+                margin-left: 1.25714em
+            }
+
+            blockquote {
+                display: block;
+                margin-left: -1em;
+                padding-left: 0.8em;
+                border-left: 0.2em solid #e06e73
+            }
+
+            .todo-list ul {
+                margin-left: 1.88571em
+            }
+
+            .todo-list li {
+                text-indent: -1.75em
+            }
+
+            .todo-list li:before {
+                content: "";
+                display: static;
+                margin-right: 0px
+            }
+
+            .todo-checkbox {
+                text-indent: -1.7em
+            }
+
+            .todo-checkbox svg {
+                margin-right: 0.3em;
+                position: relative;
+                top: 0.2em
+            }
+
+            .todo-checkbox svg #check {
+                display: none
+            }
+
+            .todo-checkbox.todo-checked #check {
+                display: inline
+            }
+
+            .todo-checkbox.todo-checked .todo-text {
+                text-decoration: line-through;
+                color: #878787
+            }
+
+            .code-inline {
+                display: inline;
+                background: white;
+                border: solid 1px #dedede;
+                padding: 0.2em 0.5em;
+                font-size: 0.9em
+            }
+
+            .code-multiline {
+                display: block;
+                background: white;
+                border: solid 1px #dedede;
+                padding: 0.7em 1em;
+                font-size: 0.9em;
+                overflow-x: auto
+            }
+
+            .hashtag {
+                display: inline-block;
+                color: white;
+                background: #b8bfc2;
+                padding: 0.0em 0.5em;
+                border-radius: 1em;
+                text-indent: 0
+            }
+
+            .hashtag a {
+                color: #fff
+            }
+
+            .address a {
+                color: #545454;
+                background-image: linear-gradient(to bottom, rgba(0,0,0,0) 50%,#0da35e 50%);
+                background-repeat: repeat-x;
+                background-size: 2px 2px;
+                background-position: 0 1.05em
+            }
+
+            .address svg {
+                position: relative;
+                top: 0.2em;
+                display: inline-block;
+                margin-right: 0.2em
+            }
+
+            .color-preview {
+                display: inline-block;
+                width: 1em;
+                height: 1em;
+                border: solid 1px rgba(0,0,0,0.3);
+                border-radius: 50%;
+                margin-right: 0.1em;
+                position: relative;
+                top: 0.2em;
+                white-space: nowrap
+            }
+
+            .color-code {
+                margin-right: 0.2em;
+                font-family: "Menlo-Regular";
+                font-size: 0.9em
+            }
+
+            .color-hash {
+                opacity: 0.4
+            }
+
+            .ordered-list-number {
+                color: #e06e73;
+                text-align: right;
+                display: inline-block;
+                min-width: 1em
+            }
+
+            .arrow svg {
+                position: relative;
+                top: 0.08em;
+                display: inline-block;
+                margin-right: 0.15em;
+                margin-left: 0.15em
+            }
+
+            .arrow svg #rod {
+                stroke: #545454
+            }
+
+            .arrow svg #point {
+                fill: #545454
+            }
+
+            mark {
+                color: inherit;
+                display: inline;
+                padding: 0.2em 0.5em;
+                background-color: #fcffc0
+            }
+
+            img {
+                max-width: 100%;
+                height: auto
+            }

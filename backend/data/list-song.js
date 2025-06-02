@@ -8,7 +8,7 @@ const list_song = [
         song_name: "Đưa Nhau Đi Trốn",
         author: "Đen Vâu, Linh Cáo",
         album: ["Đen Vâu", ", Linh Cáo"],
-        style: ["nhac-tre", "VPOP"],
+        style: ["nhac-tre", "VPOP","chill"],
         premium: 1,
         time: 3,
         audio: "/mp3/DuaNhauDiTron.mp3",
@@ -19,7 +19,7 @@ const list_song = [
         song_name: "Mùa Mưa Ấy",
         author: "Vũ",
         album: ["Vũ"],
-        style: ["nhac-tre", "VPOP"],
+        style: ["nhac-tre", "VPOP","chill", "lofi"],
         time: 1,
         audio: "/mp3/MuaMuaAy.mp3"
     },
@@ -39,7 +39,7 @@ const list_song = [
         img: "/img/dong-thoi-gian.jpg",
         song_name: "Dòng Thời Gian",
         author: "Nguyễn Hải Phong",
-        album: ["Nguyễn Hải Phong"],
+        album: ["Nguyễn Hải Phong","chill"],
         style: ["nhac-tre"],
         premium: 0,
         time: 4,
@@ -84,7 +84,7 @@ const list_song = [
         song_name: "Nàng Thơ",
         author: "Hoàng Dũng",
         album: ["Hoàng Dũng"],
-        style: ["nhac-tre"],
+        style: ["nhac-tre","chill", "lofi"],
         premium: 0,
         time: 1,
         audio: "/mp3/NangTho.mp3"
@@ -95,7 +95,7 @@ const list_song = [
         song_name: "BẠN ĐỜI",
         author: "KARIK ft. GDUCKY",
         album: ["KARIK", "GDUCKY"],
-        style: ["nhac-tre", "VPOP"],
+        style: ["nhac-tre", "VPOP","chill"],
         premium: 0,
         time: 3,
         audio: "/mp3/BanDoi.mp3"
@@ -106,7 +106,7 @@ const list_song = [
         song_name: "Âm thầm bên em",
         author: "Sơn Tùng MTP",
         album: ["Sơn Tùng M-TP"],
-        style: ["nhac-tre", "VPOP"],
+        style: ["nhac-tre", "VPOP","chill","lofi"],
         premium: 0,
         time: 3,
         audio: "/mp3/AmThamBenEm.mp3"
@@ -117,7 +117,7 @@ const list_song = [
         song_name: "Mất Kết Nối",
         author: "Dương Domic",
         album: ["Dương Domic"],
-        style: ["nhac-tre", "rap"],
+        style: ["nhac-tre", "rap","chill","lofi"],
         premium: 0,
         time: 1,
         audio: "/mp3/MatKetNoi.mp3"
@@ -128,7 +128,7 @@ const list_song = [
         song_name: "Tràn Bộ Nhớ",
         author: "Dương Domic",
         album: ["Dương Domic"],
-        style: ["nhac-tre", "rap"],
+        style: ["nhac-tre", "rap","chill","lofi"],
         premium: 1,
         time: 1,
         audio: "/mp3/TranBoNho.mp3"
@@ -161,7 +161,7 @@ const list_song = [
         song_name: "Thu Cuối",
         author: "Mr.T, Yanbi, Hằng BingBoong",
         album: ["Thu Cuối"],
-        style: ["nhac-tre", "VPOP"],
+        style: ["nhac-tre", "VPOP","chill"],
         premium: 0,
         time: 2,
         audio: "/mp3/ThuCuoi.mp3"        
@@ -172,7 +172,7 @@ const list_song = [
         song_name: "Lối Nhỏ",
         author: "Đen Vâu",
         album: ["Đen Vâu"],
-        style: ["rap","nhac-tre", "VPOP"],
+        style: ["rap","nhac-tre", "VPOP", "chill", "lofi"],
         premium: 1,
         time: 2,
         audio: "/mp3/LoiNho.mp3"
@@ -183,7 +183,7 @@ const list_song = [
         song_name: "Cao Ốc 20",
         author: "Bray",
         album: ["Bray"],
-        style: ["rap"],
+        style: ["rap", "chill"],
         premium: 0,
         time: 3,
         audio: "/mp3/CaoOc20.mp3"
@@ -194,7 +194,7 @@ const list_song = [
         song_name: "Dù Cho Tận Thế",
         author: "Erik",
         album: ["Erik"],
-        style: ["rap","nhac-tre", "VPOP"],
+        style: ["rap","nhac-tre", "VPOP", "chill"],
         premium: 0,
         time: 3,
         audio: "/mp3/DuChoTanThe.mp3"
@@ -205,7 +205,7 @@ const list_song = [
         song_name: "Wrong Times",
         author: "PUPPY x DANGRANGTO",
         album: ["PUPPY x DANGRANGTO"],
-        style: ["nhac-tre", "rap", "VPOP"],
+        style: ["nhac-tre", "rap", "VPOP", "chill"],
         premium: 0,
         time: 3,
         audio: "/mp3/WrongTimes.mp3"

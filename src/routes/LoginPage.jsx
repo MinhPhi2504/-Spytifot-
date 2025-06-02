@@ -60,7 +60,7 @@ import { Link, useNavigate } from "react-router-dom";
                  <img className="logo" src="../../public/img/violin.png" alt="" />
              </div>
              <div className="containerAll d-flex flex-column justify-content-center align-items-center vh-100">
-                 <div>
+                 <div style={{zIndex: 2}}>
                      <h3 className="Login-title">Login to Spytifot</h3>
                  </div>
                  <div className="login-place p-4 rounded shadow handle-form-container d-flex flex-column justify-content-center align-items-center" style={{ maxWidth: "400px", width: "100%" }}>

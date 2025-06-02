@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { getPlaylistFromId } from "../../backend/data/list-song.js";
+import { getPlaylistFromId, formatAuthors } from "../../backend/data/list-song.js";
 import "../assets/styles/Playlist.css"
 import { getSongFromId } from "../../backend/data/list-song.js";
 import { FaStar } from "react-icons/fa";
@@ -14,10 +14,10 @@ export function generateSongWithId (id) {
         alt="No Image"
         className="song-image"
       />
-      <div className="song-infos">
+      <div className="song-infos" style={{width: '300px'}}>
         <div className="song-title">{music.song_name}</div>
         <div className="song-artist">
-          {music.author} <FaStar className="star-icon" />
+          {formatAuthors(music.author)} <FaStar className="star-icon" />
         </div>
       </div>
     </div>
@@ -55,18 +55,20 @@ function PlaylistDetail() {
                 <button className="btn btn-play btn-primary mt-2">Phát từ đầu</button>
               </div>
               <div className="col-md-8">
-                <div className="row text-center d-flex justify-content-between align-items-center main-dt" style={{marginBottom : '5px'}}>
-                  <div className="col" style={{textAlign: 'left'}}><h5>Danh sách bài hát</h5></div>
-                  <div className="col"><h5>Album</h5></div>
-                  <div className="col"><h5>Thời gian</h5></div>
+                <div className=" d-flex align-items-center main-dt" style={{marginBottom : '5px'}}>
+                  <div style={{textAlign: 'left',width: '375px'}}><h5>Danh sách bài hát</h5></div>
+                  <div style={{textAlign: 'left'}}><h5>Album</h5></div>
+                  <div  style={{flex: 1, textAlign: 'right'}}><h5>Thời gian</h5></div>
                 </div>
                   <ul className="list-songs-container">
                     {playlist.id_songs.map((id, index) => (
                       <li key={index} className="lists-group-item ">
-                        <div className="row w-100">
-                          <div className="col"> {generateSongWithId(id)} </div>
-                          <div className="col d-flex justify-content-center align-items-center" >{getAlbumNameFromId(id)}</div>
-                          <DurationDisplay id={id} />
+                        <div className="d-flex w-100 align-items-center">
+                          <div className=""> {generateSongWithId(id)} </div>
+                          <div className="" >{formatAuthors(getAlbumNameFromId(id))}</div>
+                          <div style={{flex: 1, textAlign: 'right', marginRight: '20px'}}>
+                           <DurationDisplay id={id} />
+                          </div>
                         </div>
                       </li>
                     ))}

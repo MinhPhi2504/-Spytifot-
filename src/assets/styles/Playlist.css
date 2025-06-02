@@ -44,7 +44,7 @@
     align-items: center;
     padding: 10px;
     border-radius: 10px;
-    width: fit-content;
+        width: auto !important;
   }
   
   .song-image {

@@ -39,8 +39,8 @@ const list_song = [
         img: "/img/dong-thoi-gian.jpg",
         song_name: "Dòng Thời Gian",
         author: ["Nguyễn Hải Phong"],
-        album: ["Nguyễn Hải Phong","chill"],
-        style: ["nhac-tre"],
+        album: ["Nguyễn Hải Phong"],
+        style: ["nhac-tre", "chill"],
         premium: 0,
         time: 4,
         audio: "/mp3/DongThoiGian.mp3"
@@ -324,4 +324,11 @@ export function getSongFromAuthorName(author) {
 export function getAlbumFromAuthorName (author) {
     return list_album.find((album) => album.author === author)
 }
-
+export function formatAuthors(authorsArray) {
+  // Kiểm tra nếu mảng rỗng hoặc không phải là mảng
+  if (!Array.isArray(authorsArray) || authorsArray.length === 0) {
+    return "Đang cập nhật"; 
+  }
+  return authorsArray.join(", ");
+}
+console.log(formatAuthors( ["HURRYKNG", "HIEUTHUHAI", "MANBO"]))

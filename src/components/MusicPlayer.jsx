@@ -12,7 +12,7 @@ import {
   FaVolumeUp,
 } from "react-icons/fa";
 import "../assets/styles/MusicPlayer.css";
-
+import { formatAuthors } from "../../backend/data/list-song";
 export default function MusicPlayer({ song, fullScreen = false, onTimeUpdate }) {
   useEffect(() => {
     localStorage.setItem("currentSong", JSON.stringify(song));
@@ -185,7 +185,7 @@ export default function MusicPlayer({ song, fullScreen = false, onTimeUpdate }) 
           <div className="song-name" onClick={() => navigate(`/karaoke/${song.id}`)}>
             {song.song_name}
           </div>
-          <div className="song-author">{song.author}</div>
+          <div className="song-author">{formatAuthors(song.author)}</div>
         </div>
       </div>
 

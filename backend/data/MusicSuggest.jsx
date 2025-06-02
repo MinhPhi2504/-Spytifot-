@@ -2,6 +2,7 @@ import { listSong } from "./list-song";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../src/assets/styles/MusicSuggest.css"
+import { formatAuthors } from "./list-song";
 function MusicSuggest({start, end}) {
     const [suggestions, setSuggestions] = useState([]);
 
@@ -28,7 +29,7 @@ function MusicSuggest({start, end}) {
                                             }}>
                             {music.song_name}
                         </div>
-                        <div className="music-author">{music.author}</div>
+                        <div className="music-author">{formatAuthors(music.author)}</div>
                     </div>
                     <div className="feature-container">
                         <i className="fa-regular fa-heart" style={{ color: '#B197FC' }}></i>

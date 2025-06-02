@@ -2,6 +2,7 @@
 import { useParams } from "react-router-dom";
 import { getSongFromId } from "../../backend/data/list-song";
 import { useNavigate } from "react-router-dom";
+import { formatAuthors } from "../../backend/data/list-song";
 import DurationDisplay from "../components/DurationDisplay";
 const AlbumCard = () => {
     const urlSong = useParams()
@@ -34,7 +35,7 @@ const AlbumCard = () => {
           <h4 style={{ marginTop: "20px", fontWeight: "bold" }}>
             {song.song_name}
           </h4>
-          <p style={{ margin: "5px 0" }}>{song.author}</p>
+          <p style={{ margin: "5px 0" }}>{formatAuthors(song.author)}</p>
           <p style={{ color: "#aaa", marginBottom: "20px" }}>
             632 người yêu thích
           </p>
@@ -79,7 +80,7 @@ const AlbumCard = () => {
               <div>
                 <div style={{ fontWeight: "bold"}}>{song.song_name}</div>
                 <div style={{ fontSize: "14px", color: "#bbb" }}>
-                  {song.author}
+                  {formatAuthors(song.author)}
                 </div>
               </div>
             </div>
@@ -95,10 +96,10 @@ const AlbumCard = () => {
               <strong>Số bài hát:</strong> 1
             </li>
             <li>
-              <strong>Tên tác giả:</strong> {song.author} 
+              <strong>Tên tác giả:</strong> {formatAuthors(song.author)} 
             </li>
             <li>
-              <strong>Album:</strong> {song.album}
+              <strong>Album:</strong> {formatAuthors(song.album)}
             </li>
           </ul>
         </div>

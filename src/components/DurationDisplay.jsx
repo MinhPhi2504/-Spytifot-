@@ -11,9 +11,9 @@ function DurationDisplay({ id }) {
   }, [id]);
 
   return (
-    <div className="col d-flex justify-content-center align-items-center">
+    <>
       {formatTime(duration) ?? "Loading..."}
-    </div>
+    </>
   );
 }
 

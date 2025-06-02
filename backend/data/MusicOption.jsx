@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { music_option } from "../data/list-song.js";
 import { useNavigate } from "react-router-dom";
 import "../../src/assets/styles/MusicOption.css"
-
+import { formatAuthors } from "../data/list-song.js";
 function MusicOption() {
     const [songs, setSongs] = useState([]);
 
@@ -27,7 +27,7 @@ function MusicOption() {
                                 {music.song_name} </span>
                             {music.premium === 1 && <span className="premium">PREMIUM</span>}
                         </h3>
-                        <p>{music.author}</p>
+                        <p>{formatAuthors(music.author)}</p>
                         <p>{music.time} năm trước</p>
                     </div>
                     <div className="feature-container">

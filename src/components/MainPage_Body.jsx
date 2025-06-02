@@ -16,7 +16,6 @@ import c from "../../public/img/chiu-cach-minh-noi-thua.jpg"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 const getRandomInt = () => {
   return Math.floor(Math.random() * 10) + 1;
 };

@@ -60,19 +60,6 @@ function Header() {
           <a href="#" className="text02">Tải xuống</a>
         </div>
 
-        <div className="settings-menu">
-          <i className="fa-solid fa-gear"></i>
-          <div className="sub-menu">
-            <div className="show-menu music-player">
-              <i className="fa-regular fa-circle-play"></i>
-              <p>Trình phát nhạc</p>
-              <i className="fa-solid fa-greater-than"></i>
-            </div>
-            <div className="show-menu interface">
-              <i className="fa-solid fa-palette"></i>
-              <p>Giao diện</p>
-              <i className="fa-solid fa-greater-than"></i>
-            </div>
             <div className="settings-menu">
               <i className="fa-solid fa-gear"></i>
               <div className="sub-menu">
@@ -104,20 +91,8 @@ function Header() {
                 </div>
               </div>
             </div>
-            <div className="show-menu">
-              <i className="fa-solid fa-shield"></i>
-              <a href="#">Chính sách bảo mật</a>
-            </div>
-            <div className="show-menu">
-              <i className="fa-solid fa-rectangle-ad"></i>
-              <a href="#">Quảng cáo</a>
-            </div>
-            <div className="show-menu">
-              <i className="fa-solid fa-phone-flip"></i>
-              <a href="#">Liên hệ</a>
-            </div>
-          </div>
-        </div>
+
+
 
         <div className="user-menu">
           <i className="fa-regular fa-user"></i>

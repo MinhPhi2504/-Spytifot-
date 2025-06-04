@@ -147,7 +147,7 @@ function PrivacyPolicy () {
         để thể hiện rõ việc chấp thuận hoặc không chấp thuận đối với các mục đích xử lý Dữ liệu cá nhân mà Spytifot thông báo
         tới Khách hàng trong từng thời kỳ.</p>
             <p>7. Các trách nhiệm khác theo quy định của pháp luật.</p>
-            <h3>Điều 12. Quyền của Spytifot:</h3>
+            <h3>Điều 6. Quyền của Spytifot:</h3>
             <p>1. Xử lý dữ liệu cá nhân của Khách hàng theo đúng mục đích, phạm vi và các nội dung khác đã thỏa thuận với Khách
         hàng và/hoặc được Khách hàng đồng ý.</p>
             <p>2. Sửa đổi Chính sách này theo từng thời kỳ và bảo đảm Khách hàng được thông báo thông qua các Kênh truyền thông
@@ -160,7 +160,7 @@ function PrivacyPolicy () {
         cấp các sản phẩm, dịch vụ cho Khách hàng; Khách hàng tự chịu trách nhiệm đối với mọi hậu quả, thiệt hại có thể
         xảy ra và VNG không chịu bất kỳ tổn thất nào phát sinh đối với Khách hàng trong trường hợp này.</p>
             <p>6. Các quyền khác được quy định tại Chính sách này và theo quy định của pháp luật.</p>
-            <h3>Điều 6. Nghĩa vụ của VNG:</h3>
+            <h3>Điều 7. Nghĩa vụ của Spytifot:</h3>
             <p>1. Tuân thủ các quy định của pháp luật trong quá trình xử lý dữ liệu cá nhân của Khách hàng.</p>
             <p>2. Áp dụng các biện pháp bảo mật thông tin phù hợp để tránh việc truy cập, thay đổi, sử dụng, tiết lộ trái phép
         dữ liệu cá nhân của Khách hàng.</p>

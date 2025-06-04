@@ -1,8 +1,5 @@
 import "../assets/styles/thuvien.css"
-import React from "react";
 import { list_album } from "../../backend/data/list-song.js";
-import Header from "../components/MainPage_header.jsx"
-import Sidebar from "../components/MainPage_Sidebar.jsx"
 import { my_playlist } from "../../backend/data/list-song.js";
 import { useNavigate } from "react-router-dom";
 

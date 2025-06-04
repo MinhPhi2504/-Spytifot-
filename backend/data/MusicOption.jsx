@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { music_option } from "../data/list-song.js";
 import { useNavigate } from "react-router-dom";
 import "../../src/assets/styles/MusicOption.css"
-import { formatAuthors } from "../data/list-song.js";
 function MusicOption() {
     const [songs, setSongs] = useState([]);
 
@@ -13,6 +12,9 @@ function MusicOption() {
     const handleClick = (id) => {
         navigate(`/main/${id}`);
     };
+    const handleClickAuthor = (author) => {
+        navigate(`/thuvien/album/${author}`)
+    }
     return (
         <div className="music-list">
             {songs.map((music) => (
@@ -20,14 +22,22 @@ function MusicOption() {
                     <img src={music.img} alt={music.song_name} />
                     <div className="music-info">
                         <h3>
-                            <span className="music-op-name" onClick={() => {
+                            <span className="music-op-name" onClick={() => { 
                                 localStorage.setItem("currentSong", JSON.stringify(music));
                                 handleClick(music.id);
                                 }}>
                                 {music.song_name} </span>
                             {music.premium === 1 && <span className="premium">PREMIUM</span>}
                         </h3>
-                        <p>{formatAuthors(music.author)}</p>
+                        <span className="d-flex list-author">
+                                {music.author.map((author, index) => (
+                                <p key={index} onClick={() => handleClickAuthor(author)}>
+                                    {author}{index < music.author.length - 1 && " ," }
+                                </p>
+                                ))}
+                        </span>
+                                
+                        {/* <p onClick={() => {handleClickAuthor(music.author)}}>{formatAuthors(music.author)}</p> */}
                         <p>{music.time} năm trước</p>
                     </div>
                     <div className="feature-container">

@@ -5,3 +5,6 @@
 .music-op-name:hover {
     color: #a259ff ;
 }
+.list-author > p:hover {
+    color: #a259ff 
+}

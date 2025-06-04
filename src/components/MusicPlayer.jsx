@@ -13,7 +13,7 @@ import {
 } from "react-icons/fa";
 import "../assets/styles/MusicPlayer.css";
 import { formatAuthors } from "../../backend/data/list-song";
-export default function MusicPlayer({ song, fullScreen = false, onTimeUpdate }) {
+export default function MusicPlayer({ song, fullScreen = false, onTimeUpdate}) {
   useEffect(() => {
     localStorage.setItem("currentSong", JSON.stringify(song));
   }, [song]);
@@ -113,6 +113,7 @@ export default function MusicPlayer({ song, fullScreen = false, onTimeUpdate }) 
       handleTimeUpdate();
       if (audio.currentTime === audio.duration) {
         setIsPlaying(false);
+         window.dispatchEvent(new Event("songEnded")); // 🔥 Gửi sự kiện
       }
     };
 

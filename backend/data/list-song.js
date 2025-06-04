@@ -220,7 +220,7 @@ export const list_album = [
     {
         id: uuidv4() ,
         img: "https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_jpeg/cover/0/8/9/a/089a2e63ec1d49c3f6be611f1aff1a89.jpg",
-        song_name: "Nước Mắt Cá Sấu",
+        name: "Nước Mắt Cá Sấu",
         author: "HIEUTHUHAI",
         album: ["HIEUTHUHAI"],
         style: "rap-viet",
@@ -230,7 +230,7 @@ export const list_album = [
     {
         id: uuidv4(),
         img: "https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_jpeg/cover/1/2/3/2/123240ddf23a8b6fef07fbe5b0d239c5.jpg",
-        song_name: "Ôm Em Thật Lâu (Single)",
+        name: "Ôm Em Thật Lâu (Single)",
         author: "MONO",
         album: ["MONO"],
         style: "nhac-tre",
@@ -240,7 +240,7 @@ export const list_album = [
     {
         id: uuidv4(),
         img: "https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_jpeg/cover/8/c/1/6/8c166e2b9a0e45ca9a6c7bef40a81f74.jpg",
-        song_name: "Dữ Liệu Quý (EP)",
+        name: "Dữ Liệu Quý (EP)",
         author: "Dương Domic",
         album: ["Dương Domic"],
         style: "nhac-tre",
@@ -250,7 +250,7 @@ export const list_album = [
     {
         id: uuidv4(),
         img: "../../public/img/cao-oc-20.jpg",
-        song_name: "Cao Ốc 20",
+        name: "Cao Ốc 20",
         author: "Bray",
         album: ["Bray"],
         style: "rap-viet",

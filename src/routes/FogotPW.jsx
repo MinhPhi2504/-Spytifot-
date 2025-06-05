@@ -25,7 +25,7 @@ function ForgotPW() {
     }
 
   try {
-    const res = await fetch("http://localhost:8080/send_reset_code.php", {
+    const res = await fetch("http://localhost/send_reset_code.php", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: `email=${encodeURIComponent(email)}`,
@@ -65,7 +65,7 @@ function ForgotPW() {
     }
 
     try {
-      const res = await fetch("http://localhost:8080/reset_password.php", {
+      const res = await fetch("http://localhost/reset_password.php", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: `email=${encodeURIComponent(email)}&code=${encodeURIComponent(code)}&new_password=${encodeURIComponent(password)}`,

@@ -42,6 +42,7 @@ import { Link, useNavigate } from "react-router-dom";
                  // Lưu thông tin người dùng vào localStorage để duy trì đăng nhập
                  if (data.user) {
                      localStorage.setItem("user", JSON.stringify(data.user));
+                     localStorage.setItem("user_id", data.user.id);
                  }
                  
                  // Chuyển hướng đến trang chủ
@@ -80,7 +81,7 @@ import { Link, useNavigate } from "react-router-dom";
                          <button type="submit" className="btn btn-primary w-100">
                              Log in
                          </button>
-                         <Link to="/forgotpw" className="d-flex justify-content-center align-items-center forgot-password">
+                         <Link to="/quen-mat-khau" className="d-flex justify-content-center align-items-center forgot-password">
                              Forgot your password?
                          </Link>
                          <div className="signup-link">

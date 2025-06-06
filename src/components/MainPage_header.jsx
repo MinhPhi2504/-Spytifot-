@@ -92,8 +92,6 @@ function Header() {
               </div>
             </div>
 
-
-
         <div className="user-menu">
           <i className="fa-regular fa-user"></i>
           <div className="user-sub-menu">

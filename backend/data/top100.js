@@ -34,13 +34,19 @@ export  const top100Types = [
         style: 'lofi',
         loi_tua: 'Thả mình vào những giai điệu Lofi Chill nghe là nghiện',
         tac_gia: 'H2K, Lê Bảo Bình, Jank',
-        img: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_jpeg/cover/9/b/e/6/9be6f892a7f95ef25632752dd2a319c2.jpg'
+        img: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_jpeg/cover/2/4/5/3/24538985249cd4d3b324b4a4a09ad288.jpg'
      },
         {
         style: 'chill',
         loi_tua: 'Nghe đi chill cực',
         tac_gia: 'H2K, Lê Bảo Bình, Đen Vâu',
         img: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_jpeg/cover/c/d/c/b/cdcba8f6026e4e90e33f2d4d4604d515.jpg'
+     }, 
+     {
+        style: 'V-POP',
+        loi_tua: 'Nghe đi hay lắm',
+        tac_gia: 'Karik, Đen Vâu, Vũ',
+        img: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_jpeg/cover/c/d/c/b/cdcba8f6026e4e90e33f2d4d4604d515.jpg'      
      }
 ]
 export function getSongsFromStyle (style) {

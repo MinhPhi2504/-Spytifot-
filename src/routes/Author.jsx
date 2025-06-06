@@ -88,7 +88,6 @@ function Author() {
           </div>
         </div>
       </div>
-      {/* Audio element to play songs */}
     </>
   );
 }

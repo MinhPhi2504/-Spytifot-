@@ -6,10 +6,22 @@ import { listSong } from "../../backend/data/list-song.js";
 import { useEffect, useState } from "react";
 
 const MainLayout = () => {
+  // const [currentSong, setCurrentSong] = useState(() => {
+  //   const crSong = localStorage.getItem("currentSong");
+  //   return crSong ? JSON.parse(crSong) : listSong.array[0]; 
+  // });
   const [currentSong, setCurrentSong] = useState(() => {
+  try {
     const crSong = localStorage.getItem("currentSong");
-    return crSong ? JSON.parse(crSong) : listSong.array[0];
-  });
+    const parsed = crSong ? JSON.parse(crSong) : null;
+    return parsed && parsed.id ? parsed : listSong.array[0];
+  } catch (e) {
+    return listSong.array[0];
+  }
+});
+
+  console.log(currentSong)
+  console.log("listSong.array:", listSong.array[0]);
 
   // Lắng nghe thay đổi localStorage từ các component khác
   useEffect(() => {

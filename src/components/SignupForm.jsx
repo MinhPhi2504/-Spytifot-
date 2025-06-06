@@ -47,7 +47,7 @@ function SignupForm() {
     }
 
     try {
-      const response = await fetch("http://localhost/register.php", {
+      const response = await fetch("http://localhost:8080/register.php", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json', // Gửi dữ liệu dưới dạng JSON

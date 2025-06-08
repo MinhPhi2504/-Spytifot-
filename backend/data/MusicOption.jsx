@@ -1,55 +1,102 @@
 import { useState, useEffect } from "react";
 import { music_option } from "../data/list-song.js";
 import { useNavigate } from "react-router-dom";
-import "../../src/assets/styles/MusicOption.css"
-function MusicOption() {
-    const [songs, setSongs] = useState([]);
+import "../../src/assets/styles/MusicOption.css";
 
-    useEffect(() => {
-        setSongs(music_option); // Cập nhật danh sách nhạc
-    }, []);
-    const navigate = useNavigate();
-    const handleClick = (id) => {
-        navigate(`/main/${id}`);
-    };
-    const handleClickAuthor = (author) => {
-        navigate(`/thuvien/album/${author}`)
+function MusicOption() {
+  const [songs, setSongs] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setSongs(music_option);
+  }, []);
+
+  const handlePlay = (music) => {
+    const userLevel = parseInt(localStorage.getItem("user_premium_level") || "0");
+    if (music.premium > userLevel) {
+      alert("Tài khoản của bạn không đủ quyền để nghe bài hát này.");
+      return;
     }
-    return (
-        <div className="music-list">
-            {songs.map((music) => (
-                <div key={music.id} className="music-item" onClick={() => {localStorage.setItem("currentSong", JSON.stringify(music))}} style={{cursor: 'pointer'}}>
-                    <img src={music.img} alt={music.song_name} />
-                    <div className="music-info">
-                        <h3>
-                            <span className="music-op-name" onClick={() => { 
-                                localStorage.setItem("currentSong", JSON.stringify(music));
-                                handleClick(music.id);
-                                }}>
-                                {music.song_name} </span>
-                            {music.premium === 1 && <span className="premium">PREMIUM</span>}
-                        </h3>
-                        <span className="d-flex list-author">
-                                {music.author.map((author, index) => (
-                                <p key={index} onClick={() => handleClickAuthor(author)}>
-                                    {author}{index < music.author.length - 1 && " ," }
-                                </p>
-                                ))}
-                        </span>
-                                
-                        {/* <p onClick={() => {handleClickAuthor(music.author)}}>{formatAuthors(music.author)}</p> */}
-                        <p>{music.time} năm trước</p>
-                    </div>
-                    <div className="feature-container">
-                        <i className="fa-regular fa-heart" style={{ color: '#B197FC' }}></i>
-                        <span className="tooltip">Thêm vào thư viện</span>
-                        <span className="more">...</span>
-                        <span className="tt2">Khác</span>
-                    </div>
-                </div>
-            ))}
+    localStorage.setItem("currentSong", JSON.stringify(music));
+  };
+
+  const handleClickAuthor = (e, author) => {
+    e.stopPropagation();
+    navigate(`/thuvien/album/${author}`);
+  };
+
+  const handleHeartClick = (e) => {
+    e.stopPropagation();
+    alert("Thêm vào thư viện!");
+  };
+
+  const handleMoreClick = (e) => {
+    e.stopPropagation();
+    alert("Tùy chọn khác!");
+  };
+
+  return (
+    <div className="music-list">
+      {songs.map((music) => (
+        <div
+          key={music.id}
+          className="music-item"
+          onClick={() => handlePlay(music)}
+          style={{ cursor: "pointer" }}
+        >
+          <img src={music.img} alt={music.song_name} />
+
+          <div className="music-info">
+            <div className="d-flex align-items-center gap-2">
+              <h3
+                className="music-op-name hoverable-title"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  const userLevel = parseInt(localStorage.getItem("user_premium_level") || "0");
+                  if (music.premium > userLevel) {
+                    alert("Bạn cần nâng cấp tài khoản để xem bài hát này.");
+                    return;
+                  }
+                  navigate(`/main/${music.id}`);
+                }}
+                style={{ cursor: "pointer" }}
+              >
+                {music.song_name}
+              </h3>
+              {music.premium === 1 && <span className="badge badge-plus">PLUS</span>}
+              {music.premium === 2 && <span className="badge badge-premium">PREMIUM</span>}
+            </div>
+
+            <span className="d-flex list-author">
+              {music.author.map((author, index) => (
+                <p
+                  key={index}
+                  onClick={(e) => handleClickAuthor(e, author)}
+                  style={{ cursor: "pointer" }}
+                >
+                  {author}
+                  {index < music.author.length - 1 && " ,"}
+                </p>
+              ))}
+            </span>
+
+
+          </div>
+
+          <div className="feature-container">
+            <i
+              className="fa-regular fa-heart"
+              style={{ color: "#B197FC" }}
+              onClick={handleHeartClick}
+            ></i>
+            <span className="tooltip">Thêm vào thư viện</span>
+            <span className="more" onClick={handleMoreClick}>...</span>
+            <span className="tt2">Khác</span>
+          </div>
         </div>
-    );
+      ))}
+    </div>
+  );
 }
 
 export default MusicOption;

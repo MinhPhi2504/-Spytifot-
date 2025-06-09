@@ -107,7 +107,7 @@ const list_song = [
         author: ["Sơn Tùng MTP"],
         album: ["Sơn Tùng M-TP"],
         style: ["nhac-tre", "VPOP","chill","lofi"],
-        premium: 0,
+        premium: 2,
         time: 3,
         audio: "/mp3/AmThamBenEm.mp3"
     },
@@ -118,7 +118,7 @@ const list_song = [
         author: ["Dương Domic"],
         album: ["Dương Domic"],
         style: ["nhac-tre", "rap","chill","lofi"],
-        premium: 0,
+        premium: 1,
         time: 1,
         audio: "/mp3/MatKetNoi.mp3"
     },
@@ -140,7 +140,7 @@ const list_song = [
         author: ["Rhyder"],
         album: ["Rhyder"],
         style: ["nhac-tre", "rap"],
-        premium: 0,
+        premium: 2,
         time: 2,
         audio: "/mp3/ChiuCachMinhNoiThua.mp3"
     },

@@ -13,10 +13,17 @@ import {
 } from "react-icons/fa";
 import "../assets/styles/MusicPlayer.css";
 import { formatAuthors } from "../../backend/data/list-song";
-export default function MusicPlayer({ song, fullScreen = false, onTimeUpdate}) {
+export default function MusicPlayer({ song, fullScreen = false, onTimeUpdate }) {
+  if (!song) {
+    return null; // tránh lỗi nếu song chưa có
+  }
+
   useEffect(() => {
     localStorage.setItem("currentSong", JSON.stringify(song));
   }, [song]);
+
+  // phần còn lại giữ nguyên...
+
 
   const audioRef = useRef(null);
   const seekRef = useRef(false);

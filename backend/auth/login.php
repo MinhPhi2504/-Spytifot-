@@ -20,7 +20,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     
     // Kiểm tra email có tồn tại trong database không
-    $query = $conn->prepare("SELECT id, First_name, Email, Password FROM users WHERE Email = ?");
+    $query = $conn->prepare("SELECT id, First_name, Email, Password, account_type FROM users WHERE Email = ?");
+
     $query->bind_param("s", $Email);
     $query->execute();
     $result = $query->get_result();

@@ -8,3 +8,20 @@
 .list-author > p:hover {
     color: #a259ff 
 }
+.badge {
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 5px;
+  margin-left: 8px;
+}
+
+.badge-plus {
+  background-color: #b197fc;
+  color: white;
+}
+
+.badge-premium {
+  background-color: #f1c40f;
+  color: black;
+}

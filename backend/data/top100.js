@@ -1,4 +1,4 @@
-import {getLSong} from "./list-song.js"
+import {getLSong, initMusic} from "./list-song.js"
 export  const top100Types = [
      {
         style: 'nhac-tre',
@@ -50,6 +50,7 @@ export  const top100Types = [
      }
 ]
 export async function getSongsFromStyle(style) {
+  console.log("Style cần lọc:", style);
   await initMusic(); // đảm bảo đã load dữ liệu
   const listSong = await getLSong()
   const list = listSong.array.filter(Boolean);

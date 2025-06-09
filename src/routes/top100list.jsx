@@ -1,14 +1,24 @@
 import { useParams } from "react-router-dom"
+import { useEffect, useState } from "react";
 import "../assets/styles/top100list.css";
 import {top100Types} from "../../backend/data/top100.js"
 import {getSongsFromStyle} from "../../backend/data/top100.js"
 import { formatAuthors } from "../../backend/data/list-song.js";
  function Top100List () {
+    const [songs, setSongs] = useState([]);
     const url = useParams()
     const style = url.style
+    console.log(style)
     const typeList = top100Types.find((type) => type.style === style )
-    const songs = getSongsFromStyle(style)
-    console.log(`Songs From ${style}: ` , songs)
+    useEffect(() => {
+        const fetchSongs = async () => {
+        const result = await getSongsFromStyle(style);
+        setSongs(result);
+        console.log("Kết quả: ",result)
+        };
+    fetchSongs();
+  }, [style]);
+
     return (
         <>
         <div className="top100list-container" >

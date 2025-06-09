@@ -9,9 +9,13 @@ function MusicSuggest({ start, end }) {
   useEffect(() => {
     (async () => {
       await initMusic(); 
-      const listSong = getLSong()
-      const arr = listSong.array || [];
-      setSuggestions(arr.slice(start, end)); // ✅ cắt theo khoảng nếu cần
+    const list = getLSong().array || [];
+    const fullList = list.filter(Boolean);
+    console.log("✅ Tổng bài:", fullList.length);
+    console.log("🎯 slice:", start, end);
+    console.log("🎵 sliced:", fullList.slice(start, end));
+
+    setSuggestions(fullList.slice(start, end));
     })();
   }, [start, end]); // nếu props thay đổi thì chạy lại
 
@@ -57,7 +61,7 @@ function MusicSuggest({ start, end }) {
 
   return (
     <div className="list-music-suggest-container">
-      {suggestions.slice(start, end).map((music) => (
+      {suggestions.map((music) => (
         <div
           key={music.id}
           className="music-option"

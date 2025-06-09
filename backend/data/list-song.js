@@ -51,8 +51,9 @@ export const list_album = [
   ];
 async function fetchSongsFromServer() {
   try {
-    const response = await fetch('http://localhost/get-song.php');
+    const response = await fetch('http://localhost:8080/get-song.php');
     const data = await response.json();
+    console.log("Dữ liệu fetch được:", data);
     return data.map(song => ({
       id: song.id,
       song_name: song.song_name,
@@ -63,7 +64,7 @@ async function fetchSongsFromServer() {
       author: song.author.split(',').map(a => a.trim()),
       premium: parseInt(song.premium),
       time: parseInt(song.time),
-      style: ["VPop"],
+      style: song.style.split(',').map(s => s.trim()),
     }));
   } catch (error) {
     console.error('Lỗi khi tải bài hát:', error);
@@ -75,11 +76,7 @@ async function fetchSongsFromServer() {
 export async function initMusic() {
   list_song = await fetchSongsFromServer();
   listSong.setList(list_song, list_song.length);
-
   music_option = list_song.slice(0, 9);
-
-
-
   raw_playlist = [
     {
       id_playlist: 2222,

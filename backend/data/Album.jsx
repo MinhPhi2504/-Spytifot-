@@ -1,13 +1,19 @@
-import { list_album } from "./list-song.js";
+import { initMusic, list_album } from "./list-song.js";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-const Albums = () => {
-    const navigate = useNavigate()
-    const [albums, setAlbums] = useState([]);
 
+const Albums = () => {
+  const navigate = useNavigate()
+  const [albums, setAlbums] = useState([]);
+  useEffect(() => {
+    (async () => {
+      await initMusic(); // ✅ đợi dữ liệu load
+      setAlbums(list_album); // ✅ sau khi có dữ liệu
+    })();
+  }, []);
     useEffect(() => {
         setAlbums(list_album); // Cập nhật danh sách albums
-    }, []);
+    }, [albums]);
     return (
         <div className=" p-4 ">
         <h2 className="text-white fs-4 fw-bold mb-4" style={{margin: '26px', marginBottom: '20px'}}>Album Hot</h2>

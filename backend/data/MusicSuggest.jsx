@@ -1,4 +1,4 @@
-import { listSong } from "./list-song";
+import {  getLSong, initMusic } from "./list-song.js";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../src/assets/styles/MusicSuggest.css";
@@ -6,10 +6,15 @@ import "../../src/assets/styles/MusicSuggest.css";
 function MusicSuggest({ start, end }) {
   const [suggestions, setSuggestions] = useState([]);
   const navigate = useNavigate();
-
   useEffect(() => {
-    setSuggestions(listSong.array || []);
-  }, []);
+    (async () => {
+      await initMusic(); 
+      const listSong = getLSong()
+      const arr = listSong.array || [];
+      setSuggestions(arr.slice(start, end)); // ✅ cắt theo khoảng nếu cần
+    })();
+  }, [start, end]); // nếu props thay đổi thì chạy lại
+
 
   const handlePlay = (music) => {
     const userLevel = parseInt(localStorage.getItem("user_premium_level") || "0");

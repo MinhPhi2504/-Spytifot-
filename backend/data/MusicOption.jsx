@@ -1,11 +1,19 @@
 import { useState, useEffect } from "react";
-import { music_option } from "../data/list-song.js";
+import { getMusicOption, initMusic} from "../data/list-song.js";
 import { useNavigate } from "react-router-dom";
 import "../../src/assets/styles/MusicOption.css";
 
 function MusicOption() {
+  const music_option = getMusicOption()
   const [songs, setSongs] = useState([]);
   const navigate = useNavigate();
+  useEffect(() => {
+    (async () => {
+      await initMusic();                 // ✅ Đợi dữ liệu từ server
+      const music_option = getMusicOption(); // ✅ Lấy dữ liệu đã sẵn
+      setSongs(music_option);           // ✅ Cập nhật vào state
+    })();
+  }, []);
 
   useEffect(() => {
     setSongs(music_option);

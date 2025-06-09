@@ -1,11 +1,22 @@
 import "../assets/styles/TopChart.css";
 import { FaPlay } from "react-icons/fa";
-import { top_list } from "../../backend/data/list-song";
+import { getTopList, initMusic } from "../../backend/data/list-song";
 import { useNavigate } from "react-router-dom";
 import DurationDisplay from "../components/DurationDisplay";
 import { formatAuthors } from "../../backend/data/list-song";
+import { useState, useEffect } from "react";
 const TopChartItem = () => {
   const navigate = useNavigate()
+  const [topList, setTopList] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      await initMusic();                 // ✅ Đợi load dữ liệu
+      const data = await getTopList();        // ✅ Lấy sau khi dữ liệu đã có
+      setTopList(data);                 // ✅ Cập nhật vào state
+    })();
+  }, []);
+
   return (
     <div className="text-white p-4">
       <div className="d-flex align-items-center mb-4">
@@ -16,7 +27,7 @@ const TopChartItem = () => {
       </div>
       <div className="list-top-rank">
         {
-          top_list.map((song, index) => (
+          topList.map((song, index) => (
             <div className="d-flex align-items-center justify-content-between chart-item p-2 w-75" onClick={() => {
                                                                                             localStorage.setItem("currentSong", JSON.stringify(song))
                                                                                             navigate(`/main/${song.id}`)}}>

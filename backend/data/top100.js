@@ -1,4 +1,4 @@
-import {listSong} from "./list-song.js"
+import {getLSong} from "./list-song.js"
 export  const top100Types = [
      {
         style: 'nhac-tre',
@@ -49,17 +49,18 @@ export  const top100Types = [
         img: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_jpeg/cover/c/d/c/b/cdcba8f6026e4e90e33f2d4d4604d515.jpg'      
      }
 ]
-export function getSongsFromStyle (style) {
-    const list = listSong.array.filter(Boolean);
-    let listSongFromStyle = []
-    for ( let i = 0; i < list.length; i++) {
-        const songStyles = list[i].style
-        for ( let j = 0; j < songStyles.length; j++) {
-            if (songStyles [j] === style) {
-                listSongFromStyle.push(list[i])
-                break;
-            }
-        }
+export async function getSongsFromStyle(style) {
+  await initMusic(); // đảm bảo đã load dữ liệu
+  const listSong = await getLSong()
+  const list = listSong.array.filter(Boolean);
+  const listSongFromStyle = [];
+
+  for (let i = 0; i < list.length; i++) {
+    const songStyles = list[i].style;
+    if (Array.isArray(songStyles) && songStyles.includes(style)) {
+      listSongFromStyle.push(list[i]);
     }
-    return listSongFromStyle 
+  }
+
+  return listSongFromStyle;
 }

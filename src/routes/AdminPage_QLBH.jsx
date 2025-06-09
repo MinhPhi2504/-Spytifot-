@@ -10,6 +10,8 @@ function AdminPage_QLBH() {
 
   return (
     <div className="song-manager">
+      <br />
+      <br />
       <h2>🎵 Quản Lý Bài Hát</h2>
       <table className="song-table">
         <thead>

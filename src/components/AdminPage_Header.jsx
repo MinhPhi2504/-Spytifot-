@@ -13,7 +13,7 @@ function AdminPage_Header() {
         <i className="fa-solid fa-bars"></i>
       </div>
       <div className="right">
-        <p>Admin Name</p>
+        <p>Admin</p>
         </div>
     </div>
   );

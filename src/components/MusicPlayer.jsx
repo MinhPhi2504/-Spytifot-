@@ -22,7 +22,7 @@ export default function MusicPlayer({ song, fullScreen = false, onTimeUpdate }) 
     return null; // tránh lỗi nếu song chưa có
   }
 
->>>>>>> b5455d6 (xét loại tài khoản)
+ b5455d6 (xét loại tài khoản)
   useEffect(() => {
     localStorage.setItem("currentSong", JSON.stringify(song));
   }, [song]);

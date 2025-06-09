@@ -1,0 +1,68 @@
+.song-manager {
+  background-color: white;
+  padding: 24px;
+  margin-left: 100px; /* khớp với sidebar cố định */
+  margin-top: 0px;   /* khớp với header */
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  min-height: calc(100vh - 50px);
+  box-sizing: border-box;
+}
+
+.song-manager h2 {
+  margin-bottom: 20px;
+  color: #6a1b9a;
+  font-size: 24px;
+  text-align: center;
+}
+
+.song-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: sans-serif;
+  background-color: white;
+}
+
+.song-table th,
+.song-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.song-table th {
+  background-color: #f3e5f5;
+  color: #4a148c;
+}
+
+.song-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+.edit-btn,
+.delete-btn {
+  padding: 6px 12px;
+  margin-right: 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.edit-btn {
+  background-color: #ff9800;
+  color: white;
+}
+
+.delete-btn {
+  background-color: #e53935;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #fb8c00;
+}
+
+.delete-btn:hover {
+  background-color: #c62828;
+}

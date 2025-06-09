@@ -40,4 +40,4 @@ function AdminPage_QLBH() {
   );
 }
 
-export default AdminPage_QlBH;
+export default AdminPage_QLBH;

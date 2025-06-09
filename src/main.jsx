@@ -21,6 +21,7 @@ import Author from './routes/Author.jsx';
 import AdminPage_MainLayout from './components/AdminPage_Mainlayout.jsx';
 import AdminPage_Dashboard from './routes/AdminPage_Dashboard.jsx';
 import AdminPage_QlBH from './routes/AdminPage_QLBH.jsx';
+import AdminPage_QLND from './routes/AdminPage_QLND.jsx';
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
@@ -43,6 +44,7 @@ createRoot(document.getElementById('root')).render(
                 <Route index element={<AdminPage />} />
                 <Route path="dashboard" element={<AdminPage_Dashboard />} />
                 <Route path="qlbh" element={<AdminPage_QlBH />} />
+                <Route path="qlnd" element={<AdminPage_QLND />} />
               </Route>
               <Route path="/thuvien" element={<MainLayout />}>
                 <Route index element={<Thuvien />} />

@@ -1,9 +1,40 @@
 import "../assets/styles/MainPage_header.css";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { getRandomSong } from "../../backend/data/list-song";
+import { useState, useEffect } from "react";
+function playRandomSong () {
+  const song = getRandomSong()
+  if (song && song !== "") {
+    localStorage.setItem("currentSong", JSON.stringify(song))
+  } 
+}
 
 function Header() {
-  const updateAccountType = async (newType) => {
+  const [bgColor, setBgColor] = useState(() => {
+    const currentColor = localStorage.getItem("bgColor")
+    if (currentColor) {
+      return JSON.parse(currentColor)
+    }
+    else {
+      return "#ffffff"
+    }
+  });
+  const handleColorChange = (e) => {
+    const color = e.target.value
+    localStorage.setItem("bgColor", JSON.stringify(color))
+    setBgColor(color)
+    document.documentElement.style.backgroundColor = color; // html
+    document.body.style.backgroundColor = color;            // body
+    document.getElementById("root").style.backgroundColor = color; // #root
+  }
+    useEffect(() => {
+    document.documentElement.style.backgroundColor = bgColor; // html
+    document.body.style.backgroundColor = bgColor;            // body
+    document.getElementById("root").style.backgroundColor = bgColor; // root
+    }, [bgColor]);
+
+    const updateAccountType = async (newType) => {
     const user = JSON.parse(localStorage.getItem("user"));
     if (!user) {
       alert("Vui lòng đăng nhập trước khi nâng cấp tài khoản!");
@@ -62,16 +93,20 @@ function Header() {
 
             <div className="settings-menu">
               <i className="fa-solid fa-gear"></i>
-              <div className="sub-menu">
-                <div className="show-menu music-player">
+              <div className="sub-menu" >
+                <div className="show-menu music-player" onClick={() => {playRandomSong()}}>
                   <i className="fa-regular fa-circle-play"></i>
-                  <p>Trình phát nhạc</p>
+                  <p>Phát nhạc ngẫu nhiên</p>
                   <i className="fa-solid fa-greater-than"></i>
                 </div>
                 <div className="show-menu interface">
                   <i className="fa-solid fa-palette"></i>
                   <p>Giao diện</p>
                   <i className="fa-solid fa-greater-than"></i>
+                    <div className="interfaceSuggest">
+                      <p>Nhấn để chọn màu nền</p>
+                      <input type="color" className="colorPicker" onChange={handleColorChange}/>
+                    </div>
                 </div>
                 <div className="show-menu introduce">
                   <i className="fa-solid fa-info"></i>

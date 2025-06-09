@@ -69,7 +69,6 @@ const AlbumCard = () => {
             <div className="d-flex align-items-center">
               <img
                 src={song.img}
-                alt="Phượng Buồn"
                 style={{
                   width: "50px",
                   height: "50px",

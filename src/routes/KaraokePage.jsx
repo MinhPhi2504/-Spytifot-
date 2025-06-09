@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { getSongFromId } from "../../backend/data/list-song.js";
 import KaraokePlayer from "../components/KaraokePlayer.jsx";
-import lyrics1 from "../../backend/data/lyrics/1.js";
+import lyric from "../../backend/data/lyrics/ChuaPhaiLaYeu.js";
 export default function KaraokePage() {
   const { id_song } = useParams();
   const song = getSongFromId(id_song)
@@ -10,7 +10,7 @@ export default function KaraokePage() {
   return (
     <KaraokePlayer
      audioSrc={song}
-    lrcText={lyrics1}
+    lrcText={lyric}
     />
   );
 }

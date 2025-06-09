@@ -3,7 +3,7 @@
   font-family: sans-serif;
   background-color: #f5f5f5;
   min-height: calc(100vh - 50px); /* trừ header */
-  margin-left: 200px; /* trừ sidebar */
+  margin-left: 100px; /* trừ sidebar */
   margin-top: 0px;
   box-sizing: border-box;
 }

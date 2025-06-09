@@ -17,6 +17,7 @@ export default function MusicPlayer({ song, fullScreen = false, onTimeUpdate }) 
   if (!song) {
     return null; 
   }
+
   useEffect(() => {
     localStorage.setItem("currentSong", JSON.stringify(song));
   }, [song]);

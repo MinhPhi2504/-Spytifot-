@@ -18,7 +18,9 @@ import Top100List from './routes/top100list.jsx';
 import Theme from './routes/Theme.jsx';
 import PrivacyPolicy from './routes/chinh-sach-bao-mat.jsx';
 import Author from './routes/Author.jsx';
-//import AdminPage_QLBH from './routes/AdminPage_QLBH.jsx'
+import AdminPage_MainLayout from './components/AdminPage_Mainlayout.jsx';
+import AdminPage_Dashboard from './routes/AdminPage_Dashboard.jsx';
+import AdminPage_QlBH from './routes/AdminPage_QLBH.jsx';
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
@@ -37,7 +39,11 @@ createRoot(document.getElementById('root')).render(
               <Route path="/login" element={<LoginPage />} />
               <Route path="/chinh-sach-bao-mat" element={<PrivacyPolicy />} />
               <Route path="/quen-mat-khau" element={<ForgotPW />} />
-              <Route path="/admin" element={<AdminPage />} />
+              <Route path="/admin" element={<AdminPage_MainLayout />} >
+                <Route index element={<AdminPage />} />
+                <Route path="dashboard" element={<AdminPage_Dashboard />} />
+                <Route path="qlbh" element={<AdminPage_QlBH />} />
+              </Route>
               <Route path="/thuvien" element={<MainLayout />}>
                 <Route index element={<Thuvien />} />
                 <Route path="/thuvien/:id_playlist" element={<PlaylistDetail/>}/>

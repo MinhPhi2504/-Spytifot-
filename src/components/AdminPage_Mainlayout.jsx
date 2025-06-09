@@ -6,7 +6,7 @@ function AdminPage_MainLayout ()
     return (<>
        <AdminPage_Header/>
        <AdminPage_Sidebar/>
-       <div className="main-content" style={{ marginTop: '0 px', marginLeft: '100 px', height: '2000px'}}>
+       <div className="main-content" style={{ marginTop: '0px', marginLeft: '100px', height: '2000px'}}>
         <Outlet />
       </div>
 

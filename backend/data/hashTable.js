@@ -27,7 +27,7 @@ export class Music {
         })
         console.log(this.array)
     }
-    getSong(id) {
+    getSong(id) { // lấy bài hát từ id
         const number = this.stringToNumber(id)
         let index = this.hashFunc(number, this.size) 
         let j = 0

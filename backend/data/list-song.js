@@ -331,4 +331,14 @@ export function formatAuthors(authorsArray) {
   }
   return authorsArray.join(", ");
 }
-console.log(formatAuthors( ["HURRYKNG", "HIEUTHUHAI", "MANBO"]))
+export function getRandomSong () {
+    const randomNum = Math.floor(Math.random() * list_song.length);
+    const song = list_song[randomNum]
+    if (song) {
+        return song
+    }
+    else {
+        console.log("Không tìm thấy bài hát có stt: ", randomNum)
+        return ""
+    }
+}

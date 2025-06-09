@@ -14,7 +14,6 @@ import {
 import "../assets/styles/MusicPlayer.css";
 import { formatAuthors } from "../../backend/data/list-song";
 export default function MusicPlayer({ song, fullScreen = false, onTimeUpdate}) {
-  console.log("Song:" ,song)
   useEffect(() => {
     localStorage.setItem("currentSong", JSON.stringify(song));
   }, [song]);

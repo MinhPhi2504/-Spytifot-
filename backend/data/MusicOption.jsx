@@ -22,7 +22,7 @@ function MusicOption() {
   const handlePlay = (music) => {
     const userLevel = parseInt(localStorage.getItem("user_premium_level") || "0");
     if (music.premium > userLevel) {
-      alert("Tài khoản của bạn không đủ quyền để nghe bài hát này.");
+      alert("Bạn cần nâng cấp tài khoản để nghe bài hát này.");
       return;
     }
     localStorage.setItem("currentSong", JSON.stringify(music));
@@ -62,7 +62,7 @@ function MusicOption() {
                   e.stopPropagation();
                   const userLevel = parseInt(localStorage.getItem("user_premium_level") || "0");
                   if (music.premium > userLevel) {
-                    alert("Bạn cần nâng cấp tài khoản để xem bài hát này.");
+                    alert("Bạn cần nâng cấp tài khoản để nghe bài hát này.");
                     return;
                   }
                   navigate(`/main/${music.id}`);

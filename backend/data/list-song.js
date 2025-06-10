@@ -51,7 +51,7 @@ export const list_album = [
   ];
 async function fetchSongsFromServer() {
   try {
-    const response = await fetch('http://localhost:8080/get-song.php');
+    const response = await fetch('http://localhost/get-song.php');
     const data = await response.json();
     console.log("Dữ liệu fetch được:", data);
     return data.map(song => ({

@@ -38,23 +38,31 @@ function LoginPage() {
             setSuccess(data.success);
 
             // Chỉ chuyển hướng khi đăng nhập thành công
-            if (data.success) {
-                if (data.user) {
-                    const levelMap = { normal: 0, plus: 1, premium: 2 };
-                    const accountType = data.user.account_type || "normal";
-                    const userLevel = levelMap[accountType];
-                    console.log("Account type từ backend:", accountType);
-                    console.log("user_premium_level set:", userLevel);
+                    if (data.success) {
+            if (data.user) {
+                const levelMap = { normal: 0, plus: 1, premium: 2 };
+                const accountType = data.user.account_type || "normal";
+                const userLevel = levelMap[accountType];
 
-                    // Lưu dữ liệu vào localStorage
-                    localStorage.setItem("user", JSON.stringify(data.user));
-                    localStorage.setItem("user_id", data.user.id);
-                    localStorage.setItem("user_premium_level", userLevel);
+                console.log("Account type từ backend:", accountType);
+                console.log("user_premium_level set:", userLevel);
+
+                localStorage.setItem("user", JSON.stringify(data.user));
+                localStorage.setItem("user_id", data.user.id);
+                localStorage.setItem("user_premium_level", userLevel);
+                localStorage.setItem("account_type", accountType); // ✅ Thêm dòng này
+
+                // ✅ Nếu là admin → chuyển sang trang admin
+                if (accountType === "admin") {
+                    navigate("/admin");
+                    return;
                 }
-
-                // Điều hướng đến trang chính
-                navigate("/main");
             }
+
+            // Người dùng thường → chuyển sang trang chính
+            navigate("/main");
+        }
+
         } catch (error) {
             console.error("Lỗi khi đăng nhập:", error);
             setMessage("Đã xảy ra lỗi. Vui lòng thử lại.");

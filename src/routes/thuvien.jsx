@@ -2,6 +2,7 @@ import "../assets/styles/thuvien.css"
 import { list_album } from "../../backend/data/list-song.js";
 import { getMyPlaylist } from "../../backend/data/list-song.js";
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 function Thuvien() {
     const [myPlaylist, setMyPlaylist] = useState([]);
@@ -60,7 +61,7 @@ const handleClick = (id) => {
                     </div>
                 </div>
                 <div className="row">
-                    {my_playlist.map((playlist, index) => (
+                    {myPlaylist.map((playlist, index) => (
                         <div key={index} className="col-6 col-md-3 mb-4">
                             <div className=" p-2 album-item">
                                 {playlist.img ? (

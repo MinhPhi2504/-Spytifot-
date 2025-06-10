@@ -80,7 +80,9 @@ function AdminPage_QLND() {
               ) : user.Email}</td>
               <td>{editUserId === user.id ? (
                 <select value={editForm.account_type} onChange={e => setEditForm({ ...editForm, account_type: e.target.value })}>
-                  <option value="user">User</option>
+                  <option value="normal">Thường</option>
+                  <option value="plus">Plus</option>
+                  <option value="premium">Premium</option>
                   <option value="admin">Admin</option>
                 </select>
               ) : user.account_type}</td>

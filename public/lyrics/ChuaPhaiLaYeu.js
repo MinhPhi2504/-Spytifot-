@@ -51,26 +51,30 @@ const lyric = `
 [02:02.60] Và chắc anh đang là chỉ tưới cây thôi 
 [02:04.00] Ta chỉ tới đây thôi  
 [02:05.00] Know you still want it  
-[02:06.80] Ta như mây trôi  
+[02:06.60] Ta như mây trôi  
 [02:07.70] Khi chung đôi, khi hơi xa xôi  
-[10:55.00] Lời nói trên môi thì có là gì  
-[11:10.00] Để mà vấn với vương sau này sẽ quên đi  
-[11:25.00] Giữa chúng ta nên gọi tên là gì  
-[11:40.00] Ừm đến để bên thôi và mau qua đi  
-[11:55.00] Giữ chiếc ôm kia đậm sâu như này  
-[12:10.00] Và cứ đến môi hôn người sau như vậy, girl  
-[12:25.00] Baby don't call me like I am your lover  
-[12:40.00] Giờ chúng ta không là gì hôm nay  
-[12:55.00] Từ trước anh đã chẳng hề lung lay  
-[13:10.00] Don't call me back babe  
-[13:25.00] Ừ thì cũng có biết bao nhiêu đêm trăng sao hai con tim nôn nao  
-[13:40.00] Nhưng baby, đây chẳng phải là tình yêu  
-[13:55.00] Ngàn giờ nhìn đắm đuối say mê hai đôi môi trao như thiêu thân lao vào  
-[14:10.00] Mà giờ đây đâu thể nói là tình yêu  
-[14:25.00] Ừ thì cũng có biết bao nhiêu đêm trăng sao hai con tim nôn nao  
-[14:40.00] Nhưng baby, đây chẳng phải là tình yêu  
-[14:55.00] Ngàn giờ nhìn đắm đuối say mê hai đôi môi trao như thiêu thân lao vào  
-[15:10.00] Mà giờ hai ta như chẳng là gì
+[02:09.00] Lời nói trên môi thì có là gì  
+[02:10.50] Để mà vấn với vương sau này sẽ quên đi  
+[02:12.30] Giữa chúng ta nên gọi tên là gì  
+[02:13.80] Ừm đến để bên thôi và mau qua đi  
+[02:15.50] Giữ chiếc ôm kia đậm sâu như này  
+[02:17.00] Và cứ đến môi hôn người sau như vậy, girl  
+[02:19.70] Baby don't call me like I am your lover  
+[02:23.20] Giờ chúng ta không là gì hôm nay  
+[02:26.50] Từ trước anh đã chẳng hề lung lay  
+[02:29.50] Don't call me back babe  
+[02:30.70] Ừ thì cũng có biết bao nhiêu đêm trăng sao 
+[02:32.60] Hai con tim nôn nao  
+[02:34.00] Nhưng baby, đây chẳng phải là tình yêu  
+[02:37.00] Ngàn giờ nhìn đắm đuối say mê 
+[02:38.30] Hai đôi môi trao như thiêu thân lao vào  
+[02:40.30] Mà giờ đây đâu thể nói là tình yêu  
+[02:43.60] Ừ thì cũng có biết bao nhiêu đêm trăng sao 
+[02:45.30] Hai con tim nôn nao  
+[02:47.00] Nhưng baby, đây chẳng phải là tình yêu  
+[02:49.70] Ngàn giờ nhìn đắm đuối say mê 
+[02:51.00] Hai đôi môi trao như thiêu thân lao vào  
+[02:53.00] Mà giờ hai ta như chẳng là gì
 
 `
 export default lyric

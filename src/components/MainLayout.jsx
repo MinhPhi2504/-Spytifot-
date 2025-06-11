@@ -2,7 +2,7 @@ import Header from "./MainPage_header.jsx";
 import Sidebar from "./MainPage_Sidebar.jsx";
 import MusicPlayer from "./MusicPlayer.jsx";
 import { Outlet } from "react-router-dom";
-import { listSong } from "../../backend/data/list-song.js";
+import { getLSong, initMusic } from "../../backend/data/list-song.js";
 import { useEffect, useState } from "react";
 
 const MainLayout = () => {
@@ -10,18 +10,22 @@ const MainLayout = () => {
   //   const crSong = localStorage.getItem("currentSong");
   //   return crSong ? JSON.parse(crSong) : listSong.array[0]; 
   // });
-  const [currentSong, setCurrentSong] = useState(() => {
-  try {
-    const crSong = localStorage.getItem("currentSong");
-    const parsed = crSong ? JSON.parse(crSong) : null;
-    return parsed && parsed.id ? parsed : listSong.array[0];
-  } catch (e) {
-    return listSong.array[0];
-  }
-});
+  const [currentSong, setCurrentSong] = useState()
+  let listSong = []
+  useEffect(() => {
+      (async () => {
+        await initMusic(); // ✅ đảm bảo dữ liệu đã có
+        listSong = await getLSong()
+        const crSong = localStorage.getItem("currentSong");
+        const parsed = crSong ? JSON.parse(crSong) : null;
 
-  console.log(currentSong)
-  console.log("listSong.array:", listSong.array[0]);
+        if (parsed && parsed.id) {
+          setCurrentSong(parsed);
+        } else {
+          setCurrentSong(listSong.array[0]); // ✅ fallback sau khi load xong
+        }
+      })();
+    }, []);
 
   // Lắng nghe thay đổi localStorage từ các component khác
   useEffect(() => {

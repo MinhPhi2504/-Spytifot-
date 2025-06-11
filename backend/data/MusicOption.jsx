@@ -1,11 +1,19 @@
 import { useState, useEffect } from "react";
-import { music_option } from "../data/list-song.js";
+import { getMusicOption, initMusic} from "../data/list-song.js";
 import { useNavigate } from "react-router-dom";
 import "../../src/assets/styles/MusicOption.css";
 
 function MusicOption() {
+  const music_option = getMusicOption()
   const [songs, setSongs] = useState([]);
   const navigate = useNavigate();
+  useEffect(() => {
+    (async () => {
+      await initMusic();                 // ✅ Đợi dữ liệu từ server
+      const music_option = getMusicOption(); // ✅ Lấy dữ liệu đã sẵn
+      setSongs(music_option);           // ✅ Cập nhật vào state
+    })();
+  }, []);
 
   useEffect(() => {
     setSongs(music_option);
@@ -14,7 +22,7 @@ function MusicOption() {
   const handlePlay = (music) => {
     const userLevel = parseInt(localStorage.getItem("user_premium_level") || "0");
     if (music.premium > userLevel) {
-      alert("Tài khoản của bạn không đủ quyền để nghe bài hát này.");
+      alert("Bạn cần nâng cấp tài khoản để nghe bài hát này.");
       return;
     }
     localStorage.setItem("currentSong", JSON.stringify(music));
@@ -54,7 +62,7 @@ function MusicOption() {
                   e.stopPropagation();
                   const userLevel = parseInt(localStorage.getItem("user_premium_level") || "0");
                   if (music.premium > userLevel) {
-                    alert("Bạn cần nâng cấp tài khoản để xem bài hát này.");
+                    alert("Bạn cần nâng cấp tài khoản để nghe bài hát này.");
                     return;
                   }
                   navigate(`/main/${music.id}`);

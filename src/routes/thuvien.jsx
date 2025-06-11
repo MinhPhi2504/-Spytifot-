@@ -1,9 +1,17 @@
 import "../assets/styles/thuvien.css"
 import { list_album } from "../../backend/data/list-song.js";
-import { my_playlist } from "../../backend/data/list-song.js";
+import { getMyPlaylist } from "../../backend/data/list-song.js";
 import { useNavigate } from "react-router-dom";
 
 function Thuvien() {
+    const [myPlaylist, setMyPlaylist] = useState([]);
+  useEffect(() => {
+    (async () => {
+      await initMusic();
+      const data = getMyPlaylist();
+      setMyPlaylist(data); // ✅ đảm bảo render lại khi có dữ liệu
+    })();
+  }, []);
 const navigate = useNavigate();
 const handleClick = (id) => {
     navigate(`/thuvien/${id}`);

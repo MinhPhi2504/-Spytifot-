@@ -1,4 +1,4 @@
-import { listSong } from "./list-song";
+import {  getLSong, initMusic } from "./list-song.js";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../src/assets/styles/MusicSuggest.css";
@@ -6,16 +6,25 @@ import "../../src/assets/styles/MusicSuggest.css";
 function MusicSuggest({ start, end }) {
   const [suggestions, setSuggestions] = useState([]);
   const navigate = useNavigate();
-
   useEffect(() => {
-    setSuggestions(listSong.array || []);
-  }, []);
+    (async () => {
+      await initMusic(); 
+    const list = getLSong().array || [];
+    const fullList = list.filter(Boolean);
+    console.log("✅ Tổng bài:", fullList.length);
+    console.log("🎯 slice:", start, end);
+    console.log("🎵 sliced:", fullList.slice(start, end));
+
+    setSuggestions(fullList.slice(start, end));
+    })();
+  }, [start, end]); // nếu props thay đổi thì chạy lại
+
 
   const handlePlay = (music) => {
     const userLevel = parseInt(localStorage.getItem("user_premium_level") || "0");
 
     if (music.premium > userLevel) {
-      alert("Tài khoản của bạn không đủ quyền để nghe bài hát này.");
+      alert("Bạn cần nâng cấp tài khoản để nghe bài hát này.");
       return;
     }
 
@@ -27,7 +36,7 @@ function MusicSuggest({ start, end }) {
     const userLevel = parseInt(localStorage.getItem("user_premium_level") || "0");
 
     if (music.premium > userLevel) {
-      alert("Bạn cần nâng cấp tài khoản để xem bài hát này.");
+      alert("Bạn cần nâng cấp tài khoản để nghe bài hát này.");
       return;
     }
 
@@ -52,7 +61,7 @@ function MusicSuggest({ start, end }) {
 
   return (
     <div className="list-music-suggest-container">
-      {suggestions.slice(start, end).map((music) => (
+      {suggestions.map((music) => (
         <div
           key={music.id}
           className="music-option"

@@ -1,4 +1,3 @@
-
 export class Music {
     size;
     array;

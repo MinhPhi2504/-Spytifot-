@@ -5,6 +5,10 @@
 .music-op-name:hover {
     color: #a259ff ;
 }
+.list-author {
+  font-size: 12px;
+  opacity: 0.8;
+}
 .list-author > p:hover {
     color: #a259ff 
 }
@@ -24,4 +28,88 @@
 .badge-premium {
   background-color: #f1c40f;
   color: black;
+}
+.more{
+  margin-bottom: 15px;
+  color: #B197FC;
+  font-size: 25px;
+}
+.feature-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-right: 15px;
+  position: relative; /* Đặt position relative cho container */
+}
+.tooltips {
+  display: none;
+  position: absolute;
+  background: #34224F;
+  color: white;
+  padding: 10px;
+  border-radius: 15px;
+  bottom: 60%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: fit-content;
+  white-space: nowrap;
+  z-index: 999;
+  opacity: 1 !important;
+}
+.tooltips > h3 {
+  font-size: 20px;
+}
+.playlist-item-detail {
+  margin: 0;
+  padding: 5px;
+}
+.playlist-item-detail:hover {
+  background-color: rgba(174, 10, 233, 0.666);
+}
+.tt2 {
+  white-space: nowrap;
+  width: max-content;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  z-index: 10;
+  top: -15px;
+  left: 15px;
+  transform: 'translateX(-50%)';
+  visibility: hidden; /* Ẩn tooltip mặc định */
+  opacity: 0;
+  transition: visibility 0s, opacity 0.3s linear;
+}
+
+.icon-wrapper:hover .tooltips{
+  cursor: pointer;
+  display: block ;
+}
+.more:hover + .tt2 {
+  visibility: visible; 
+  opacity: 1;
+  cursor: pointer;
+}
+.music-info{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+}
+.music-info > div > h3 {
+  display: flex;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  margin: 0;
+}
+
+.music-info > div > p {
+  font-size: 12px;
+  color: white;
+  margin: 0;
 }

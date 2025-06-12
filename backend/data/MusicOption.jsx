@@ -1,23 +1,39 @@
 import { useState, useEffect } from "react";
-import { getMusicOption, initMusic} from "../data/list-song.js";
+import { getMusicOption, initMusic, getMyPlaylist } from "../data/list-song.js";
 import { useNavigate } from "react-router-dom";
 import "../../src/assets/styles/MusicOption.css";
 
 function MusicOption() {
-  const music_option = getMusicOption()
   const [songs, setSongs] = useState([]);
+  const [playlist, setplaylist] = useState([]);
   const navigate = useNavigate();
+
   useEffect(() => {
     (async () => {
-      await initMusic();                 // ✅ Đợi dữ liệu từ server
-      const music_option = getMusicOption(); // ✅ Lấy dữ liệu đã sẵn
-      setSongs(music_option);           // ✅ Cập nhật vào state
+      await initMusic();
+      setSongs(getMusicOption());
+      setplaylist(getMyPlaylist());
     })();
   }, []);
 
-  useEffect(() => {
-    setSongs(music_option);
-  }, []);
+  const addSongToPlaylist = async (playlist_id, song_id) => {
+    try {
+      const response = await fetch("http://localhost:8080/insert-playlist.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Requested-With": "XMLHttpRequest",
+        },
+        body: JSON.stringify({ playlist_id, song_id }),
+      });
+
+      const result = await response.text();
+      alert(result);
+    } catch (error) {
+      console.error("Lỗi khi gửi request:", error);
+      alert("Đã xảy ra lỗi khi thêm bài hát.");
+    }
+  };
 
   const handlePlay = (music) => {
     const userLevel = parseInt(localStorage.getItem("user_premium_level") || "0");
@@ -31,11 +47,6 @@ function MusicOption() {
   const handleClickAuthor = (e, author) => {
     e.stopPropagation();
     navigate(`/thuvien/album/${author}`);
-  };
-
-  const handleHeartClick = (e) => {
-    e.stopPropagation();
-    alert("Thêm vào thư viện!");
   };
 
   const handleMoreClick = (e) => {
@@ -75,7 +86,7 @@ function MusicOption() {
               {music.premium === 2 && <span className="badge badge-premium">PREMIUM</span>}
             </div>
 
-            <span className="d-flex list-author">
+            <div className="d-flex list-author">
               {music.author.map((author, index) => (
                 <p
                   key={index}
@@ -86,18 +97,36 @@ function MusicOption() {
                   {index < music.author.length - 1 && " ,"}
                 </p>
               ))}
-            </span>
-
-
+            </div>
           </div>
 
           <div className="feature-container">
-            <i
-              className="fa-regular fa-heart"
-              style={{ color: "#B197FC" }}
-              onClick={handleHeartClick}
-            ></i>
-            <span className="tooltip">Thêm vào thư viện</span>
+            <div className="icon-wrapper">
+              <i
+                className="fa-regular fa-heart"
+                style={{ color: "#B197FC" }}
+                onClick={(e) => e.stopPropagation()}
+              ></i>
+
+              <span className="tooltips">
+                <h3>Thêm vào thư viện</h3>
+                <div className="d-flex flex-column">
+                  {playlist.map((pl, index) => (
+                    <p
+                      key={index}
+                      className="playlist-item-detail"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        addSongToPlaylist(pl.id_playlist, music.id);
+                      }}
+                    >
+                      {pl.name}
+                    </p>
+                  ))}
+                </div>
+              </span>
+            </div>
+
             <span className="more" onClick={handleMoreClick}>...</span>
             <span className="tt2">Khác</span>
           </div>

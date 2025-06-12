@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "../assets/styles/MainPage_Sidebar.css"
 import logo from "../../public/img/logo.jpg";
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 
 import CreatePlaylistModal from "../components/CreatePlaylistModal.jsx";
 function Sidebar () {

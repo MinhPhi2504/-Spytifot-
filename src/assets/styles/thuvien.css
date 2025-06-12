@@ -39,3 +39,6 @@
 .album-author, .album-style {
     margin-left: 5px;
 }
+.playlist-container {
+    margin-bottom: 100px;
+}

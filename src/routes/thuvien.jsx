@@ -1,18 +1,18 @@
 import "../assets/styles/thuvien.css"
-import { list_album } from "../../backend/data/list-song.js";
+import { list_album, initMusic } from "../../backend/data/list-song.js";
 import { getMyPlaylist } from "../../backend/data/list-song.js";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 function Thuvien() {
-    const [myPlaylist, setMyPlaylist] = useState([]);
-  useEffect(() => {
-    (async () => {
-      await initMusic();
-      const data = getMyPlaylist();
-      setMyPlaylist(data); // ✅ đảm bảo render lại khi có dữ liệu
-    })();
-  }, []);
+    const [myPlaylist, setmyPlaylist] = useState([]);
+    useEffect(() => {
+        (async () => {
+            await initMusic();
+            const data = getMyPlaylist();
+            setmyPlaylist(data); 
+        })();
+    }, []);
 const navigate = useNavigate();
 const handleClick = (id) => {
     navigate(`/thuvien/${id}`);
@@ -23,35 +23,7 @@ const handleClick = (id) => {
             <div className="d-flex align-items-center gap-2 mb-4">
             <h1 className="me-2">Thư viện</h1>
             </div>
-            <div>
-                <div className="d-flex align-items-center justify-content-between mb-3">
-                    <div className="singer-album-title">
-                        <h2 className="h5 fw-bold">MY SINGER ALBUMS</h2>
-                        <i class="plus-icon fa-solid fa-plus"></i>
-                    </div>
-                </div>
-                <div className="row">
-                    {list_album.map((album, index) => (
-                        <div key={index} className="col-6 col-md-3 mb-4">
-                            <div className=" p-2 album-item">
-                                {album.img ? (
-                                <img
-                                    src={album.img}
-                                    alt={album.style}
-                                    onClick={() => handleClick(album.id)}
-                                    className="img-fluid rounded mb-2"
-                                    style={{ height: '200px', objectFit: 'cover', width: '100%' }}
-                                />
-                                ) : (
-                                <div className="bg-dark rounded mb-2" style={{ height: '200px', width: '100%' }} />
-                                )}
-                                <h5 className="mb-1 album-style text-truncate">{album.style}</h5>
-                                <small className="album-author">{album.author}</small>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
+  
 
             <div>
                 <div className="d-flex align-items-center justify-content-between mb-3">
@@ -60,7 +32,7 @@ const handleClick = (id) => {
                         <i class="plus-icon fa-solid fa-plus"></i>
                     </div>
                 </div>
-                <div className="row">
+                <div className="row playlist-container">
                     {myPlaylist.map((playlist, index) => (
                         <div key={index} className="col-6 col-md-3 mb-4">
                             <div className=" p-2 album-item">

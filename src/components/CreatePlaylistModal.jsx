@@ -7,13 +7,15 @@ const CreatePlaylistModal = ({ onClose }) => {
   const [isShuffle, setIsShuffle] = useState(true);
 
   const handleCreate = async () => {
+    const userID = localStorage.getItem("user_id")
     try {
-      const response = await fetch("http://localhost/create-playlist.php", {
+      const response = await fetch("http://localhost:8080/create-playlist.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
+          user_id: userID,
           name: playlistName,
           is_public: isPublic,
           is_shuffle: isShuffle,

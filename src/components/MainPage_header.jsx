@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { getRandomSong } from "../../backend/data/list-song";
 import { useState, useEffect } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 function playRandomSong () {
   const song = getRandomSong()
   if (song && song !== "") {
@@ -11,6 +13,7 @@ function playRandomSong () {
 }
 
 function Header() {
+  const navigate = useNavigate()
   const [bgColor, setBgColor] = useState(() => {
     const currentColor = localStorage.getItem("bgColor")
     if (currentColor) {
@@ -20,6 +23,33 @@ function Header() {
       return "#ffffff"
     }
   });
+  const [query, setQuery] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+
+  useEffect(() => {
+    const delayDebounce = setTimeout(() => {
+      if (query.trim() !== "") {
+        axios
+          .get(`http://localhost:8080/search_song.php?query=${encodeURIComponent(query)}`)
+          .then((res) => {
+            setSuggestions(res.data);
+            setShowSuggestions(true);
+          })
+          .catch((err) => {
+            console.error(err);
+            setSuggestions([]);
+            setShowSuggestions(false);
+          });
+      } else {
+        setSuggestions([]);
+        setShowSuggestions(false);
+      }
+    }, 300); // debounce 300ms
+
+    return () => clearTimeout(delayDebounce);
+  }, [query]);
+
   const handleColorChange = (e) => {
     const color = e.target.value
     localStorage.setItem("bgColor", JSON.stringify(color))
@@ -42,7 +72,7 @@ function Header() {
     }
 
     try {
-      const res = await fetch("http://localhost/update_account_type.php", {
+      const res = await fetch("http://localhost:8080/update_account_type.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id: user.id, account_type: newType }),
@@ -79,7 +109,22 @@ function Header() {
         <button className="search-button">
           <i className="fa-solid fa-magnifying-glass"></i>
         </button>
-        <input className="search-input" placeholder="Tìm kiếm bài hát yêu thích" />
+        <input className="search-input" placeholder="Tìm kiếm bài hát yêu thích" value={query}
+        onChange={(e) => setQuery(e.target.value)} 
+        onFocus={() => setShowSuggestions(true)}
+        onBlur={() => {
+          // Delay để cho phép click vào suggestion trước khi ẩn
+          setTimeout(() => setShowSuggestions(false), 100);
+        }}/>
+        {showSuggestions && suggestions.length > 0 && (
+          <ul className="search-list-container">
+            {suggestions.map((song) => (
+              <li key={song.id} className="p-2 search-song-detail cursor-pointer" onMouseDown={ () => navigate(`/main/${song.id}`)}>
+                🎵 {song.song_name} – {song.author}
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
 
       <div className="right-section">

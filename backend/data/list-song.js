@@ -1,12 +1,14 @@
 import { v4 as uuidv4 } from 'uuid';
 import { Music } from './hashTable';
-
+import pic from "../../public/img/mac-dinh.jpeg"
 let list_song = [];
 let listSong = new Music();
 let music_option = [];
-let raw_playlist = [];
+let raw_playlist
 let my_playlist = [];
 let top_list = [];
+let userID = localStorage.getItem('user_id')
+console.log(userID)
 export const list_album = [
     {
       id: uuidv4(),
@@ -49,9 +51,32 @@ export const list_album = [
         time: 3
     },
   ];
+async function getPlaylistsByUser(userID) {
+  try {
+    const response = await fetch(`http://localhost:8080/get-playlist.php?userID=${userID}`, {
+      headers: {
+        'X-Requested-With': 'XMLHttpRequest'
+      }
+    });
+
+    console.log("Status trả về:", response.status);
+
+    const text = await response.text();
+    console.log("Dữ liệu thô:", text);
+
+    const data = JSON.parse(text);
+    return data;
+  } catch (error) {
+    console.log('Lỗi khi lấy playlist:', error);
+    return []; 
+  }
+}
+
+
+
 async function fetchSongsFromServer() {
   try {
-    const response = await fetch('http://localhost/get-song.php');
+    const response = await fetch('http://localhost:8080/get-song.php');
     const data = await response.json();
     console.log("Dữ liệu fetch được:", data);
     return data.map(song => ({
@@ -77,27 +102,16 @@ export async function initMusic() {
   list_song = await fetchSongsFromServer();
   listSong.setList(list_song, list_song.length);
   music_option = list_song.slice(0, 9);
-  raw_playlist = [
-    {
-      id_playlist: 2222,
-      name: "Nghe khi trời mưa",
-      id_songs: list_song.slice(0, 4).map(song => song.id),
-    },
-    {
-      id_playlist: 2223,
-      name: "Nghe khi trời nắng",
-      id_songs: list_song.slice(5, 9).map(song => song.id),
-    }
-  ];
-
+  raw_playlist = await getPlaylistsByUser (localStorage.getItem("user_id"))
   my_playlist = raw_playlist.map(pl => {
-    const firstSong = getSongFromId(pl.id_songs[0]);
+    const firstSongId = pl.id_songs?.[0];
+    const firstSong = firstSongId ? getSongFromId(firstSongId) : null;
     return {
       ...pl,
-      img: firstSong ? firstSong.img : "No Image",
+      img: firstSong ? firstSong.img : pic,
     };
   });
-
+  console.log("My playlist: ", my_playlist)
   top_list = list_song.slice(5, 14);
 }
 
@@ -107,7 +121,7 @@ export function getSongFromId(id) {
   return listSong.getSong(id);
 }
 
-export function getPlaylistFromId(id) {
+export async function getPlaylistFromId(id) {
   return my_playlist.find(pl => pl.id_playlist === id);
 }
 
@@ -174,3 +188,5 @@ export function getMyPlaylist() {
 export function getLSong () {
     return listSong
 }
+
+console.log(listSong)

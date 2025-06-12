@@ -24,18 +24,6 @@ function AdminPage_Sidebar() {
             <span>Quản lý người dùng</span>
             </Link>
         </li>
-          <li>
-            <Link to="/admin/QLNS" className=" element QLNS">
-            <FaUsers />
-            <span>Quản lý nghệ sĩ</span>
-            </Link>
-        </li>
-        <li>
-            <Link to="/admin/QLABPL" className=" element QLABPL">
-            <FaCompactDisc />
-            <span>Quản lý album/playlist</span>
-            </Link>
-        </li>
         <li>
             <Link to="/admin/TKVBC" className=" element TKVBC">
             <FaChartBar />

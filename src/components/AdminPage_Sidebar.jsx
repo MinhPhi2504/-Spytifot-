@@ -1,46 +1,34 @@
 import React from "react";
 import "../assets/styles/AdminPage_Sidebar.css";
-import { FaTachometerAlt, FaMusic, FaUser, FaCompactDisc, FaUsers, FaChartBar } from "react-icons/fa";
+import {
+  FaTachometerAlt,
+  FaMusic,
+  FaUsers,
+  FaChartBar,
+} from "react-icons/fa";
 import { Link } from "react-router-dom";
+
 function AdminPage_Sidebar() {
   return (
     <div className="sidebar2">
       <ul className="sidebar-menu">
         <li>
-           <Link to="/admin/dashboard" className=" element sidebar-link">
-              <FaTachometerAlt />
-              <span>Dashboard</span>
-            </Link>
+          <Link to="/admin/dashboard" className="element sidebar-link">
+            <FaTachometerAlt />
+            <span>Dashboard</span>
+          </Link>
         </li>
         <li>
-           <Link to="/admin/QLBH" className=" element QLBH">
-              <FaTachometerAlt />
-              <span>Quản lý bài hát</span>
-            </Link>
+          <Link to="/admin/QLBH" className="element QLBH">
+            <FaMusic />
+            <span>Quản lý bài hát</span>
+          </Link>
         </li>
         <li>
-            <Link to="/admin/QLND" className=" element QLND">
+          <Link to="/admin/QLND" className="element QLND">
             <FaUsers />
             <span>Quản lý người dùng</span>
-            </Link>
-        </li>
-          <li>
-            <Link to="/admin/QLNS" className=" element QLNS">
-            <FaUsers />
-            <span>Quản lý nghệ sĩ</span>
-            </Link>
-        </li>
-        <li>
-            <Link to="/admin/QLABPL" className=" element QLABPL">
-            <FaCompactDisc />
-            <span>Quản lý album/playlist</span>
-            </Link>
-        </li>
-        <li>
-            <Link to="/admin/TKVBC" className=" element TKVBC">
-            <FaChartBar />
-            <span>Thống kê và báo cáo</span>
-            </Link>
+          </Link>
         </li>
       </ul>
     </div>

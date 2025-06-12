@@ -88,27 +88,6 @@ function Body({ className }) {
           <MusicOption />
       </div>
 
-      {/* <div className="rank-week-container">
-        <h3 className="rank-week-title">Bảng Xếp Hạng Tuần</h3>
-        <div className="style-music-container">
-          <div className="style-VN">
-            <a href="">
-              <img src="../../public/img/Nhạc VN.png" alt="" />
-            </a>
-          </div>
-          <div className="style-USUK">
-            <a href="">
-              <img src="../../public/img/Nhạc VN.png" alt="" />
-            </a>
-          </div>
-          <div className="style-KPOP">
-            <a href="">
-              <img src="../../public/img/Nhạc VN.png" alt="" />
-            </a>
-          </div>
-        </div>
-      </div> */}
-
       <div className="album-container">
         <Albums/>
       </div>

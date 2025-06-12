@@ -273,7 +273,7 @@
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 1px;
-  margin: 0; /* Xóa margin mặc định của <p> */
+  margin: 0; 
 }
 
 .name1-logo{
@@ -355,7 +355,6 @@
   font-size: 26px;
   font-weight: bold;
   color: rgb(211, 157, 21);
-  margin-right: 10px;
 }
 .option1-button:hover{
   /* opacity: 0.7; */
@@ -445,12 +444,16 @@
 
 .premium {
   background-color: #facc15;
-  color: black;
   font-size: 12px;
   padding: 2px 5px;
   border-radius: 5px;
-  margin-left: 5px;
-  font-weight: bold;
+  height: 22px;
+  display: flex; /* Căn giữa nội dung */
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+  margin-left: 13px;
+
 }
 .premium > p {
   color: white;

@@ -36,19 +36,6 @@ function Sidebar () {
                 <p>Khám phá</p>
               </Link>
             </div>
-            <div className="chart">
-              <a href="">
-                <i className="fa-solid fa-chart-line"></i>
-                <p>My Chart</p>
-              </a>
-            </div>
-            <div className="radio">
-              <a href="">
-                <i className="fa-solid fa-broadcast-tower"></i>
-                <p className="radio-text">Radio</p>
-                <p className="live">LIVE</p>
-              </a>
-            </div>
             <div className="new-song">
               <Link to = "/main/bang-xep-hang">
                 <i className="fa-solid fa-wave-square"></i>

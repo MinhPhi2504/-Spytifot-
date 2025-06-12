@@ -20,7 +20,7 @@ function Header() {
       return JSON.parse(currentColor)
     }
     else {
-      return "#ffffff"
+      return "black"
     }
   });
   const [query, setQuery] = useState("");
@@ -96,15 +96,6 @@ function Header() {
 
   return (
     <div className="header">
-      <div className="left-section">
-        <a href="#">
-          <i className="fa-solid fa-arrow-left"></i>
-        </a>
-        <a href="#">
-          <i className="fa-solid fa-arrow-right"></i>
-        </a>
-      </div>
-
       <div className="mid-section">
         <button className="search-button">
           <i className="fa-solid fa-magnifying-glass"></i>
@@ -129,11 +120,11 @@ function Header() {
 
       <div className="right-section">
         <div className="container-upgrade">
-          <a href="#" className="text01">Nâng cấp tài khoản</a>
+          <a href="#" className="text01">Spytifot For You</a>
         </div>
         <div className="container-download">
           <i className="fa-solid fa-download"></i>
-          <a href="#" className="text02">Tải xuống</a>
+          <a href="#" className="text02">ENJOY</a>
         </div>
 
             <div className="settings-menu">
@@ -153,22 +144,22 @@ function Header() {
                       <input type="color" className="colorPicker" onChange={handleColorChange}/>
                     </div>
                 </div>
-                <div className="show-menu introduce">
+                {/* <div className="show-menu introduce">
                   <i className="fa-solid fa-info"></i>
                   <a href="">Giới thiệu</a>
-                </div>
+                </div> */}
                 <div className="show-menu">
                 <i class="fa-solid fa-shield"></i>
                   <Link to="/chinh-sach-bao-mat">Chính sách bảo mật</Link>
                 </div>
-                <div className="show-menu">
+                {/* <div className="show-menu">
                   <i className="fa-solid fa-rectangle-ad"></i>
                   <a href="">Quảng cáo</a>
                 </div>
                 <div className="show-menu">
                   <i className="fa-solid fa-phone-flip"></i>
                   <a href="">Liên hệ</a>
-                </div>
+                </div> */}
               </div>
             </div>
 

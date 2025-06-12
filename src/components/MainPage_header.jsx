@@ -31,7 +31,7 @@ function Header() {
     const delayDebounce = setTimeout(() => {
       if (query.trim() !== "") {
         axios
-          .get(`http://localhost:8080/search_song.php?query=${encodeURIComponent(query)}`)
+          .get(`http://localhost/search_song.php?query=${encodeURIComponent(query)}`)
           .then((res) => {
             setSuggestions(res.data);
             setShowSuggestions(true);
@@ -72,7 +72,7 @@ function Header() {
     }
 
     try {
-      const res = await fetch("http://localhost:8080/update_account_type.php", {
+      const res = await fetch("http://localhost/update_account_type.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id: user.id, account_type: newType }),

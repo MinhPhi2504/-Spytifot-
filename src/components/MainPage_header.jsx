@@ -72,7 +72,7 @@ function Header() {
     }
 
     try {
-      const res = await fetch("http://localhost:8080/update_account_type.php", {
+      const res = await fetch("http://localhost/update_account_type.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id: user.id, account_type: newType }),

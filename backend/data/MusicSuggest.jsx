@@ -22,7 +22,7 @@ function MusicSuggest({ start, end }) {
 
   const addSongToPlaylist = async (playlist_id, song_id) => {
     try {
-      const response = await fetch("http://localhost:8080/insert-playlist.php", {
+      const response = await fetch("http://localhost/insert-playlist.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

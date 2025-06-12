@@ -31,7 +31,7 @@ function Header() {
     const delayDebounce = setTimeout(() => {
       if (query.trim() !== "") {
         axios
-          .get(`http://localhost:8080/search_song.php?query=${encodeURIComponent(query)}`)
+          .get(`http://localhost/search_song.php?query=${encodeURIComponent(query)}`)
           .then((res) => {
             setSuggestions(res.data);
             setShowSuggestions(true);

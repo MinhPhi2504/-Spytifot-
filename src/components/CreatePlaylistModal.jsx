@@ -9,7 +9,7 @@ const CreatePlaylistModal = ({ onClose }) => {
   const handleCreate = async () => {
     const userID = localStorage.getItem("user_id")
     try {
-      const response = await fetch("http://localhost:8080/create-playlist.php", {
+      const response = await fetch("http://localhost/create-playlist.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -25,6 +25,7 @@ const CreatePlaylistModal = ({ onClose }) => {
       if (response.ok) {
         console.log("Playlist created successfully!");
         onClose(); // đóng modal
+        window.location.reload();
       } else {
         console.error("Failed to create playlist");
       }

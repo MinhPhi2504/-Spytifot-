@@ -37,7 +37,6 @@ function Top100List() {
         </div>
         <div className="style-info">
           <p>Các nghệ sĩ: {typeList.tac_gia}</p>
-          <p>Tổng số bài hát: 30</p>
           <p>Lời tựa: {typeList.loi_tua}.</p>
         </div>
       </div>

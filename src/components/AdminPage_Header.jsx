@@ -1,5 +1,4 @@
-import React from "react";
-import "../assets/styles/AdminPage_Header.css"; // tạo file CSS riêng để dễ style
+import "../assets/styles/AdminPage_Header.css"; 
 
 function AdminPage_Header() {
   return (

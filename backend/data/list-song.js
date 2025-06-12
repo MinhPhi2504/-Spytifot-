@@ -53,7 +53,7 @@ export const list_album = [
   ];
 async function getPlaylistsByUser(userID) {
   try {
-    const response = await fetch(`http://localhost:8080/get-playlist.php?userID=${userID}`, {
+    const response = await fetch(`http://localhost/get-playlist.php?userID=${userID}`, {
       headers: {
         'X-Requested-With': 'XMLHttpRequest'
       }
@@ -76,7 +76,7 @@ async function getPlaylistsByUser(userID) {
 
 async function fetchSongsFromServer() {
   try {
-    const response = await fetch('http://localhost:8080/get-song.php');
+    const response = await fetch('http://localhost/get-song.php');
     const data = await response.json();
     console.log("Dữ liệu fetch được:", data);
     return data.map(song => ({

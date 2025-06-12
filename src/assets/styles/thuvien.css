@@ -42,3 +42,28 @@
 .playlist-container {
     margin-bottom: 100px;
 }
+.list-delete-playlist {
+    background-color: rgb(47, 15, 77);
+    padding: 10px;
+    border-radius: 15px;
+    margin-left: 20px;
+}
+.delete-title {
+    font-size: 20px;
+}
+.delete-playlist-item {
+    margin: 0;
+    padding: 5px;
+    cursor: pointer;
+}
+.delete-playlist-item:hover {
+    background-color: rgba(174, 10, 233, 0.666);
+}
+.no-playlist-title {
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 20px;
+    text-align: center;
+    background-color: rgb(121, 48, 188);
+    padding: 10px 0px 10px 0px;
+}
